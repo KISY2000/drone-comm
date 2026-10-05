@@ -19,7 +19,14 @@ static bool send_frame(void *ctx,const dc_frame_t *f) {
  if(wireless&&!b->radio_connected)return true;
  if(wireless) {uint8_t raw[DC_RAW_MAX];dc_frame_t decoded;size_t size=dc_encode_raw(f,raw,sizeof(raw));assert(size&&dc_decode_raw(raw,size,&decoded)==DC_OK);++b->rf_frames;}
  else {uint8_t bytes[DC_UART_MAX];size_t i,size=dc_encode_uart(f,bytes,sizeof(bytes));dc_frame_t decoded;unsigned count=0;assert(size);
-  for(i=0;i<size;i++)if(dc_parser_feed(&b->parser[dest],bytes[i],&decoded))++count;assert(count==1);++b->uart_frames;}
+  for(i=0;i<size;i++) {
+   if(dc_parser_feed(&b->parser[dest],bytes[i],&decoded)) {
+    ++count;
+   }
+  }
+  assert(count==1);
+  ++b->uart_frames;
+ }
  if(e->owner==DC_AIR&&f->type==DC_TELEMETRY)b->last_air=*f;
  if(e->owner==DC_HUB&&(f->type==DC_TEST_REQUEST||f->type==DC_TELEMETRY_QUERY))b->last_request=*f;
  if(e->owner==DC_AIR&&f->type==DC_TEST_RESULT)b->last_result=*f;

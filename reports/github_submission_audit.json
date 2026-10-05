@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "checked_at": "2026-10-06T00:48:28.143047+08:00",
+  "checked_at": "2026-10-06T01:06:45.137126+08:00",
   "status": "PASS",
   "board_tested": false,
   "scope": "Git-selected files, sensitive-pattern review, file sizes, current source/evidence hashes; no hardware execution",
   "limitation": "Pattern scan is not a guarantee that every possible secret is detectable. Documentation and selected files also received manual review.",
   "selected_file_count": 1364,
-  "selected_bytes": 73583979,
+  "selected_bytes": 73584342,
   "largest_files": [
     [
       "deps/cmsis-device-f4-2.6.11/Include/stm32f479xx.h",
