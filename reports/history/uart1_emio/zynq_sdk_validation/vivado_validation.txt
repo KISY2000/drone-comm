@@ -1,0 +1,3 @@
+PART=xc7z020clg400-2
+UART0=MIO14/15; UART1=EMIO COMM_UART1
+STATUS=HDF exported after synthesis; no board test, XDC, implementation or bitstream

@@ -1,0 +1,28 @@
+name: Native communication tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run C protocol, radio mocks and Python cross-checks
+        run: python3 tools/run_checks.py --gcc /usr/bin/gcc
+      - name: Retain software-only test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-verification
+          path: reports/verification.json
+          if-no-files-found: error

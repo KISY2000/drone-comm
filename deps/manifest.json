@@ -1,0 +1,37 @@
+[
+  {
+    "name": "stm32f1xx_hal_driver",
+    "version": "v1.1.10",
+    "source": "https://codeload.github.com/STMicroelectronics/stm32f1xx_hal_driver/zip/refs/tags/v1.1.10",
+    "sha256": "76fe7723907f429e5518ab4a3b40c89a10b065504eb6f20b0f6a5cebe741d3da",
+    "archive": "stm32f1xx_hal_driver-v1.1.10.zip"
+  },
+  {
+    "name": "stm32f4xx_hal_driver",
+    "version": "v1.8.5",
+    "source": "https://codeload.github.com/STMicroelectronics/stm32f4xx_hal_driver/zip/refs/tags/v1.8.5",
+    "sha256": "a57055987bdfd9dad7ae0be753e88b6afbf4a069cf0582a8e278ba7f66a896de",
+    "archive": "stm32f4xx_hal_driver-v1.8.5.zip"
+  },
+  {
+    "name": "cmsis_device_f1",
+    "version": "v4.3.5",
+    "source": "https://codeload.github.com/STMicroelectronics/cmsis_device_f1/zip/refs/tags/v4.3.5",
+    "sha256": "0561e49540ca8b951b1bec7e9039ccfa056b8c76fc341df586eae3e4b25f28f4",
+    "archive": "cmsis_device_f1-v4.3.5.zip"
+  },
+  {
+    "name": "cmsis_device_f4",
+    "version": "v2.6.11",
+    "source": "https://codeload.github.com/STMicroelectronics/cmsis_device_f4/zip/refs/tags/v2.6.11",
+    "sha256": "ec573cca0081037967034c734463880364a357ea57287ca29df5fbed5830fba3",
+    "archive": "cmsis_device_f4-v2.6.11.zip"
+  },
+  {
+    "name": "CMSIS_5",
+    "version": "5.9.0",
+    "source": "https://codeload.github.com/ARM-software/CMSIS_5/zip/refs/tags/5.9.0",
+    "sha256": "3d4bfaf8783c633149510d098630a9d2f273dc090ea5e807103cc9b7acbb6708",
+    "archive": "CMSIS_5-5.9.0.zip"
+  }
+]

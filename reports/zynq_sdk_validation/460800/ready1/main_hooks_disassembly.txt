@@ -1,0 +1,212 @@
+
+C:\Users\Li\Desktop\Engineering\drone_comm\build\zynq_uart0_sdk_460800\dc_zynq_comm_link_only_ready1\Debug\src\main_hooks.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <send_frame>:
+   0:	e92d4800 	push	{fp, lr}
+   4:	e28db004 	add	fp, sp, #4
+   8:	e24dd008 	sub	sp, sp, #8
+   c:	e50b0008 	str	r0, [fp, #-8]
+  10:	e50b100c 	str	r1, [fp, #-12]
+  14:	e3003000 	movw	r3, #0
+			14: R_ARM_MOVW_ABS_NC	node
+  18:	e3403000 	movt	r3, #0
+			18: R_ARM_MOVT_ABS	node
+  1c:	e593200c 	ldr	r2, [r3, #12]
+  20:	e3003000 	movw	r3, #0
+			20: R_ARM_MOVW_ABS_NC	session
+  24:	e3403000 	movt	r3, #0
+			24: R_ARM_MOVT_ABS	session
+  28:	e5933000 	ldr	r3, [r3]
+  2c:	e1520003 	cmp	r2, r3
+  30:	0a000008 	beq	58 <send_frame+0x58>
+  34:	e3000000 	movw	r0, #0
+			34: R_ARM_MOVW_ABS_NC	port
+  38:	e3400000 	movt	r0, #0
+			38: R_ARM_MOVT_ABS	port
+  3c:	ebfffffe 	bl	0 <dc_zynq_port_clear>
+			3c: R_ARM_CALL	dc_zynq_port_clear
+  40:	e3003000 	movw	r3, #0
+			40: R_ARM_MOVW_ABS_NC	node
+  44:	e3403000 	movt	r3, #0
+			44: R_ARM_MOVT_ABS	node
+  48:	e593200c 	ldr	r2, [r3, #12]
+  4c:	e3003000 	movw	r3, #0
+			4c: R_ARM_MOVW_ABS_NC	session
+  50:	e3403000 	movt	r3, #0
+			50: R_ARM_MOVT_ABS	session
+  54:	e5832000 	str	r2, [r3]
+  58:	e51b100c 	ldr	r1, [fp, #-12]
+  5c:	e3000000 	movw	r0, #0
+			5c: R_ARM_MOVW_ABS_NC	port
+  60:	e3400000 	movt	r0, #0
+			60: R_ARM_MOVT_ABS	port
+  64:	ebfffffe 	bl	0 <dc_zynq_port_send>
+			64: R_ARM_CALL	dc_zynq_port_send
+  68:	e1a03000 	mov	r3, r0
+  6c:	e1a00003 	mov	r0, r3
+  70:	e24bd004 	sub	sp, fp, #4
+  74:	e8bd8800 	pop	{fp, pc}
+
+00000078 <dc_zynq_firmware_start>:
+  78:	e92d4800 	push	{fp, lr}
+  7c:	e28db004 	add	fp, sp, #4
+  80:	e24dd018 	sub	sp, sp, #24
+  84:	e50b0010 	str	r0, [fp, #-16]
+  88:	e51b1010 	ldr	r1, [fp, #-16]
+  8c:	e3000000 	movw	r0, #0
+			8c: R_ARM_MOVW_ABS_NC	port
+  90:	e3400000 	movt	r0, #0
+			90: R_ARM_MOVT_ABS	port
+  94:	ebfffffe 	bl	0 <dc_zynq_port_init>
+			94: R_ARM_CALL	dc_zynq_port_init
+  98:	e1a03000 	mov	r3, r0
+  9c:	e2233001 	eor	r3, r3, #1
+  a0:	e6ef3073 	uxtb	r3, r3
+  a4:	e3530000 	cmp	r3, #0
+  a8:	0a000001 	beq	b4 <dc_zynq_firmware_start+0x3c>
+  ac:	e3a03000 	mov	r3, #0
+  b0:	ea00001c 	b	128 <dc_zynq_firmware_start+0xb0>
+  b4:	e24b300c 	sub	r3, fp, #12
+  b8:	e1a00003 	mov	r0, r3
+  bc:	ebfffffe 	bl	0 <XTime_GetTime>
+			bc: R_ARM_CALL	XTime_GetTime
+  c0:	e3003000 	movw	r3, #0
+			c0: R_ARM_MOVW_ABS_NC	session
+  c4:	e3403000 	movt	r3, #0
+			c4: R_ARM_MOVT_ABS	session
+  c8:	e3a02000 	mov	r2, #0
+  cc:	e5832000 	str	r2, [r3]
+  d0:	e3000000 	movw	r0, #0
+			d0: R_ARM_MOVW_ABS_NC	parser
+  d4:	e3400000 	movt	r0, #0
+			d4: R_ARM_MOVT_ABS	parser
+  d8:	ebfffffe 	bl	0 <dc_parser_init>
+			d8: R_ARM_CALL	dc_parser_init
+  dc:	e14b20dc 	ldrd	r2, [fp, #-12]
+  e0:	e3a03000 	mov	r3, #0
+  e4:	e58d3004 	str	r3, [sp, #4]
+  e8:	e3003000 	movw	r3, #0
+			e8: R_ARM_MOVW_ABS_NC	send_frame
+  ec:	e3403000 	movt	r3, #0
+			ec: R_ARM_MOVT_ABS	send_frame
+  f0:	e58d3000 	str	r3, [sp]
+  f4:	e3a03000 	mov	r3, #0
+  f8:	e3a01003 	mov	r1, #3
+  fc:	e3000000 	movw	r0, #0
+			fc: R_ARM_MOVW_ABS_NC	node
+ 100:	e3400000 	movt	r0, #0
+			100: R_ARM_MOVT_ABS	node
+ 104:	ebfffffe 	bl	0 <dc_node_init>
+			104: R_ARM_CALL	dc_node_init
+ 108:	e3003000 	movw	r3, #0
+			108: R_ARM_MOVW_ABS_NC	started
+ 10c:	e3403000 	movt	r3, #0
+			10c: R_ARM_MOVT_ABS	started
+ 110:	e3a02001 	mov	r2, #1
+ 114:	e5c32000 	strb	r2, [r3]
+ 118:	e3000000 	movw	r0, #0
+			118: R_ARM_MOVW_ABS_NC	.LC0
+ 11c:	e3400000 	movt	r0, #0
+			11c: R_ARM_MOVT_ABS	.LC0
+ 120:	ebfffffe 	bl	0 <dc_zynq_log>
+			120: R_ARM_CALL	dc_zynq_log
+ 124:	e3a03001 	mov	r3, #1
+ 128:	e1a00003 	mov	r0, r3
+ 12c:	e24bd004 	sub	sp, fp, #4
+ 130:	e8bd8800 	pop	{fp, pc}
+
+00000134 <dc_zynq_firmware_poll>:
+ 134:	e92d4800 	push	{fp, lr}
+ 138:	e28db004 	add	fp, sp, #4
+ 13c:	e24dd040 	sub	sp, sp, #64	; 0x40
+ 140:	e3a03080 	mov	r3, #128	; 0x80
+ 144:	e50b3008 	str	r3, [fp, #-8]
+ 148:	ebfffffe 	bl	0 <dc_zynq_now_ms>
+			148: R_ARM_CALL	dc_zynq_now_ms
+ 14c:	e50b000c 	str	r0, [fp, #-12]
+ 150:	e3003000 	movw	r3, #0
+			150: R_ARM_MOVW_ABS_NC	started
+ 154:	e3403000 	movt	r3, #0
+			154: R_ARM_MOVT_ABS	started
+ 158:	e5d33000 	ldrb	r3, [r3]
+ 15c:	e2233001 	eor	r3, r3, #1
+ 160:	e6ef3073 	uxtb	r3, r3
+ 164:	e3530000 	cmp	r3, #0
+ 168:	1a000032 	bne	238 <dc_zynq_firmware_poll+0x104>
+ 16c:	ea000022 	b	1fc <dc_zynq_firmware_poll+0xc8>
+ 170:	e24b3011 	sub	r3, fp, #17
+ 174:	e1a01003 	mov	r1, r3
+ 178:	e3000000 	movw	r0, #0
+			178: R_ARM_MOVW_ABS_NC	port
+ 17c:	e3400000 	movt	r0, #0
+			17c: R_ARM_MOVT_ABS	port
+ 180:	ebfffffe 	bl	0 <dc_zynq_port_read>
+			180: R_ARM_CALL	dc_zynq_port_read
+ 184:	e50b0010 	str	r0, [fp, #-16]
+ 188:	e51b3010 	ldr	r3, [fp, #-16]
+ 18c:	e3530000 	cmp	r3, #0
+ 190:	aa000007 	bge	1b4 <dc_zynq_firmware_poll+0x80>
+ 194:	e3000000 	movw	r0, #0
+			194: R_ARM_MOVW_ABS_NC	parser
+ 198:	e3400000 	movt	r0, #0
+			198: R_ARM_MOVT_ABS	parser
+ 19c:	ebfffffe 	bl	0 <dc_parser_init>
+			19c: R_ARM_CALL	dc_parser_init
+ 1a0:	e3003000 	movw	r3, #0
+			1a0: R_ARM_MOVW_ABS_NC	parser
+ 1a4:	e3403000 	movt	r3, #0
+			1a4: R_ARM_MOVT_ABS	parser
+ 1a8:	e3a02001 	mov	r2, #1
+ 1ac:	e5c32034 	strb	r2, [r3, #52]	; 0x34
+ 1b0:	ea000018 	b	218 <dc_zynq_firmware_poll+0xe4>
+ 1b4:	e51b3010 	ldr	r3, [fp, #-16]
+ 1b8:	e3530000 	cmp	r3, #0
+ 1bc:	0a000014 	beq	214 <dc_zynq_firmware_poll+0xe0>
+ 1c0:	e55b3011 	ldrb	r3, [fp, #-17]	; 0xffffffef
+ 1c4:	e24b2040 	sub	r2, fp, #64	; 0x40
+ 1c8:	e1a01003 	mov	r1, r3
+ 1cc:	e3000000 	movw	r0, #0
+			1cc: R_ARM_MOVW_ABS_NC	parser
+ 1d0:	e3400000 	movt	r0, #0
+			1d0: R_ARM_MOVT_ABS	parser
+ 1d4:	ebfffffe 	bl	0 <dc_parser_feed>
+			1d4: R_ARM_CALL	dc_parser_feed
+ 1d8:	e1a03000 	mov	r3, r0
+ 1dc:	e3530000 	cmp	r3, #0
+ 1e0:	0a000005 	beq	1fc <dc_zynq_firmware_poll+0xc8>
+ 1e4:	e24b3040 	sub	r3, fp, #64	; 0x40
+ 1e8:	e51b200c 	ldr	r2, [fp, #-12]
+ 1ec:	e1a01003 	mov	r1, r3
+ 1f0:	e3000000 	movw	r0, #0
+			1f0: R_ARM_MOVW_ABS_NC	node
+ 1f4:	e3400000 	movt	r0, #0
+			1f4: R_ARM_MOVT_ABS	node
+ 1f8:	ebfffffe 	bl	0 <dc_node_receive>
+			1f8: R_ARM_CALL	dc_node_receive
+ 1fc:	e51b3008 	ldr	r3, [fp, #-8]
+ 200:	e2432001 	sub	r2, r3, #1
+ 204:	e50b2008 	str	r2, [fp, #-8]
+ 208:	e3530000 	cmp	r3, #0
+ 20c:	1affffd7 	bne	170 <dc_zynq_firmware_poll+0x3c>
+ 210:	ea000000 	b	218 <dc_zynq_firmware_poll+0xe4>
+ 214:	e320f000 	nop	{0}
+ 218:	e51b100c 	ldr	r1, [fp, #-12]
+ 21c:	e3000000 	movw	r0, #0
+			21c: R_ARM_MOVW_ABS_NC	node
+ 220:	e3400000 	movt	r0, #0
+			220: R_ARM_MOVT_ABS	node
+ 224:	ebfffffe 	bl	0 <dc_node_tick>
+			224: R_ARM_CALL	dc_node_tick
+ 228:	e3000000 	movw	r0, #0
+			228: R_ARM_MOVW_ABS_NC	port
+ 22c:	e3400000 	movt	r0, #0
+			22c: R_ARM_MOVT_ABS	port
+ 230:	ebfffffe 	bl	0 <dc_zynq_port_service>
+			230: R_ARM_CALL	dc_zynq_port_service
+ 234:	ea000000 	b	23c <dc_zynq_firmware_poll+0x108>
+ 238:	e320f000 	nop	{0}
+ 23c:	e24bd004 	sub	sp, fp, #4
+ 240:	e8bd8800 	pop	{fp, pc}

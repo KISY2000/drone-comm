@@ -1,0 +1,572 @@
+{
+  "audit_date": "2026-10-05",
+  "status": "document_verified_candidates; physical_confirmation_pending",
+  "document_policy": {
+    "skill": "C:\\Users\\Li\\.codex\\skills\\markitdown-local-ocr\\SKILL.md",
+    "extraction": "MarkItDown default automatic routing",
+    "ocr_used": false,
+    "cloud_ocr_used": false,
+    "source_files_modified": false,
+    "visual_crosscheck": "baseboard V3.9 and V3.6 pages 5/6; core pages 3/4/6/7/10/12",
+    "artifacts": "D:\\LocalOCR\\tasks\\drone_comm_navigator_v2_20261005"
+  },
+  "sources": [
+    {
+      "id": "baseboard_main",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\领航者ZYNQ底板原理图_V3.9.pdf",
+      "sha256": "EC8B68EEB07E0743E6C60528444F6AEB457DC60E897DDF9EB86D5A56C1AB6A69",
+      "pages": 7,
+      "page_native_text_audit": [
+        {
+          "page": 1,
+          "characters": 16274,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 2,
+          "characters": 11814,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 3,
+          "characters": 10003,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 4,
+          "characters": 5383,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 5,
+          "characters": 22862,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 6,
+          "characters": 7745,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 7,
+          "characters": 11334,
+          "displayed_raster_images": 0
+        }
+      ],
+      "routing": "native_text; no OCR"
+    },
+    {
+      "id": "io_table_main",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\领航者ZYNQ IO引脚分配总表.xlsx",
+      "sha256": "12EA3D18B8CD7259D5299ECF7A95856B40C0AA8AFB0D8100A8DFBEC8229D3EA6"
+    },
+    {
+      "id": "core_main",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\ZYNQ7010_7020核心板原理图_2V5.pdf",
+      "sha256": "1C8CF8105E91D762D29AD604E82B629B3921FA474D5A0311ED6C04237DB107EA",
+      "pages": 12,
+      "page_native_text_audit": [
+        {
+          "page": 1,
+          "characters": 693,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 2,
+          "characters": 1034,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 3,
+          "characters": 4469,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 4,
+          "characters": 2873,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 5,
+          "characters": 3057,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 6,
+          "characters": 1112,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 7,
+          "characters": 3086,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 8,
+          "characters": 4902,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 9,
+          "characters": 2154,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 10,
+          "characters": 1620,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 11,
+          "characters": 2034,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 12,
+          "characters": 3555,
+          "displayed_raster_images": 0
+        }
+      ],
+      "routing": "native_text; no OCR"
+    },
+    {
+      "id": "vendor_xdc_main",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\NAVIGATOR_ZYNQ_IO.xdc",
+      "sha256": "80438A533021B8BFF2F904E454384E179DB1E20AA0384093659D703949B20452"
+    },
+    {
+      "id": "baseboard_legacy",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\9_领航者ZYNQ底板V3.7版本（音频芯片为WM8960）\\3_开发板原理图\\领航者ZYNQ底板原理图_V3.6.pdf",
+      "sha256": "4CD216D5F2E9C1AF0FB954884E384C2E6FE488F71588461F5F2D245099C8C63F",
+      "pages": 7,
+      "page_native_text_audit": [
+        {
+          "page": 1,
+          "characters": 5960,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 2,
+          "characters": 4624,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 3,
+          "characters": 4278,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 4,
+          "characters": 2326,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 5,
+          "characters": 9233,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 6,
+          "characters": 3223,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 7,
+          "characters": 4565,
+          "displayed_raster_images": 0
+        }
+      ],
+      "routing": "native_text; no OCR"
+    },
+    {
+      "id": "io_table_legacy",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\9_领航者ZYNQ底板V3.7版本（音频芯片为WM8960）\\3_开发板原理图\\领航者ZYNQ IO引脚分配总表.xlsx",
+      "sha256": "A02E01254BE27E71D2E09DC027ECCEAE4865F73B500918EABD2684D80657EF72"
+    },
+    {
+      "id": "core_legacy",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\9_领航者ZYNQ底板V3.7版本（音频芯片为WM8960）\\3_开发板原理图\\ZYNQ_CORE_2V5_user.pdf",
+      "sha256": "1C8CF8105E91D762D29AD604E82B629B3921FA474D5A0311ED6C04237DB107EA",
+      "pages": 12,
+      "page_native_text_audit": [
+        {
+          "page": 1,
+          "characters": 693,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 2,
+          "characters": 1034,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 3,
+          "characters": 4469,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 4,
+          "characters": 2873,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 5,
+          "characters": 3057,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 6,
+          "characters": 1112,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 7,
+          "characters": 3086,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 8,
+          "characters": 4902,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 9,
+          "characters": 2154,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 10,
+          "characters": 1620,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 11,
+          "characters": 2034,
+          "displayed_raster_images": 0
+        },
+        {
+          "page": 12,
+          "characters": 3555,
+          "displayed_raster_images": 0
+        }
+      ],
+      "routing": "native_text; no OCR"
+    },
+    {
+      "id": "vendor_xdc_legacy",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\9_领航者ZYNQ底板V3.7版本（音频芯片为WM8960）\\3_开发板原理图\\NAVIGATOR_ZYNQ_IO.xdc",
+      "sha256": "6DD8F3A05221B40818CBEF583FC7C67FC5FE73E51C9A72732F56F2474E286471"
+    },
+    {
+      "id": "existing_xpr",
+      "path": "D:\\FPGA\\zynq_yolo\\zynq_yolo.xpr",
+      "sha256": "DE379A543E856A00EA3A7722D506A6E2CD3F64E84D3D7DE1809E16161377C825"
+    },
+    {
+      "id": "existing_bd",
+      "path": "D:\\FPGA\\zynq_yolo\\zynq_yolo.srcs\\sources_1\\bd\\system\\system.bd",
+      "sha256": "9E0384C55978D05DF21C0FCB88553E4369FD4DC63FB59C77622379431DB0D6D0"
+    }
+  ],
+  "existing_project": {
+    "read_only": true,
+    "part": "xc7z020clg400-2",
+    "tool_version": "2017.4",
+    "validated_flag": "true",
+    "uart0_peripheral_enable": "1",
+    "uart0_io": "MIO 14 .. 15",
+    "uart0_emio_enable": "0",
+    "uart1_explicit_configuration_found": false,
+    "external_scalar_port_count": 0,
+    "xdc_files_found": [],
+    "configured_part_is_physical_confirmation": false
+  },
+  "primary_candidate": {
+    "uart": "PS UART1 via EMIO",
+    "usable_devices": [
+      "xc7z020clg400"
+    ],
+    "selected_for_physical_board": false,
+    "routes": [
+      {
+        "role": "RX",
+        "header": "J4",
+        "header_pin": 3,
+        "base_net": "B13_L19_N",
+        "base_core_connector": "M1 J1_88",
+        "core_connector": "X4",
+        "core_connector_pin": 88,
+        "package_pin": "U5",
+        "bank": 13,
+        "external_peer": "F407 USART6 PC6 TX"
+      },
+      {
+        "role": "TX",
+        "header": "J4",
+        "header_pin": 4,
+        "base_net": "B13_L19_P",
+        "base_core_connector": "M1 J1_90",
+        "core_connector": "X4",
+        "core_connector_pin": 90,
+        "package_pin": "T5",
+        "bank": 13,
+        "external_peer": "F407 USART6 PC7 RX"
+      }
+    ],
+    "ground_header_pins": [
+      37,
+      39
+    ],
+    "document_voltage": "VCCO_B13 defaults to +3.3V by 0R links; optional VCCIO by NC links",
+    "conditional_iostandard": "LVCMOS33 after physical voltage confirmation",
+    "board_peripheral_shared_nets_found": [],
+    "evidence": {
+      "baseboard_pages": [
+        5
+      ],
+      "core_pages": [
+        6,
+        7,
+        12
+      ]
+    },
+    "existing_design_conflict_found": false
+  },
+  "fallback_candidate": {
+    "selected": false,
+    "equal_to_primary": false,
+    "reason": "BANK34 header signals share LCD interface; for 7010 only after disconnecting LCD and reserving these display pins",
+    "routes": [
+      {
+        "role": "TX",
+        "header": "J3",
+        "header_pin": 31,
+        "base_net": "B34_L7_P",
+        "base_core_connector": "M1 J1_37",
+        "core_connector": "X4",
+        "core_connector_pin": 37,
+        "package_pin": "Y16",
+        "bank": 34,
+        "shared_net": "LCD_R5"
+      },
+      {
+        "role": "RX",
+        "header": "J3",
+        "header_pin": 32,
+        "base_net": "B34_L7_N",
+        "base_core_connector": "M1 J1_39",
+        "core_connector": "X4",
+        "core_connector_pin": 39,
+        "package_pin": "Y17",
+        "bank": 34,
+        "shared_net": "LCD_R4"
+      }
+    ],
+    "document_voltage": "VCCIO from SPX3819M5-3-3; verify actual assembly",
+    "evidence": {
+      "baseboard_pages": [
+        5
+      ],
+      "core_pages": [
+        3,
+        7,
+        10,
+        12
+      ]
+    }
+  },
+  "uart0_usb": {
+    "ps_rx": {
+      "mio": 14,
+      "package_pin": "C5",
+      "core_connector": "X3 pin89",
+      "base_net": "UART1_RXD",
+      "selector_pin": "P5 pin2"
+    },
+    "ps_tx": {
+      "mio": 15,
+      "package_pin": "C8",
+      "core_connector": "X3 pin87",
+      "base_net": "UART1_TXD",
+      "selector_pin": "P5 pin1"
+    },
+    "selector_links": [
+      "P5 1-3",
+      "P5 2-4"
+    ],
+    "driver": "CH340C U14 via 74LVC1G125GW U11/U12",
+    "bank": 500,
+    "document_voltage": "3.3V",
+    "usb_connector": "USB_UART Type-C",
+    "schematic_uart1_is_net_name_not_ps_uart_index": true,
+    "evidence": {
+      "baseboard_pages": [
+        5,
+        6
+      ],
+      "core_pages": [
+        4,
+        7,
+        12
+      ],
+      "excel_rows": [
+        {
+          "sheet": "PS IO引脚列表",
+          "row": 18
+        },
+        {
+          "sheet": "PS IO引脚列表",
+          "row": 19
+        }
+      ]
+    },
+    "physical_connection_verified": false
+  },
+  "io_table_relevant_rows": [
+    {
+      "sheet": "PL IO引脚列表",
+      "row": 18,
+      "cells": [
+        "RS232/RS485串口",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "sheet": "PL IO引脚列表",
+      "row": 19,
+      "cells": [
+        "uart_rxd",
+        "input",
+        "K14",
+        "串口接收端UART2_RX",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "sheet": "PL IO引脚列表",
+      "row": 20,
+      "cells": [
+        "uart_txd",
+        "output",
+        "M15",
+        "串口发送端",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "sheet": "PL IO引脚列表",
+      "row": 21,
+      "cells": [
+        "ATK MODULE",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "sheet": "PL IO引脚列表",
+      "row": 22,
+      "cells": [
+        "uart_rx",
+        "input",
+        "T19",
+        "RXD端口 UART3_RX",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "sheet": "PL IO引脚列表",
+      "row": 23,
+      "cells": [
+        "uart_tx",
+        "output",
+        "J15",
+        "TXD端口",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "sheet": "PS IO引脚列表",
+      "row": 17,
+      "cells": [
+        "PS UART",
+        null,
+        null
+      ]
+    },
+    {
+      "sheet": "PS IO引脚列表",
+      "row": 18,
+      "cells": [
+        "PS_UART_RXD",
+        "MIO14",
+        "PS UART的接收"
+      ]
+    },
+    {
+      "sheet": "PS IO引脚列表",
+      "row": 19,
+      "cells": [
+        "PS_UART_TXD",
+        "MIO15",
+        "PS UART的发送"
+      ]
+    }
+  ],
+  "legacy_comparison": {
+    "directory_version_label": "V3.7",
+    "baseboard_file_version_label": "V3.6",
+    "core_hash_matches_main_and_prior_user_pdf": true,
+    "candidate_j4_pin3_4_route_matches": true,
+    "uart0_p5_selector_route_matches": true,
+    "all_hardware_revisions_assumed_equal": false
+  },
+  "pending_physical_checks": [
+    "FPGA complete marking matches configured xc7z020clg400-2 (BANK13 available only on 7020)",
+    "Bottom board silkscreen revision and J4 pin1 orientation agree with source",
+    "BANK13 actual VCCO is 3.3V; optional resistor assembly remains as documented or measured",
+    "J4 pin3/4 are free of external modules; UART TX/RX crossed with F407 and common GND",
+    "P5 fitted links select PS UART and USB serial log path"
+  ],
+  "validation_boundary": {
+    "source_extraction_and_visual_audit": "completed",
+    "fpga_project_modified": false,
+    "new_xdc_written": false,
+    "bitstream_created": false,
+    "hardware_tested": false
+  }
+}

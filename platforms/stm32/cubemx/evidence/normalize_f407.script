@@ -1,0 +1,8 @@
+config load C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f407/ground_f407.ioc
+set mode RNG RNG_Activate
+set mode DMA USART3_RX
+set mode DMA USART2_RX
+clock
+project setCustomFWPath C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/firmware/STM32CubeF4
+config saveas C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f407/ground_f407.ioc
+exit

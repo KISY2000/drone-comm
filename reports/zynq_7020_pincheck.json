@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "checked_at": "2026-10-05T12:01:31.276355+00:00",
+  "passed": true,
+  "errors": [],
+  "scope": "Independent copied-checkpoint opt/place/route and IO/package DRC for PS UART1 EMIO; no communication timing signoff",
+  "source_sha256": {
+    "tools/check_zynq_7020_pins.tcl": "6c1ed478cb79526e1bf17c4e0f659b90020e675be3aae22401d5773341c29d8f",
+    "tools/collect_zynq_7020_pincheck.py": "3975676a589b54e6533f8f60cc47dae2bcc402d95e0153fdd146743e6d50cc8a",
+    "platforms/zynq/navigator_7020_uart1.xdc": "1fe64b6cf2a48fb64418e2066f5406cd66ded5a102af84c58716036af6076181",
+    "platforms/zynq/board_profile_7020.json": "8c1ea5cf04a4d8056883d5ed90620bcfa07abeda7e08d183b3477c3e8629f6c6",
+    "platforms/zynq/reference/system_7020_ps_original.bd": "9e0384c55978d05df21c0fcb88553e4369fd4dc63fb59c77622379431db0d6d0"
+  },
+  "vivado_version": "2017.4",
+  "part": "xc7z020clg400-2",
+  "model7020_user_confirmed": true,
+  "vendor_ordering_code": "XC7Z020-2CLG400I",
+  "physical_speed_grade_read": false,
+  "board_ready": false,
+  "board_tested": false,
+  "actual_bank13_voltage_measured": false,
+  "bank13_design_default_volts": 3.3,
+  "vcco_basis": "Board specification V1.2 PDF pp13/21; core 2V5 schematic p7: R220/R222 NC from VCCIO, R223/R221 0R from +3.3V",
+  "run_dir": "build/zynq_7020_pincheck_retry2",
+  "input_checkpoints": [
+    {
+      "source": "build/zynq_validation/project/dc_uart_validation.runs/synth_1/system_wrapper.dcp",
+      "copy": "build/zynq_7020_pincheck_retry2/input/system_wrapper.dcp",
+      "source_sha256": "8b3fe05e4b11bb9559be9e5ef003852880e9d851ad855d050877999287cefebe",
+      "copy_sha256": "8b3fe05e4b11bb9559be9e5ef003852880e9d851ad855d050877999287cefebe",
+      "bytes": 28867,
+      "copy_matches": true
+    },
+    {
+      "source": "build/zynq_validation/input/ip/system_processing_system7_0_0/system_processing_system7_0_0.dcp",
+      "copy": "build/zynq_7020_pincheck_retry2/input/system_processing_system7_0_0.dcp",
+      "source_sha256": "03dce6e2f4a821e8daf6c4ab5dd2b9e05dd5ef5487d0b1dd4f23bea9fd438b62",
+      "copy_sha256": "03dce6e2f4a821e8daf6c4ab5dd2b9e05dd5ef5487d0b1dd4f23bea9fd438b62",
+      "bytes": 232838,
+      "copy_matches": true
+    },
+    {
+      "source": "build/zynq_validation/input/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0.dcp",
+      "copy": "build/zynq_7020_pincheck_retry2/input/system_rst_ps7_0_100M_0.dcp",
+      "source_sha256": "b9aad31052d0587d21a10117613411b99b4295c7efb926fedcfde80ece6efe5d",
+      "copy_sha256": "b9aad31052d0587d21a10117613411b99b4295c7efb926fedcfde80ece6efe5d",
+      "bytes": 21422,
+      "copy_matches": true
+    }
+  ],
+  "checkpoint_source_sha256": {
+    "build/zynq_validation/project/dc_uart_validation.runs/synth_1/system_wrapper.dcp": "8b3fe05e4b11bb9559be9e5ef003852880e9d851ad855d050877999287cefebe",
+    "build/zynq_validation/input/ip/system_processing_system7_0_0/system_processing_system7_0_0.dcp": "03dce6e2f4a821e8daf6c4ab5dd2b9e05dd5ef5487d0b1dd4f23bea9fd438b62",
+    "build/zynq_validation/input/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0.dcp": "b9aad31052d0587d21a10117613411b99b4295c7efb926fedcfde80ece6efe5d"
+  },
+  "stitching": {
+    "black_boxes_before": 2,
+    "black_boxes_after": 0,
+    "ps_ip_checkpoint_stitched": true,
+    "reset_ip_checkpoint_stitched": true
+  },
+  "ports": [
+    {
+      "port": "COMM_UART1_rxd",
+      "direction": "IN",
+      "package_pin": "U5",
+      "bank": 13,
+      "pin_function": "IO_L19N_T3_VREF_13",
+      "bonded": true,
+      "general_purpose": true,
+      "iostandard": "LVCMOS33",
+      "io_report_row": "| U5         | COMM_UART1_rxd    | High Range | IO_L19N_T3_VREF_13      | INPUT       | LVCMOS33    |      13 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |",
+      "device_pincheck_passed": true
+    },
+    {
+      "port": "COMM_UART1_txd",
+      "direction": "OUT",
+      "package_pin": "T5",
+      "bank": 13,
+      "pin_function": "IO_L19P_T3_13",
+      "bonded": true,
+      "general_purpose": true,
+      "iostandard": "LVCMOS33",
+      "io_report_row": "| T5         | COMM_UART1_txd    | High Range | IO_L19P_T3_13           | OUTPUT      | LVCMOS33    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |",
+      "device_pincheck_passed": true
+    }
+  ],
+  "implementation": {
+    "steps": [
+      "copying_complete",
+      "constraints_loaded",
+      "opt_completed",
+      "place_completed",
+      "route_completed",
+      "reports_completed"
+    ],
+    "routable_nets": 136,
+    "fully_routed_nets": 136,
+    "nets_with_routing_errors": 0,
+    "drc_violations": 0,
+    "drc_blocking": 0
+  },
+  "timing": {
+    "clocks": [],
+    "no_user_timing_constraints": true,
+    "wns_ns": null,
+    "tns_ns": null,
+    "communication_timing_signoff": false,
+    "note": "WNS/TNS are NA and clock list is empty. PS UART is asynchronous; no fictitious external clock, input/output_delay or blanket false path is added. This implementation does not validate UART baud/timing on hardware."
+  },
+  "vivado_messages": {
+    "warning_count": 0,
+    "critical_warning_count": 4,
+    "error_count": 0,
+    "warning_lines": [],
+    "critical_warning_lines": [
+      "CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'system_processing_system7_0_0' instantiated as 'system_i/processing_system7_0' [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_validation/input/synth/system.v:89]",
+      "CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'system_rst_ps7_0_100M_0' instantiated as 'system_i/rst_ps7_0_100M' [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_validation/input/synth/system.v:158]",
+      "CRITICAL WARNING: [Vivado 12-5469] The design checkpoint file 'C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/system_processing_system7_0_0.dcp' was generated for an IP by an out of context synthesis run and should not directly be used as a source in a Vivado flow. It is strongly recommended that that the original IP source file (.xci) be used.",
+      "CRITICAL WARNING: [Vivado 12-5469] The design checkpoint file 'C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/system_rst_ps7_0_100M_0.dcp' was generated for an IP by an out of context synthesis run and should not directly be used as a source in a Vivado flow. It is strongly recommended that that the original IP source file (.xci) be used."
+    ],
+    "unexpected_critical_warnings": [],
+    "note": "Two temporary top-level black boxes are resolved by copied OOC checkpoints. Two Vivado 12-5469 recommendations to use original XCI are retained. Final black-box count and routed DRC are zero."
+  },
+  "routed_checkpoint": {
+    "path": "build/zynq_7020_pincheck_retry2/uart1_routed.dcp",
+    "sha256": "0dd55924589afe4b96235aee7791c6796c9b22564e5080a425f2239472f8fc4d",
+    "bytes": 483916,
+    "included_in_evidence": false
+  },
+  "bitstream_generated": false,
+  "original_fpga_project_opened": false,
+  "original_validation_and_sdk_workspaces_modified": false,
+  "limitations": [
+    "Physical BANK13 VCCO and header orientation remain board bring-up checks.",
+    "No bitstream generated, no flashing or board serial test.",
+    "No camera capture, video hardware or YOLO-on-PL completion is claimed.",
+    "Independent checkpoint integration is an offline pin/place/route audit; original validation HDF/BSP/ELF is unchanged."
+  ],
+  "evidence_sha256": {
+    "reports/zynq_7020_pincheck_evidence/check_timing.rpt": "88e2296bc0e72c83be1fc09ef98ea8499fb1e81605e8e4145f82375269a5cabf",
+    "reports/zynq_7020_pincheck_evidence/drc.rpt": "cd4d25e04a28d78d8d8dffdbe0877cabd37e1b0e24bb231c494e639accc30aeb",
+    "reports/zynq_7020_pincheck_evidence/initial_redirect_unavailable.log": "adcb39534fe0943499ea83524ebe3ae4a4939c57fd8c87312a600ac9c5cb2276",
+    "reports/zynq_7020_pincheck_evidence/intermediate_xdc_guard_warning.log": "cc899f055ef6f98bf22efb99fde28c62991c7509383d391598ab069114391484",
+    "reports/zynq_7020_pincheck_evidence/io.rpt": "6ab4a594652ce78fa12edf027342406776e059a661e8d62a8f083fd4ab24a83f",
+    "reports/zynq_7020_pincheck_evidence/route_status.rpt": "a3f8f02de59adced231c869e6ff5ced821ec3fd55b61b9dd666d558cc8b9cea6",
+    "reports/zynq_7020_pincheck_evidence/status.tsv": "30ed4c862974f4e17aa2773bdf73f43fa2bd0a9e94a160044203d73a7cae47c4",
+    "reports/zynq_7020_pincheck_evidence/T5_package_properties.rpt": "e743667eb148e48e3e5bc7786eeffc095f57cccbf3fe2f3c6659e9bc38654df5",
+    "reports/zynq_7020_pincheck_evidence/timing_summary.rpt": "27304424b17cc4408bd59b2e42d9cc3453dd132fec7c0234e3a40fd6f5102058",
+    "reports/zynq_7020_pincheck_evidence/U5_package_properties.rpt": "11e7c6f1fe336b0bf9084aeaf65afbb383db31c5ff68721971627de54669ec4d",
+    "reports/zynq_7020_pincheck_evidence/utilization.rpt": "e75d4e3f35d8485073aaa0b4c311eff4811af186ef8684a6b001741f32ba4629",
+    "reports/zynq_7020_pincheck_evidence/zynq_7020_pincheck_retry2_launch.log": "be7a0e8ea876ef91049cb6afa3daa21f41ce6442126a7de82b971e47ae1e3842"
+  }
+}

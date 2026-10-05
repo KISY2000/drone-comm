@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+  45696	   2756	  24784	  73236	  11e14	C:\Users\Li\Desktop\Engineering\drone_comm\build\zynq_sdk_2017_4\dc_zynq_comm\Debug\dc_zynq_comm.elf

@@ -1,0 +1,5 @@
+*** Using Compiler 'V6.22', folder: 'C:\Users\Li\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'air_f407_comm_library'
+creating Library...
+"..\..\..\build\keil\air_f407\air_f407_comm.lib" - 0 Error(s), 0 Warning(s).
+Build Time Elapsed:  00:00:02

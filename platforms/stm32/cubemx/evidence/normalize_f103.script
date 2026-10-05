@@ -1,0 +1,8 @@
+config load C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f103/ground_f103.ioc
+set mode SYS Serial_Wire
+set mode DMA USART2_RX
+set ip parameters DMA Mode DMA_CIRCULAR
+get modes DMA
+project setCustomFWPath C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/firmware/STM32CubeF1
+config saveas C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f103/ground_f103.ioc
+exit

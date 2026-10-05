@@ -1,0 +1,536 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "include/dc_protocol.h": "1f4c788b6c60f4413d9f572a513c9469aacf75c308ff0c6dc0b2317c3993a9d5",
+    "include/dc_node.h": "096fcdfd5f4363aa537e13e81ef89877386adaca69d9e4084854728fccfb5844",
+    "src/dc_protocol.c": "00a6b8e157b60615d14138eb3eaca057093c7427877ff56624f816b688136a98",
+    "src/dc_node.c": "8a08d16ec32df4e1598c900c228b05e605f3be0d7640d43c3fad29549d1fe3be",
+    "platforms/common/dc_byte_ring.h": "a8d1b9ee007f19a6aed51c737407906bfbb8584fe26e4d344c188a83f22b0aed",
+    "platforms/common/dc_byte_ring.c": "496f4e71d58f21e317a4d7950b01b6e6bab5261c98dba3da8a851bcdb4f9abbd",
+    "platforms/zynq/dc_zynq_port.h": "8f227b07e745fd2887cd19fdc6b707fdd62fb1496350410f949d16d566db597c",
+    "platforms/zynq/dc_zynq_port.c": "b3e9bc738c2c9ff7d947220c5dbbb3044b217576e62baf1cd1f2d6b9dd60501f",
+    "platforms/zynq/main_hooks.c": "8aefbee7b49d201d0854d0846b26ea06d15e34ce5d3fe9f29cdac71fb7128b84",
+    "platforms/zynq/board_config.h": "f6a743f3fb0a744312496b811f063a68d73ce401b10303ba73245f59c22645c6",
+    "platforms/zynq/standalone_main.c": "38505a26541c7ae243229acf57f828f032762173b36939eb9bdb135617e34241",
+    "tools/create_zynq_validation.tcl": "b1af89199a056c0c40e016b5250a616b12d098f84c9407220004204a2ff7a839",
+    "tools/create_zynq_bsp.tcl": "27198325b14bf128d56b783750495260a45562b89908ef5439c4e102f476d8d0",
+    "platforms/zynq/reference/system_7020_ps_original.bd": "9e0384c55978d05df21c0fcb88553e4369fd4dc63fb59c77622379431db0d6d0",
+    "platforms/zynq/board_profile_7020.json": "8c1ea5cf04a4d8056883d5ed90620bcfa07abeda7e08d183b3477c3e8629f6c6",
+    "reports/zynq_reference.json": "5b62dcf861ffc50966152e0ef5d56db8e2c5dfbd39ffa18ea6f7a717646b90a9",
+    "tools/collect_zynq_validation.py": "2c3f963430ae3a8aa7d2284ba7e14b5ade17c00a1f3fcd99f2a33e6c12531db6"
+  },
+  "collected_utc": "2026-10-05T11:55:21.821436+00:00",
+  "errors": [],
+  "source_checks": [
+    {
+      "source": "include/dc_protocol.h",
+      "stage_sha256": "1f4c788b6c60f4413d9f572a513c9469aacf75c308ff0c6dc0b2317c3993a9d5",
+      "sdk_import_sha256": "1f4c788b6c60f4413d9f572a513c9469aacf75c308ff0c6dc0b2317c3993a9d5"
+    },
+    {
+      "source": "include/dc_node.h",
+      "stage_sha256": "096fcdfd5f4363aa537e13e81ef89877386adaca69d9e4084854728fccfb5844",
+      "sdk_import_sha256": "096fcdfd5f4363aa537e13e81ef89877386adaca69d9e4084854728fccfb5844"
+    },
+    {
+      "source": "src/dc_protocol.c",
+      "stage_sha256": "00a6b8e157b60615d14138eb3eaca057093c7427877ff56624f816b688136a98",
+      "sdk_import_sha256": "00a6b8e157b60615d14138eb3eaca057093c7427877ff56624f816b688136a98"
+    },
+    {
+      "source": "src/dc_node.c",
+      "stage_sha256": "8a08d16ec32df4e1598c900c228b05e605f3be0d7640d43c3fad29549d1fe3be",
+      "sdk_import_sha256": "8a08d16ec32df4e1598c900c228b05e605f3be0d7640d43c3fad29549d1fe3be"
+    },
+    {
+      "source": "platforms/common/dc_byte_ring.h",
+      "stage_sha256": "a8d1b9ee007f19a6aed51c737407906bfbb8584fe26e4d344c188a83f22b0aed",
+      "sdk_import_sha256": "a8d1b9ee007f19a6aed51c737407906bfbb8584fe26e4d344c188a83f22b0aed"
+    },
+    {
+      "source": "platforms/common/dc_byte_ring.c",
+      "stage_sha256": "496f4e71d58f21e317a4d7950b01b6e6bab5261c98dba3da8a851bcdb4f9abbd",
+      "sdk_import_sha256": "496f4e71d58f21e317a4d7950b01b6e6bab5261c98dba3da8a851bcdb4f9abbd"
+    },
+    {
+      "source": "platforms/zynq/dc_zynq_port.h",
+      "stage_sha256": "8f227b07e745fd2887cd19fdc6b707fdd62fb1496350410f949d16d566db597c",
+      "sdk_import_sha256": "8f227b07e745fd2887cd19fdc6b707fdd62fb1496350410f949d16d566db597c"
+    },
+    {
+      "source": "platforms/zynq/dc_zynq_port.c",
+      "stage_sha256": "b3e9bc738c2c9ff7d947220c5dbbb3044b217576e62baf1cd1f2d6b9dd60501f",
+      "sdk_import_sha256": "b3e9bc738c2c9ff7d947220c5dbbb3044b217576e62baf1cd1f2d6b9dd60501f"
+    },
+    {
+      "source": "platforms/zynq/main_hooks.c",
+      "stage_sha256": "8aefbee7b49d201d0854d0846b26ea06d15e34ce5d3fe9f29cdac71fb7128b84",
+      "sdk_import_sha256": "8aefbee7b49d201d0854d0846b26ea06d15e34ce5d3fe9f29cdac71fb7128b84"
+    },
+    {
+      "source": "platforms/zynq/board_config.h",
+      "stage_sha256": "f6a743f3fb0a744312496b811f063a68d73ce401b10303ba73245f59c22645c6",
+      "sdk_import_sha256": "f6a743f3fb0a744312496b811f063a68d73ce401b10303ba73245f59c22645c6"
+    },
+    {
+      "source": "platforms/zynq/standalone_main.c",
+      "stage_sha256": "38505a26541c7ae243229acf57f828f032762173b36939eb9bdb135617e34241",
+      "sdk_import_sha256": "38505a26541c7ae243229acf57f828f032762173b36939eb9bdb135617e34241"
+    }
+  ],
+  "reference": {
+    "sha256": "9e0384c55978d05df21c0fcb88553e4369fd4dc63fb59c77622379431db0d6d0",
+    "copy": "platforms/zynq/reference/system_7020_ps_original.bd",
+    "original_external_checked": true,
+    "original_modified": false
+  },
+  "hdf": {
+    "path": "build/zynq_validation/dc_uart_validation.hdf",
+    "sha256": "b6c04974eb079b9be23a564be54ee2852a6cbf78b7e8c7954a36a06f15fb67c3",
+    "bytes": 368679,
+    "archive_members": [
+      "hwdef.xml",
+      "system.hwh",
+      "system_bd.tcl",
+      "ps7_init.c",
+      "ps7_init.h",
+      "ps7_init_gpl.c",
+      "ps7_init_gpl.h",
+      "ps7_init.html",
+      "ps7_init.tcl"
+    ],
+    "uart_parameters": {
+      "PCW_UART0_PERIPHERAL_ENABLE": "1",
+      "PCW_UART0_UART0_IO": "MIO 14 .. 15",
+      "PCW_UART1_PERIPHERAL_ENABLE": "1",
+      "PCW_UART1_UART1_IO": "EMIO"
+    }
+  },
+  "sdk_hdf": {
+    "path": "build/zynq_sdk_2017_4/dc_hw/system.hdf",
+    "sha256": "b6c04974eb079b9be23a564be54ee2852a6cbf78b7e8c7954a36a06f15fb67c3",
+    "bytes": 368679
+  },
+  "elf": {
+    "path": "build/zynq_sdk_2017_4/dc_zynq_comm/Debug/dc_zynq_comm.elf",
+    "sha256": "af222cfcca02d090f70f64e772ee9ed2e8e104d82067307bdd0170ca7f3e172c",
+    "bytes": 247996,
+    "sections_bytes": {
+      "text": 45696,
+      "data": 2756,
+      "bss": 24784,
+      "total": 73236
+    }
+  },
+  "bsp_library": {
+    "path": "build/zynq_sdk_2017_4/dc_bsp/ps7_cortexa9_0/lib/libxil.a",
+    "sha256": "9131881aea1ef3fa0413732b922fabc0f86e06cd98937ee7588d4418eeff4f3c",
+    "bytes": 238122
+  },
+  "compiler": {
+    "compile_command": "arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT\"$@\" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -std=c99 -Wall -Wextra -Werror -I../../dc_bsp/ps7_cortexa9_0/include -MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\" -o \"$@\" \"$<\"",
+    "link_command": "arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../dc_bsp/ps7_cortexa9_0/lib -o \"dc_zynq_comm.elf\" $(OBJS) $(USER_OBJS) $(LIBS)",
+    "version": "arm-none-eabi-gcc.exe (Linaro GCC Snapshot 6.2-2016.11) 6.2.1 20161114"
+  },
+  "dependencies": [
+    {
+      "unit": "dc_protocol.c",
+      "real_bsp_dependencies": [],
+      "object_sha256": "7874286a28f3705d5222e344ad9ae0c824d6e3e4101a6d3b4ac98ee0b5c27f39"
+    },
+    {
+      "unit": "dc_node.c",
+      "real_bsp_dependencies": [],
+      "object_sha256": "c53616f7dd278fd4dd3e77ae4ec1b0825455821060eddea38c137dcde1314dce"
+    },
+    {
+      "unit": "dc_byte_ring.c",
+      "real_bsp_dependencies": [],
+      "object_sha256": "2b6f49aaa35b1b81b8efea43b6d2c520dc9079627b6643ec499606bd18f49bb1"
+    },
+    {
+      "unit": "dc_zynq_port.c",
+      "real_bsp_dependencies": [
+        "../../dc_bsp/ps7_cortexa9_0/include/xuartps.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_types.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_assert.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xstatus.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xuartps_hw.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_io.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_printf.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters_ps.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xpseudo_asm.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xplatform_info.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xscugic.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xscugic_hw.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_exception.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xtime_l.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xpseudo_asm.h"
+      ],
+      "object_sha256": "fcf933758ea0ddeb30dd7747224578538c24328b565a75a30775cd786aef7b5a"
+    },
+    {
+      "unit": "main_hooks.c",
+      "real_bsp_dependencies": [
+        "../../dc_bsp/ps7_cortexa9_0/include/xuartps.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_types.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_assert.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xstatus.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xuartps_hw.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_io.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_printf.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters_ps.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xpseudo_asm.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xplatform_info.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xscugic.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xscugic_hw.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_exception.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xtime_l.h"
+      ],
+      "object_sha256": "c1fd4975c74463c9869f8bd144319add5562e250e8ea9ee8b739d9f69ba9d935"
+    },
+    {
+      "unit": "standalone_main.c",
+      "real_bsp_dependencies": [
+        "../../dc_bsp/ps7_cortexa9_0/include/xuartps.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_types.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_assert.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xstatus.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xuartps_hw.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_io.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_printf.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters_ps.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xpseudo_asm.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xplatform_info.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xscugic.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xscugic_hw.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_exception.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xil_exception.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xstatus.h",
+        "../../dc_bsp/ps7_cortexa9_0/include/xparameters.h"
+      ],
+      "object_sha256": "403f0b5f5f8e38fa9177af65bf5da249d3ef50f08496f89fc8b6280a5aac9135"
+    }
+  ],
+  "compile_fixture_used": false,
+  "uart": [
+    {
+      "physical": "PS_UART0",
+      "device_id": 0,
+      "base_address": "0xE0000000",
+      "irq": 59,
+      "clock_hz": 100000000,
+      "route": "MIO14/15"
+    },
+    {
+      "physical": "PS_UART1",
+      "device_id": 1,
+      "base_address": "0xE0001000",
+      "irq": 82,
+      "clock_hz": 100000000,
+      "route": "EMIO COMM_UART1"
+    }
+  ],
+  "bsp": {
+    "os": {
+      "kind": "OS",
+      "OS_NAME": "standalone",
+      "OS_VER": "6.5",
+      "PROC_INSTANCE": "ps7_cortexa9_0",
+      "stdin": "ps7_uart_0",
+      "stdout": "ps7_uart_0"
+    },
+    "components": [
+      {
+        "kind": "OS",
+        "OS_NAME": "standalone",
+        "OS_VER": "6.5",
+        "PROC_INSTANCE": "ps7_cortexa9_0",
+        "stdin": "ps7_uart_0",
+        "stdout": "ps7_uart_0"
+      },
+      {
+        "kind": "PROCESSOR",
+        "DRIVER_NAME": "cpu_cortexa9",
+        "DRIVER_VER": "2.5",
+        "HW_INSTANCE": "ps7_cortexa9_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_afi_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_afi_1"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_afi_2"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_afi_3"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "coresightps_dcc",
+        "DRIVER_VER": "1.4",
+        "HW_INSTANCE": "ps7_coresight_comp_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "ddrps",
+        "DRIVER_VER": "1.0",
+        "HW_INSTANCE": "ps7_ddr_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_ddrc_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "devcfg",
+        "DRIVER_VER": "3.5",
+        "HW_INSTANCE": "ps7_dev_cfg_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "dmaps",
+        "DRIVER_VER": "2.3",
+        "HW_INSTANCE": "ps7_dma_ns"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "dmaps",
+        "DRIVER_VER": "2.3",
+        "HW_INSTANCE": "ps7_dma_s"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "emacps",
+        "DRIVER_VER": "3.6",
+        "HW_INSTANCE": "ps7_ethernet_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_globaltimer_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "gpiops",
+        "DRIVER_VER": "3.3",
+        "HW_INSTANCE": "ps7_gpio_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_gpv_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_intc_dist_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_iop_bus_config_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_l2cachec_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_ocmc_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_pl310_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_pmu_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_ram_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_ram_1"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_scuc_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "scugic",
+        "DRIVER_VER": "3.8",
+        "HW_INSTANCE": "ps7_scugic_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "scutimer",
+        "DRIVER_VER": "2.1",
+        "HW_INSTANCE": "ps7_scutimer_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "scuwdt",
+        "DRIVER_VER": "2.1",
+        "HW_INSTANCE": "ps7_scuwdt_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "sdps",
+        "DRIVER_VER": "3.3",
+        "HW_INSTANCE": "ps7_sd_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "generic",
+        "DRIVER_VER": "2.0",
+        "HW_INSTANCE": "ps7_slcr_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "uartps",
+        "DRIVER_VER": "3.5",
+        "HW_INSTANCE": "ps7_uart_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "uartps",
+        "DRIVER_VER": "3.5",
+        "HW_INSTANCE": "ps7_uart_1"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "usbps",
+        "DRIVER_VER": "2.4",
+        "HW_INSTANCE": "ps7_usb_0"
+      },
+      {
+        "kind": "DRIVER",
+        "DRIVER_NAME": "xadcps",
+        "DRIVER_VER": "2.2",
+        "HW_INSTANCE": "ps7_xadc_0"
+      }
+    ],
+    "cpu_clock_hz": 666666687
+  },
+  "vivado": {
+    "version": "2017.4",
+    "part": "xc7z020clg400-2",
+    "synthesis_passed": true,
+    "infos": 24,
+    "warnings": 3,
+    "critical_warnings": 0,
+    "errors": 0,
+    "warning_lines": [
+      "WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'system_processing_system7_0_0' requires 112 connections, but only 68 given [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_validation/input/synth/system.v:89]",
+      "WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_validation/input/synth/system.v:158]",
+      "WARNING: [Synth 8-350] instance 'rst_ps7_0_100M' of module 'system_rst_ps7_0_100M_0' requires 10 connections, but only 5 given [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_validation/input/synth/system.v:158]"
+    ],
+    "physical_uart_xdc": false,
+    "implementation_completed": false,
+    "bitstream_generated": false,
+    "internal_generated_xdc_count": 9
+  },
+  "sdk": {
+    "version": "2017.4",
+    "bsp_generated": true,
+    "app_compile_link_passed": true,
+    "log_error_lines": [
+      "18:45:58 ERROR : xsct server communication channel has closed unexpectedly."
+    ],
+    "log_note": "SDK.log records an XSCT channel-close error and is retained verbatim. The existing real BSP, current sources, dependency files and linked ELF separately establish compile/link success; this report does not claim a zero-error SDK service log."
+  },
+  "board_tested": false,
+  "validation_scope": "Original unpinned synthesis/HDF/BSP workspace; subsequent board-pin implementation is reported separately",
+  "physical_board_confirmed": false,
+  "physical_board_confirmed_scope": "Full electrical assembly, bank voltage and wiring have not been measured",
+  "model_7020_confirmed_by_user": true,
+  "board_profile": "platforms/zynq/board_profile_7020.json",
+  "board_ready": false,
+  "limitations": [
+    "7020 is confirmed by the user; xc7z020clg400-2 is the audited design part, not a measurement of the physical speed grade or electrical assembly.",
+    "This report covers the initial HDF/BSP workspace without physical UART1 XDC or implementation; later pin/implementation checks have separate evidence. No flashing or board execution.",
+    "UART1 and video behavior still require board-level integration; video state is simulated.",
+    "Binary artifacts are hashed and sized only; HDF/ELF/libxil.a are not copied into evidence."
+  ],
+  "evidence_sha256": {
+    "reports/zynq_sdk_validation/bsp_system.mss": "75b922129fb5c81e34c9231b832d84daa2c5770231808f801ba5f6c77600e6be",
+    "reports/zynq_sdk_validation/bsp_xparameters.h": "67fbb32b1eb5f3a980cb193cf2efd239e721b8590175e67099f55a6b41c3ed9a",
+    "reports/zynq_sdk_validation/bsp_xparameters_ps.h": "73d808a21b0932c2b55ec0bc54d692e72cdd9b71ba7a0b6caaa816d18ca1a9f7",
+    "reports/zynq_sdk_validation/bsp_xscugic_g.c": "82fad3c0877e2b05057e8ab0f3d224b23172d295ed5a6baece43131dc40cb0bd",
+    "reports/zynq_sdk_validation/bsp_xuartps_g.c": "b0f81d6b38505f1a632ad7358dd8b477723ed407ed8b5af02a01aaa296d5f54e",
+    "reports/zynq_sdk_validation/compiler_version.txt": "b7e9f8fd07e0137e824fe821eb27fe298ad244962370cf761dae4619d3b9f08f",
+    "reports/zynq_sdk_validation/dependencies/dc_byte_ring.d": "87b0dca323f7251bbe09e84996591ceb02c36a458c339e682f3ac7425db9fbca",
+    "reports/zynq_sdk_validation/dependencies/dc_node.d": "da9f6923c37e00ece82a26a274d204a42f620873bf4c84577aa328b6aa095e80",
+    "reports/zynq_sdk_validation/dependencies/dc_protocol.d": "d7899768b1789bb6b192dd86731a86dc75a55350d5f5f7105877906262554593",
+    "reports/zynq_sdk_validation/dependencies/dc_zynq_port.d": "e8bf847df8ae7f5ea6b36fa4c890fceee578b1819a684f3b2238f56f4fb33a11",
+    "reports/zynq_sdk_validation/dependencies/main_hooks.d": "59ba66f58fd2663872fddcc20845dc7b2f4d3a8cfb44efa4affca1b6087715ef",
+    "reports/zynq_sdk_validation/dependencies/standalone_main.d": "d30c4a81528a02bee69a4caa0d5b6141dbfdbfbd612cb4da1291d427f4c1f7f2",
+    "reports/zynq_sdk_validation/elf_header.txt": "03066b41f5fc82eef65b0e788a438294b1be5f2b6b2a6a7bb93d359afdffb75f",
+    "reports/zynq_sdk_validation/elf_size_build.txt": "6d863dcc73aae26e046f9aeae9a91b8b3785c76fe24437291cf86bc5a9f837a7",
+    "reports/zynq_sdk_validation/elf_size_current.txt": "fbabc8e2eeed23446a753525008476e166b249a30b7c96649e9c97dc817c3818",
+    "reports/zynq_sdk_validation/hdf_hwdef.xml": "600e17a528445617b09031f8e5d49ed8c4b0a21f13e94383428a6882fc984491",
+    "reports/zynq_sdk_validation/hdf_system.hwh": "4c8b3bff940656a2d12557cfee7dbff2657be35e9bceb02c863f01a804444ae4",
+    "reports/zynq_sdk_validation/sdk_SDK.log": "22382138cafab93af35a3884c0772ec0e1943f8c86488cac89fdbb46f92d4f4d",
+    "reports/zynq_sdk_validation/sdk_Xilinx.spec": "79fc6d29314f26c6339344f3d2d08d0ac2e3c4048f8908f06478bbbc0c0390ef",
+    "reports/zynq_sdk_validation/sdk_lscript.ld": "550426ba74302ca1138a1146d335e10651a7d8763b5dc0ab21905a599a30787f",
+    "reports/zynq_sdk_validation/sdk_makefile": "73fa8d3bac07a94bcac3ff66849fc393db619f16a4e2bc05578ebf5bec8ad758",
+    "reports/zynq_sdk_validation/sdk_objects.mk": "72d815c1d72811e888ff7fe3de24a99593b696b983ecee1ef860e7b756ea7fdc",
+    "reports/zynq_sdk_validation/sdk_sources.mk": "a097c97d7a1c38b1d4142319a7dd2ad52cd4e8fca045569a74239a64f0476c99",
+    "reports/zynq_sdk_validation/sdk_src_subdir.mk": "a9d11ae104d22a27cbcec54de07cac0f8c1914b1e3aca3825029620ba75086e7",
+    "reports/zynq_sdk_validation/sdk_validation.txt": "083639bd0d3c8b0fc712f1b148048b4482a1446c66518e3ec8ae6309c146e455",
+    "reports/zynq_sdk_validation/vivado_synth_runme.log": "01383a0ed36510c9beae773fb3e9a6fdbf37907fffb71ac5d53cff1a5365724a",
+    "reports/zynq_sdk_validation/vivado_system_processing_system7_0_0_synth_1.log": "e4bb6aa6b7302ec5a5274d2ba1ac6cd75f361a166bf677638759684e01157158",
+    "reports/zynq_sdk_validation/vivado_system_rst_ps7_0_100M_0_synth_1.log": "aed8e57429d92900ef2dfe910b3192ec922aab3fe5e14adad3cdf5f254948f4a",
+    "reports/zynq_sdk_validation/vivado_utilization.rpt": "35711b5ab8f7c363f010c142a70be678ad33f92c450903a261a37ce26332bea5",
+    "reports/zynq_sdk_validation/vivado_validation.txt": "c18e6f512b8579fed75a0a3f8f1b2eb25ac70d3d32d64fafb72cfdb479b35297"
+  }
+}

@@ -1,0 +1,3 @@
+ELF=C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_sdk_2017_4/dc_zynq_comm/Debug/dc_zynq_comm.elf
+SOURCE_BSP=actual exported HDF; compile_fixture excluded
+BOARD_READY=0; no board execution or final bitstream

@@ -1,0 +1,25 @@
+../ground_f407/stm32f4xx_hal_spi.o: \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Src\stm32f4xx_hal_spi.c \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal.h \
+  ..\..\..\..\platforms\stm32\f4\stm32f4xx_hal_conf.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_rcc.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_def.h \
+  ..\..\..\..\deps\cmsis-device-f4-2.6.11\Include\stm32f4xx.h \
+  ..\..\..\..\deps\cmsis-device-f4-2.6.11\Include\stm32f407xx.h \
+  ..\..\..\..\deps\CMSIS_5-5.9.0\CMSIS\Core\Include\core_cm4.h \
+  ..\..\..\..\deps\cmsis-device-f4-2.6.11\Include\system_stm32f4xx.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\Legacy\stm32_hal_legacy.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_rcc_ex.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_gpio.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_gpio_ex.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_dma.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_dma_ex.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_cortex.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_uart.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_spi.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_rng.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_flash.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_flash_ex.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_flash_ramfunc.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_pwr.h \
+  ..\..\..\..\deps\stm32f4xx-hal-driver-1.8.5\Inc\stm32f4xx_hal_pwr_ex.h

@@ -1,0 +1,11 @@
+{
+  "source_sha256": "9E0384C55978D05DF21C0FCB88553E4369FD4DC63FB59C77622379431DB0D6D0",
+  "source": "D:\\FPGA\\zynq_yolo\\zynq_yolo.srcs\\sources_1\\bd\\system\\system.bd",
+  "original_modified": false,
+  "part": "xc7z020clg400-2",
+  "physical_board_confirmed": false,
+  "physical_board_confirmed_scope": "Full electrical assembly and wiring are not yet verified; device family was subsequently confirmed by user",
+  "model_7020_confirmed_by_user": true,
+  "user_confirmation": "7020，你自己查吧",
+  "copy": "platforms/zynq/reference/system_7020_ps_original.bd"
+}

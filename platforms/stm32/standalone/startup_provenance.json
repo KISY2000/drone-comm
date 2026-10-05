@@ -1,0 +1,30 @@
+{
+  "stack_bytes": 4096,
+  "heap_bytes": 0,
+  "vendor_startup_copies": [
+    {
+      "upstream": "deps/cmsis-device-f1-4.3.5/Source/Templates/arm/startup_stm32f103xb.s",
+      "upstream_sha256": "7828f544a385ccb4a51434528255383602b9a872fd193b250ea8e02218243002",
+      "copy": "platforms/stm32/standalone/startup_stm32f103xb.s",
+      "copy_sha256": "fbee308948c1265baf1ed04d951cec8c330b220f7f9f3117c4eaec3b023a9924",
+      "license": "platforms/stm32/standalone/LICENSE_STM32F1.md",
+      "changes": [
+        "Stack_Size 0x400 -> 0x1000",
+        "Heap_Size 0x200 -> 0",
+        "line endings normalized to LF"
+      ]
+    },
+    {
+      "upstream": "deps/cmsis-device-f4-2.6.11/Source/Templates/arm/startup_stm32f407xx.s",
+      "upstream_sha256": "fee58e4c0dfe7986560c4d529b67c63c4e846b2ee8e62c49e8e0db701f2ea700",
+      "copy": "platforms/stm32/standalone/startup_stm32f407xx.s",
+      "copy_sha256": "6ee51cbd3caab94d420ecfcab16b1398c8ed33d731233198372ea574ae78341d",
+      "license": "platforms/stm32/standalone/LICENSE_STM32F4.md",
+      "changes": [
+        "Stack_Size 0x400 -> 0x1000",
+        "Heap_Size 0x200 -> 0",
+        "line endings normalized to LF"
+      ]
+    }
+  ]
+}

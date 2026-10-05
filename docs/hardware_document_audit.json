@@ -1,0 +1,182 @@
+{
+  "audit_kind": "supplemental_hardware_document_review",
+  "review_date": "2026-10-05",
+  "completed": true,
+  "converter": "local MarkItDown auto routing",
+  "python": "local Python runtime",
+  "routing": "auto",
+  "ocr_used": false,
+  "sources_modified": false,
+  "documents": [
+    {
+      "name": "EXPLORER_V3.4.pdf",
+      "source": "EXPLORER_V3.4.pdf",
+      "source_sha256": "282206B31B7072204A5A105A289A41D5D4CA11A61664305AE6C48F56040BE9D6",
+      "page_count": 7,
+      "extraction_output": "EXPLORER_V3.4.md (local audit artifact; not published)",
+      "extraction_sha256": "94028CB036D53399FE765FBBFCE7255EF5F27292E13436FF7DC3E16E250DDF69",
+      "pages": [
+        {
+          "page": 1,
+          "native_text_characters": 6792,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 2,
+          "native_text_characters": 8774,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 3,
+          "native_text_characters": 12941,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 4,
+          "native_text_characters": 8118,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 5,
+          "native_text_characters": 3601,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 6,
+          "native_text_characters": 4383,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 7,
+          "native_text_characters": 22532,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        }
+      ],
+      "visual_render_scale": 2,
+      "visual_review_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "ZYNQ_CORE_2V5_user.pdf",
+      "source": "ZYNQ_CORE_2V5_user.pdf",
+      "source_sha256": "1C8CF8105E91D762D29AD604E82B629B3921FA474D5A0311ED6C04237DB107EA",
+      "page_count": 12,
+      "extraction_output": "ZYNQ_CORE_2V5_user.md (local audit artifact; not published)",
+      "extraction_sha256": "5CB764147DEAE06AA2DF2BCB6E2585B6880B2F4650CD3C8428FF0191640E8ECE",
+      "pages": [
+        {
+          "page": 1,
+          "native_text_characters": 697,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 2,
+          "native_text_characters": 1035,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 3,
+          "native_text_characters": 4470,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 4,
+          "native_text_characters": 2874,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 5,
+          "native_text_characters": 3058,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 6,
+          "native_text_characters": 1113,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 7,
+          "native_text_characters": 3087,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 8,
+          "native_text_characters": 4903,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 9,
+          "native_text_characters": 2155,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 10,
+          "native_text_characters": 1621,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        },
+        {
+          "page": 11,
+          "native_text_characters": 2035,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": false
+        },
+        {
+          "page": 12,
+          "native_text_characters": 3556,
+          "raster_images": 0,
+          "route": "native_text",
+          "visually_reviewed": true
+        }
+      ],
+      "visual_render_scale": 2,
+      "visual_review_pages": [
+        3,
+        4,
+        7,
+        10,
+        12
+      ]
+    }
+  ],
+  "publication_note": "Private local paths omitted; source and extraction hashes retained. Source PDFs and extraction outputs are not included in GitHub."
+}

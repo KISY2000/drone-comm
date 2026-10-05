@@ -1,0 +1,27 @@
+{
+  "source_modified": false,
+  "files": [
+    {
+      "original": "无人机系统_三核通信与软件分工说明.pdf",
+      "sha256": "94467E6B2FF8F9D881937D5BBE80F887FD4639B1536BABFFF1217BB173A5707B",
+      "bytes": 211531,
+      "name": "无人机系统_三核通信与软件分工说明.pdf",
+      "repository_included": false
+    },
+    {
+      "original": "EXPLORER_V3.4.pdf",
+      "sha256": "282206B31B7072204A5A105A289A41D5D4CA11A61664305AE6C48F56040BE9D6",
+      "bytes": 3189618,
+      "name": "EXPLORER_V3.4.pdf",
+      "repository_included": false
+    },
+    {
+      "original": "ZYNQ_CORE_2V5_user.pdf",
+      "sha256": "1C8CF8105E91D762D29AD604E82B629B3921FA474D5A0311ED6C04237DB107EA",
+      "bytes": 2430251,
+      "name": "ZYNQ_CORE_2V5_user.pdf",
+      "repository_included": false
+    }
+  ],
+  "publication_scope": "Metadata and hashes only; original private brief and vendor PDFs are excluded from the GitHub repository and retained locally and in restricted collaboration storage."
+}

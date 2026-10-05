@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "checked_at": "2026-10-06T00:48:28.143047+08:00",
+  "status": "PASS",
+  "board_tested": false,
+  "scope": "Git-selected files, sensitive-pattern review, file sizes, current source/evidence hashes; no hardware execution",
+  "limitation": "Pattern scan is not a guarantee that every possible secret is detectable. Documentation and selected files also received manual review.",
+  "selected_file_count": 1364,
+  "selected_bytes": 73583979,
+  "largest_files": [
+    [
+      "deps/cmsis-device-f4-2.6.11/Include/stm32f479xx.h",
+      1555486
+    ],
+    [
+      "deps/cmsis-device-f4-2.6.11/Include/stm32f469xx.h",
+      1534595
+    ],
+    [
+      "deps/cmsis-device-f4-2.6.11/Include/stm32f439xx.h",
+      1332648
+    ],
+    [
+      "deps/cmsis-device-f4-2.6.11/Include/stm32f429xx.h",
+      1311948
+    ],
+    [
+      "deps/cmsis-device-f4-2.6.11/Include/stm32f437xx.h",
+      1307833
+    ]
+  ],
+  "source_evidence_checks": [
+    {
+      "report": "reports/verification.json",
+      "source_files": 253,
+      "mismatches": []
+    },
+    {
+      "report": "reports/platform_compilation.json",
+      "source_files": 205,
+      "mismatches": []
+    },
+    {
+      "report": "reports/keil_project_build/results.json",
+      "source_files": 205,
+      "mismatches": []
+    },
+    {
+      "report": "reports/stm32_standalone.json",
+      "source_files": 437,
+      "mismatches": []
+    },
+    {
+      "report": "reports/zynq_sdk_validation.json",
+      "source_files": 20,
+      "mismatches": []
+    },
+    {
+      "report": "platforms/stm32/cubemx/evidence/generated_keil_results.json",
+      "source_files": 181,
+      "mismatches": []
+    }
+  ],
+  "findings": []
+}

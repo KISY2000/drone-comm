@@ -1,0 +1,5 @@
+ELF=C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_uart0_sdk_460800/dc_zynq_comm/Debug/dc_zynq_comm.elf
+SOURCE_BSP=actual exported HDF; compile_fixture excluded
+ROUTE=uart0_mio14_15; BAUD=460800; STDIN=none; STDOUT=none; LOG=RAM
+BOARD_READY=0; no board execution or final bitstream
+EXTRA_LINK_ONLY_READY1=C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_uart0_sdk_460800/dc_zynq_comm_link_only_ready1/Debug/dc_zynq_comm_link_only_ready1.elf; never programmed or delivered as a flash image

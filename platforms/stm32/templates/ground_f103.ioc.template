@@ -1,0 +1,29 @@
+# Configuration template; not claimed CubeMX-generated or GUI-validated.
+# Use New Project -> STM32F103C8Tx. Apply docs/board_config.md, then save .ioc.
+File.Version=6
+Mcu.Family=STM32F1
+Mcu.Name=STM32F103C8Tx
+Mcu.Package=LQFP48
+Mcu.UserName=STM32F103C8Tx
+ProjectManager.ProjectName=ground_f103
+ProjectManager.TargetToolchain=MDK-ARM V5
+RCC.HSE_VALUE=8000000
+PA2.Signal=USART2_TX
+PA3.Signal=USART2_RX
+USART2.BaudRate=115200
+PA4.GPIO_Label=E07_CSN
+PA4.Signal=GPIO_Output
+PA5.Signal=SPI1_SCK
+PA6.Signal=SPI1_MISO
+PA7.Signal=SPI1_MOSI
+SPI1.Mode=SPI_MODE_MASTER
+SPI1.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_32
+PB0.GPIO_Label=E07_GDO0
+PB0.Signal=GPXTI0
+PB1.GPIO_Label=E07_GDO2
+PB1.Signal=GPIO_Input
+# DMA USART2 RX: DMA1_Channel6, circular, byte/byte, memory increment, high priority.
+# Keep HT/TC interrupts plus USART2 IDLE enabled, all preempt priorities = 5.
+# HSE 8 MHz -> PLL x9 -> SYSCLK 72 MHz, APB1 /2, APB2 /1.
+# E07 CSN startup HIGH, GDO0 both edges; GDO2 input pulldown, no EXTI.
+# SPI mode 0, no hardware NSS.

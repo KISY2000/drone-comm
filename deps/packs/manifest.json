@@ -1,0 +1,23 @@
+[
+  {
+    "name": "STM32F1xx_DFP",
+    "version": "2.4.1",
+    "source": "https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack",
+    "sha256": "807ea15da5b172b916bbc47b2b87f1e621240ad208d38e82a417a2ef8191e9d1",
+    "installed": "C:\\Users\\Li\\AppData\\Local\\Keil_v5\\ARM\\PACK\\Keil\\STM32F1xx_DFP\\2.4.1"
+  },
+  {
+    "name": "STM32F4xx_DFP",
+    "version": "3.1.1",
+    "source": "https://www.keil.com/pack/Keil.STM32F4xx_DFP.3.1.1.pack",
+    "sha256": "345231106fe697df24bbe9133aeeec1b0383d7891c4adf4f47bbb8b478e9f2f0",
+    "installed": "C:\\Users\\Li\\AppData\\Local\\Keil_v5\\ARM\\PACK\\Keil\\STM32F4xx_DFP\\3.1.1"
+  },
+  {
+    "name": "CMSIS",
+    "version": "5.9.0",
+    "source": "https://www.keil.com/pack/ARM.CMSIS.5.9.0.pack",
+    "sha256": "14b366f2821ee5d32f0d3bf48ef9657ca45347261d0531263580848e9d36f8f4",
+    "installed": "C:\\Users\\Li\\AppData\\Local\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.9.0"
+  }
+]

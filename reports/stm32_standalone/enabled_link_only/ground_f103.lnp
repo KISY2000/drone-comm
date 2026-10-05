@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"..\ground_f103\startup_stm32f103xb.o"
+"..\ground_f103\system_stm32f1xx.o"
+"..\ground_f103\main.o"
+"..\ground_f103\dc_protocol.o"
+"..\ground_f103\dc_node.o"
+"..\ground_f103\dc_radio.o"
+"..\ground_f103\dc_byte_ring.o"
+"..\ground_f103\dc_stm32_port.o"
+"..\ground_f103\dc_stm32_app.o"
+"..\ground_f103\main_hooks.o"
+"..\ground_f103\board_peripherals.o"
+"..\ground_f103\stm32f1xx_hal.o"
+"..\ground_f103\stm32f1xx_hal_uart.o"
+"..\ground_f103\stm32f1xx_hal_dma.o"
+"..\ground_f103\stm32f1xx_hal_spi.o"
+"..\ground_f103\stm32f1xx_hal_gpio.o"
+"..\ground_f103\stm32f1xx_hal_rcc.o"
+"..\ground_f103\stm32f1xx_hal_rcc_ex.o"
+"..\ground_f103\stm32f1xx_hal_cortex.o"
+"..\ground_f103\stm32f1xx_hal_flash.o"
+"..\ground_f103\stm32f1xx_hal_flash_ex.o"
+"..\ground_f103\stm32f1xx_hal_pwr.o"
+--library_type=microlib --strict --scatter "..\..\..\..\platforms\stm32\standalone\ground_f103.sct"
+--entry=Reset_Handler --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "..\ground_f103\ground_f103_LINK_ONLY_DO_NOT_FLASH.map" -o ..\ground_f103\ground_f103_LINK_ONLY_DO_NOT_FLASH.axf

@@ -1,0 +1,26 @@
+load STM32F407ZGTx
+project name ground_f407
+project path C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f407
+project toolchain MDK-ARM V5
+project couplefilesbyip 1
+project generateunderroot 1
+project set stacksize 4096
+project set heapsize 512
+set mode SYS Serial_Wire
+set mode RCC HSE-External-Oscillator
+set mode USART3 Asynchronous
+set pin PB10 USART3_TX
+set pin PB11 USART3_RX
+set ip parameters USART3 BaudRate 115200
+set mode USART2 Asynchronous
+set pin PA2 USART2_TX
+set pin PA3 USART2_RX
+set ip parameters USART2 BaudRate 115200
+set mode RNG Activate
+set pin PD3 GPIO_Output
+set gpio parameters PD3 PinState GPIO_PIN_RESET
+set pin PC1 GPIO_Output
+set gpio parameters PC1 PinState GPIO_PIN_RESET
+get modes RNG
+config saveas C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f407/ground_f407.ioc
+exit

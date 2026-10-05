@@ -1,0 +1,15 @@
+# HISTORICAL FALLBACK ONLY: current route is UART0 MIO14/15, UART1 disabled.
+# Do not apply this template to the current communication build.
+# Apply only to a separate copy of the existing Vivado 2017.4 hardware project.
+# Usage: source uart1_emio.tcl.template; dc_export_uart1_emio <actual_PS7_cell>
+proc dc_export_uart1_emio {ps_cell} {
+    set ps [get_bd_cells -quiet $ps_cell]
+    if {[llength $ps] != 1} { error "Select exactly one actual processing_system7 cell" }
+    set_property -dict [list CONFIG.PCW_UART1_PERIPHERAL_ENABLE {1} CONFIG.PCW_UART1_UART1_IO {EMIO}] $ps
+    set uart [get_bd_intf_pins -quiet ${ps_cell}/UART_1]
+    if {[llength $uart] != 1} { error "UART_1 interface missing after enabling EMIO" }
+    make_bd_intf_pins_external $uart
+    validate_bd_design
+}
+# UART0 log configuration must match actual MIO/baseboard route; this does not set it.
+# Build wrapper after reviewing the changed project. No package pins are inferred.

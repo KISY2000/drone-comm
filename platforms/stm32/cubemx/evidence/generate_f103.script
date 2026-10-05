@@ -1,0 +1,5 @@
+config load C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f103/ground_f103.ioc
+project path C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f103
+config saveas C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f103/ground_f103.ioc
+project generate
+exit

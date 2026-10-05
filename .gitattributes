@@ -1,0 +1,6 @@
+# Evidence hashes describe exact bytes. Disable platform-specific EOL rewriting.
+* -text
+*.pdf binary
+*.png binary
+*.jpg binary
+*.gif binary

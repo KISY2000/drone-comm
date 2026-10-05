@@ -1,0 +1,15 @@
+{
+  "product": "STM32CubeMX-Win",
+  "version": "6.18.1",
+  "product_page": "https://www.st.com/en/development-tools/stm32cubemx.html",
+  "download": "https://www.st.com/bin/st/s3-software-download?s3url=publish/stm32cubemx-win-v6-18-1/6.18.1/en/SetupSTM32CubeMX-6.18.1-Win-x86_64.zip",
+  "status": "installed_by_user_and_generation_verified",
+  "reason": "User installed CubeMX; official quiet-mode CLI generated real F103/F407 IOC and MDK projects.",
+  "installed": true,
+  "previous_download_status": "not_downloaded",
+  "previous_download_reason": "Official endpoint returned HTTP 401 Authorization Required; ST account download/login required",
+  "installed_path": "C:/Users/Li/AppData/Local/Programs/STM32CubeMX/STM32CubeMX.exe",
+  "exe_file_version": "6.18.1-RC2",
+  "exe_sha256": "db4ca49eea336b819eede7f2a1cea19fff65f2f435aee35efc54ce856b6fae01",
+  "board_tested": false
+}

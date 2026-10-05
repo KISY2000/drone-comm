@@ -1,0 +1,86 @@
+{
+  "schema": 2,
+  "board_family": "ALIENTEK Navigator V2 Zynq",
+  "device_family": "XC7Z020",
+  "model_7020_confirmed_by_user": true,
+  "user_confirmation": "7020，你自己查吧",
+  "design_part": "xc7z020clg400-2",
+  "design_part_basis": "Vendor FPGA Development Guide V3.4 PDF pp32-33 and board specification V1.2 p14; matches the existing audited Vivado project",
+  "vendor_standard_ordering_code": "XC7Z020-2CLG400I",
+  "vendor_package": "CLG400",
+  "vendor_speed_grade": "-2",
+  "vendor_temperature_grade": "industrial",
+  "physical_speed_grade_read": false,
+  "baseboard_revision": null,
+  "baseboard_revision_basis": "The supplied disk contains several board revisions; directory names do not identify the physical PCB",
+  "uart0": {
+    "route": "PS UART0 MIO14/15",
+    "use": "binary communication only",
+    "rx": {
+      "mio": 14,
+      "header": "P5.2",
+      "core_connector_reference": "X3.89 (reference only, not a jumper target)",
+      "peer": "ground F407 PA2 USART2_TX / Explorer P4.3"
+    },
+    "tx": {
+      "mio": 15,
+      "header": "P5.1",
+      "core_connector_reference": "X3.87 (reference only, not a jumper target)",
+      "peer": "ground F407 PA3 USART2_RX / Explorer P4.4"
+    },
+    "remove_p5_links": [
+      "1-3",
+      "2-4"
+    ],
+    "baud_default": 115200,
+    "high_speed_test_baud": 460800,
+    "format": "8N1",
+    "ground": "common GND; do not tie independently regulated 3.3V outputs",
+    "voltage_measured": false
+  },
+  "board_ready": false,
+  "board_tested": false,
+  "physical_acceptance": "Check P5 header orientation, remove both USB UART links before connecting MCU-side TTL signals, verify voltage/common GND and baud; no board execution has occurred.",
+  "historical_uart1_emio": {
+    "route": "PS UART1 via EMIO",
+    "rx": {
+      "port": "COMM_UART1_rxd",
+      "package_pin": "U5",
+      "header": "J4.3",
+      "bank": 13,
+      "peer": "ground F407 PC6 USART6_TX"
+    },
+    "tx": {
+      "port": "COMM_UART1_txd",
+      "package_pin": "T5",
+      "header": "J4.4",
+      "bank": 13,
+      "peer": "ground F407 PC7 USART6_RX"
+    },
+    "ground": [
+      "J4.37",
+      "J4.39"
+    ],
+    "baud": 460800,
+    "format": "8N1",
+    "iostandard": "LVCMOS33",
+    "vcco_design_default_volts": 3.3,
+    "vcco_documentation": "Board specification V1.2 PDF pp13/21; core 2V5 schematic p7: R220/R222 NC from VCCIO, R223/R221 0R from +3.3V",
+    "vcco_measured": false,
+    "active": false,
+    "status": "Historical fallback, not enabled in current hardware validation"
+  },
+  "communication_route": "uart0_mio14_15",
+  "uart_baud_default": 115200,
+  "uart_baud_profiles": [
+    115200,
+    460800
+  ],
+  "console": {
+    "stdin": "none",
+    "stdout": "none",
+    "application_log": "bounded RAM ring dc_zynq_debug_log; JTAG inspection",
+    "uart_output_enabled": false,
+    "future_bootloader": "FSBL and any boot-stage debug output must not emit UART0 text"
+  }
+}

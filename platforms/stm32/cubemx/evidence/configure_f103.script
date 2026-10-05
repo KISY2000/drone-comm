@@ -1,0 +1,36 @@
+load STM32F103C8Tx
+project name ground_f103
+project path C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f103
+project toolchain MDK-ARM V5
+project couplefilesbyip 1
+project generateunderroot 1
+project set stacksize 0x1000
+project set heapsize 0x200
+set mode SYS Debug_Serial_Wire
+set mode RCC HSE-External-Oscillator
+set ip parameters RCC HSE_VALUE 8000000
+set ip parameters RCC PLLSourceVirtual RCC_PLLSOURCE_HSE
+set ip parameters RCC HSEDivPLL RCC_HSE_PREDIV_DIV1
+set ip parameters RCC PLLMUL RCC_PLL_MUL9
+set ip parameters RCC APB1CLKDivider RCC_HCLK_DIV2
+set ip parameters RCC SYSCLKSource RCC_SYSCLKSOURCE_PLLCLK
+set mode USART2 Asynchronous
+set pin PA2 USART2_TX
+set pin PA3 USART2_RX
+set ip parameters USART2 BaudRate 115200
+set mode SPI1 Full_Duplex_Master
+set pin PA5 SPI1_SCK
+set pin PA6 SPI1_MISO
+set pin PA7 SPI1_MOSI
+set ip parameters SPI1 BaudRatePrescaler SPI_BAUDRATEPRESCALER_32
+set pin PA4 GPIO_Output
+set gpio parameters PA4 PinState GPIO_PIN_SET
+set pin PB0 GPIO_EXTI0
+set gpio parameters PB0 GPIO_ModeDefaultEXTI GPIO_MODE_IT_RISING_FALLING
+set pin PB1 GPIO_Input
+set gpio parameters PB1 GPIO_PuPd GPIO_PULLDOWN
+get modes SYS
+get gpio
+get ip
+config saveas C:/Users/Li/Desktop/Engineering/drone_comm/build/cubemx_probe/ground_f103/ground_f103.ioc
+exit

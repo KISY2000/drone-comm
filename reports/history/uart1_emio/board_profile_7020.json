@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "board_family": "ALIENTEK Navigator V2 Zynq",
+  "device_family": "XC7Z020",
+  "model_7020_confirmed_by_user": true,
+  "user_confirmation": "7020，你自己查吧",
+  "design_part": "xc7z020clg400-2",
+  "design_part_basis": "Vendor FPGA Development Guide V3.4 PDF pp32-33 and board specification V1.2 p14; matches the existing audited Vivado project",
+  "vendor_standard_ordering_code": "XC7Z020-2CLG400I",
+  "vendor_package": "CLG400",
+  "vendor_speed_grade": "-2",
+  "vendor_temperature_grade": "industrial",
+  "physical_speed_grade_read": false,
+  "baseboard_revision": null,
+  "baseboard_revision_basis": "The supplied disk contains several board revisions; directory names do not identify the physical PCB",
+  "uart1": {
+    "route": "PS UART1 via EMIO",
+    "rx": {"port": "COMM_UART1_rxd", "package_pin": "U5", "header": "J4.3", "bank": 13, "peer": "ground F407 PC6 USART6_TX"},
+    "tx": {"port": "COMM_UART1_txd", "package_pin": "T5", "header": "J4.4", "bank": 13, "peer": "ground F407 PC7 USART6_RX"},
+    "ground": ["J4.37", "J4.39"],
+    "baud": 460800,
+    "format": "8N1",
+    "iostandard": "LVCMOS33",
+    "vcco_design_default_volts": 3.3,
+    "vcco_documentation": "Board specification V1.2 PDF pp13/21; core 2V5 schematic p7: R220/R222 NC from VCCIO, R223/R221 0R from +3.3V",
+    "vcco_measured": false
+  },
+  "uart0": {"route": "PS UART0 MIO14/15", "use": "USB log", "p5_links": ["1-3", "2-4"]},
+  "board_ready": false,
+  "board_tested": false,
+  "physical_acceptance": "Before connection/programming, check header orientation, default bank supply and wiring on the board; these are hardware bring-up tasks, not a repeated request for the already-confirmed 7020 model"
+}

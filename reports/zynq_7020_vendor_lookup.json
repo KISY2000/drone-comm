@@ -1,0 +1,304 @@
+{
+  "audit_date": "2026-10-05",
+  "status": "user_confirmed_7020; vendor_standard_verified; offline_implementation_can_proceed",
+  "prior_evidence": "docs/zynq_navigator_v2_evidence.md",
+  "user_confirmation": {
+    "quote": "7020，你自己查吧",
+    "device_family": "XC7Z020",
+    "physical_complete_marking_read": false
+  },
+  "official_standard": {
+    "full_ordering_model": "XC7Z020-2CLG400I",
+    "device": "XC7Z020",
+    "package": "CLG400",
+    "package_pin_count": 400,
+    "speed_grade": "-2",
+    "temperature_suffix": "I",
+    "temperature_grade": "industrial",
+    "temperature_range_used_for_design": false,
+    "vivado_part": "xc7z020clg400-2",
+    "evidence": [
+      {
+        "source_id": "S2",
+        "pdf_pages": [
+          32,
+          33
+        ]
+      },
+      {
+        "source_id": "S1",
+        "pdf_pages": [
+          6,
+          7,
+          9,
+          14
+        ]
+      }
+    ],
+    "spec_page_10_ambiguity": "Commercial CF7020B and industrial CF7020BI headers share an XC7Z020CLG400-2I cell; this table alone cannot identify the temperature grade of an individual physical board."
+  },
+  "bank13_supply": {
+    "official_default_vcco_volts": 3.3,
+    "network": "VCCO_B13",
+    "offline_iostandard": "LVCMOS33",
+    "resistors": [
+      {
+        "source": "+3.3V",
+        "references": [
+          "R223",
+          "R221"
+        ],
+        "schematic_population": "0R",
+        "destination": "VCCO_B13"
+      },
+      {
+        "source": "VCCIO",
+        "references": [
+          "R220",
+          "R222"
+        ],
+        "schematic_population": "NC",
+        "destination": "VCCO_B13"
+      }
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "pdf_pages": [
+          7
+        ],
+        "location": "top-left BANK13 supply selector; high-resolution native-page crop visually checked"
+      },
+      {
+        "source_id": "S1",
+        "pdf_pages": [
+          13,
+          21
+        ]
+      }
+    ],
+    "crop": "D:\\LocalOCR\\tasks\\drone_comm_navigator_v2_20261005\\bank13_supply_detail.png",
+    "physical_resistor_population_inspected": false,
+    "physical_vcco_measured": false,
+    "j4_pin38_supply_does_not_independently_prove_bank13_vcco": true
+  },
+  "baseboard_revisions": [
+    {
+      "version_label": "V3.7 legacy directory / V3.6 schematic filename",
+      "audio_solution": "WM8960",
+      "evidence": "Prior source audit: legacy directory explicitly labels WM8960; revision notes record its replacement at V3.8."
+    },
+    {
+      "version": "V3.8",
+      "date": "2024-07-17",
+      "audio_solution": "ES8388",
+      "changes": [
+        "WM8960 shortage led to replacement with ES8388",
+        "Type-C resistor package changed to 0603"
+      ],
+      "source_id": "S4"
+    },
+    {
+      "version": "V3.9",
+      "date": "2025-01-09",
+      "changes": [
+        "Connector silkscreen refinement only, based on V3.8",
+        "3V silkscreen changed to 3.3V"
+      ],
+      "source_id": "S4"
+    }
+  ],
+  "revision_identification": {
+    "wm8960_vs_es8388_distinguishes_old_audio_scheme": true,
+    "es8388_alone_distinguishes_v38_from_v39": false,
+    "assembly_front_model_label_location": "Below the lower core-board connector J1 and above the OLED/CAMERA header: 正点原子领航者 / ATK-DF7010/7020P",
+    "assembly_back_model_label_location": "Central area below QR code: ATK-DF7010/7020P",
+    "explicit_v39_revision_silkscreen_found_in_reviewed_assembly_pages": false,
+    "physical_baseboard_revision_uniquely_identified": false,
+    "physical_revision_is_prerequisite_for_current_offline_uart_work": false
+  },
+  "core_revision": {
+    "version": "V2.5",
+    "date": "2024-09-11",
+    "source_id": "S5",
+    "changes": [
+      "Power scheme and power-on sequence optimized"
+    ],
+    "vendor_declares_connector_pin_compatibility_with_v24": true,
+    "vendor_declares_same_functions": true
+  },
+  "uart1_route": {
+    "existing_evidence_reused": true,
+    "rx": {
+      "port": "COMM_UART1_rxd",
+      "header": "J4",
+      "header_pin": 3,
+      "package_pin": "U5",
+      "bank": 13
+    },
+    "tx": {
+      "port": "COMM_UART1_txd",
+      "header": "J4",
+      "header_pin": 4,
+      "package_pin": "T5",
+      "bank": 13
+    },
+    "main_v39_vs_legacy_v36_reviewed_routes_match": true,
+    "comparison_scope": [
+      "J4 pin3/4 BANK13 routes",
+      "UART0 P5 selector routes"
+    ],
+    "not_all_revisions_assumed_identical": true
+  },
+  "document_policy": {
+    "skill": "C:\\Users\\Li\\.codex\\skills\\markitdown-local-ocr\\SKILL.md",
+    "routing": "MarkItDown local default automatic routing; native-text extraction for text pages; existing core extraction reused",
+    "ocr_model_used": false,
+    "cloud_ocr_used": false,
+    "originals_modified": false,
+    "fpga_guide_auto_route_audit": "D:\\LocalOCR\\tasks\\drone_comm_navigator_v2_20261005\\fpga_guide_device_pages.ocr.json",
+    "fpga_guide_regions": [
+      {
+        "page": 32,
+        "label": "native_text"
+      },
+      {
+        "page": 33,
+        "label": "native_text"
+      },
+      {
+        "page": 89,
+        "label": "native_text"
+      }
+    ],
+    "fpga_guide_ocr_model": null,
+    "visual_crosschecks": [
+      "Core V2.5 page7 supply crop",
+      "Specification V1.2 pages10/13/14/21",
+      "V3.9 front/back assembly page1"
+    ],
+    "assembly_page2_blank_in_both_files": true,
+    "assembly_page2_content_audit": {
+      "native_text_characters": 0,
+      "displayed_raster_images": 0,
+      "vector_drawings": 0
+    },
+    "hidden_altium_object_text_used_to_infer_pins_or_revision": false,
+    "unresolved_recognition_errors_affecting_conclusions": [],
+    "task_artifact_directory": "D:\\LocalOCR\\tasks\\drone_comm_navigator_v2_20261005"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\硬件相关文件\\开发板规格书\\【正点原子】领航者ZYNQ开发板规格书V1.2.pdf",
+      "sha256": "B974ED61B10FABAFE408A42D119E94FC53C6133A9A7FC64B0191BFE5E14744E6",
+      "page_count": 41,
+      "relevant_pdf_pages": [
+        6,
+        7,
+        9,
+        10,
+        13,
+        14,
+        21
+      ]
+    },
+    {
+      "id": "S2",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\2_文档教程\\1_【正点原子】领航者ZYNQ之FPGA开发指南V3.4.pdf",
+      "sha256": "AEC9A9414759FFF9024F2EE821A38E8177E7D439B2F8A338FA1A1691885DD6AD",
+      "page_count": 1605,
+      "relevant_pdf_pages": [
+        32,
+        33,
+        89
+      ]
+    },
+    {
+      "id": "S3",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\ZYNQ7010_7020核心板原理图_2V5.pdf",
+      "sha256": "1C8CF8105E91D762D29AD604E82B629B3921FA474D5A0311ED6C04237DB107EA",
+      "page_count": 12,
+      "relevant_pdf_pages": [
+        7
+      ],
+      "matches_prior_user_core_pdf": true
+    },
+    {
+      "id": "S4",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\硬件相关文件\\硬件改版说明\\底板改版说明.txt",
+      "sha256": "A665E032B4EE2C2494DE580E3A1D3C6BC9F41F2FEB2EE2EF2DFB7B6DB1A74B26",
+      "encoding": "gb18030"
+    },
+    {
+      "id": "S5",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\硬件相关文件\\硬件改版说明\\核心板改版说明.txt",
+      "sha256": "3DE5AB15C65CA96B186E66DCF51B75D8F1B6C2CCE0370E643883A3228AB24E73",
+      "encoding": "gb18030"
+    },
+    {
+      "id": "S6",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\硬件相关文件\\领航者结构图&DXF&封装库\\领航者底板\\领航者ZYNQ底板结构图\\领航者ZYNQ底板结构&装配图正面_V3.9.pdf",
+      "sha256": "59A3240FC364ED270AAF1602793525C7FE748AFFB453F161FAF3F9A0FBD2BC77",
+      "page_count": 2,
+      "relevant_pdf_pages": [
+        1
+      ],
+      "pages": [
+        {
+          "page": 1,
+          "native_text_characters": 31047,
+          "displayed_raster_images": 0,
+          "vector_drawings": 27863
+        },
+        {
+          "page": 2,
+          "native_text_characters": 0,
+          "displayed_raster_images": 0,
+          "vector_drawings": 0
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "path": "D:\\BaiduNetdiskDownload\\正点原子领航者(V2)ZYNQ开发板资料盘(A盘)\\3_开发板原理图和硬件相关文件\\硬件相关文件\\领航者结构图&DXF&封装库\\领航者底板\\领航者ZYNQ底板结构图\\领航者ZYNQ底板结构&装配图背面_V3.9.pdf",
+      "sha256": "5B3F9EE2D639A00867861C859E1953082AC7395DF6DAF2BBD025BC75A53D6616",
+      "page_count": 2,
+      "relevant_pdf_pages": [
+        1
+      ],
+      "pages": [
+        {
+          "page": 1,
+          "native_text_characters": 31045,
+          "displayed_raster_images": 0,
+          "vector_drawings": 6003
+        },
+        {
+          "page": 2,
+          "native_text_characters": 0,
+          "displayed_raster_images": 0,
+          "vector_drawings": 0
+        }
+      ]
+    }
+  ],
+  "permitted_progress": [
+    "Portable communication software and host validation",
+    "UART1 EMIO standalone HDF/BSP/ELF",
+    "Isolated pin/device implementation validation targeting xc7z020clg400-2"
+  ],
+  "physical_acceptance_pending": [
+    "VCCO_B13 measured at 3.3V and documented resistor population verified",
+    "J4 pin1 orientation and pin3/4 available",
+    "Crossed UART TX/RX and shared GND",
+    "P5 links 1-3 and 2-4",
+    "UART0 USB log and 460800 bps UART1 communication/waveform"
+  ],
+  "scope_boundary": {
+    "this_lookup_modified_original_yolo_project": false,
+    "this_lookup_modified_code_or_templates": false,
+    "this_lookup_performed_hardware_tests": false,
+    "lookup_counts_as_yolo_or_video_hardware_completion": false
+  }
+}

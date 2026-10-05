@@ -1,0 +1,32 @@
+# Configuration template; not claimed CubeMX-generated or GUI-validated.
+# Use New Project -> STM32F407ZGTx. Apply docs/board_config.md, then save .ioc.
+File.Version=6
+Mcu.Family=STM32F4
+Mcu.Name=STM32F407ZGTx
+Mcu.Package=LQFP144
+Mcu.UserName=STM32F407ZGTx
+ProjectManager.ProjectName=ground_f407
+ProjectManager.TargetToolchain=MDK-ARM V5
+RCC.HSE_VALUE=8000000
+PB10.Signal=USART3_TX
+PB11.Signal=USART3_RX
+PA2.Signal=USART2_TX
+PA3.Signal=USART2_RX
+USART3.BaudRate=115200
+USART2.BaudRate=115200
+PD3.GPIO_Label=PHY_RESET_N
+PD3.Signal=GPIO_Output
+PD3.PinState=GPIO_PIN_RESET
+PC1.GPIO_Label=PHY_MDC_HOLD_LOW
+PC1.Signal=GPIO_Output
+PC1.PinState=GPIO_PIN_RESET
+RNG.IPParameters=VirtualMode
+RNG.VirtualMode=RNG_Activate
+# USART3 RX: DMA1_Stream1 channel 4; USART2 RX: DMA1_Stream5 channel 4.
+# Both circular, byte/byte, memory increment, direct mode, high priority.
+# UART/DMA HT/TC/IDLE IRQs all preempt priorities = 5; DMA buffer in SRAM1/2.
+# HSE 8 MHz; PLL M=8 N=336 P=2 Q=7; AHB/1 APB1/4 APB2/2.
+# Hold PHY reset PD3 LOW and MDC PC1 LOW BEFORE UART2 PA2/PA3 AF7.
+# Do not initialize ETH/audio/I2S. This does not prove PHY MDIO is high impedance.
+# Remove P2/P4 peripheral jumpers and audio jumpers; see docs/proposed_wiring.md.
+# Start at 115200; qualify 460800 electrically and update all communicating peers.

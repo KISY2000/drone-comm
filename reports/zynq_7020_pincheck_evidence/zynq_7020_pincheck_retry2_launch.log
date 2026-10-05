@@ -1,0 +1,421 @@
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source {C:\Users\Li\Desktop\Engineering\drone_comm\tools\check_zynq_7020_pins.tcl}
+# set root [file normalize [file join [file dirname [info script]] ..]]
+# set base [file join $root build zynq_validation]
+# set out [file join $root build zynq_7020_pincheck]
+# if {$argc > 0} { set out [file normalize [lindex $argv 0]] }
+# if {[file exists $out]} { error "Refusing an existing output directory: $out" }
+# set top_src [file join $base project dc_uart_validation.runs synth_1 system_wrapper.dcp]
+# set ps_src [file join $base input ip system_processing_system7_0_0 system_processing_system7_0_0.dcp]
+# set reset_src [file join $base input ip system_rst_ps7_0_100M_0 system_rst_ps7_0_100M_0.dcp]
+# set xdc_src [file join $root platforms zynq navigator_7020_uart1.xdc]
+# foreach src [list $top_src $ps_src $reset_src $xdc_src] {
+#     if {![file isfile $src]} { error "Required source not found: $src" }
+# }
+# file mkdir $out
+# set inputs [file join $out input]
+# file mkdir $inputs
+# set top [file join $inputs system_wrapper.dcp]
+# set ps [file join $inputs system_processing_system7_0_0.dcp]
+# set reset [file join $inputs system_rst_ps7_0_100M_0.dcp]
+# set xdc [file join $inputs navigator_7020_uart1.xdc]
+# foreach src [list $top_src $ps_src $reset_src $xdc_src] dest [list $top $ps $reset $xdc] {
+#     file copy $src $dest
+# }
+# set status [open [file join $out status.tsv] w]
+# proc record {key value} {
+#     global status
+#     puts $status "$key\t$value"
+#     flush $status
+# }
+# proc dump_properties {object path} {
+#     set fp [open $path w]
+#     foreach property [lsort [list_property $object]] {
+#         puts $fp "$property=[get_property $property $object]"
+#     }
+#     close $fp
+# }
+# record tool_version [version -short]
+# record model7020_user_confirmed true
+# record actual_vcco_measured false
+# record default_vcco_source "official core-board 2V5 schematic page 7; BANK13 default 3.3V"
+# record board_ready false
+# record bitstream_generated false
+# record board_tested false
+# record step copying_complete
+Command: open_checkpoint C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/system_wrapper.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 228.324 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'system_processing_system7_0_0' instantiated as 'system_i/processing_system7_0' [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_validation/input/synth/system.v:89]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'system_rst_ps7_0_100M_0' instantiated as 'system_i/rst_ps7_0_100M' [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_validation/input/synth/system.v:158]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2017.4 (64-bit) build 2086221
+open_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 569.031 ; gain = 343.020
+Command: read_checkpoint -cell system_i/processing_system7_0 C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/system_processing_system7_0_0.dcp
+CRITICAL WARNING: [Vivado 12-5469] The design checkpoint file 'C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/system_processing_system7_0_0.dcp' was generated for an IP by an out of context synthesis run and should not directly be used as a source in a Vivado flow. It is strongly recommended that that the original IP source file (.xci) be used.
+Command: read_checkpoint -cell system_i/rst_ps7_0_100M C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/system_rst_ps7_0_100M_0.dcp
+CRITICAL WARNING: [Vivado 12-5469] The design checkpoint file 'C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/system_rst_ps7_0_100M_0.dcp' was generated for an IP by an out of context synthesis run and should not directly be used as a source in a Vivado flow. It is strongly recommended that that the original IP source file (.xci) be used.
+Parsing XDC File [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/navigator_7020_uart1.xdc]
+Finished Parsing XDC File [C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/input/navigator_7020_uart1.xdc]
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.444 . Memory (MB): peak = 979.133 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 11a7223fd
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.070 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 2 cells and removed 27 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 11a7223fd
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 1839b5466
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.183 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 153 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 1839b5466
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.206 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: 1839b5466
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.211 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1084.273 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 16b69c0c8
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.254 . Memory (MB): peak = 1084.273 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: 2602faaa6
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+22 Infos, 0 Warnings, 4 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1084.273 ; gain = 105.141
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1084.273 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1d04819ff
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1084.273 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 18e804beb
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1084.273 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1bf36dfe8
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1084.273 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1bf36dfe8
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1084.273 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1bf36dfe8
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1084.273 ; gain = 0.000
+
+Phase 2 Final Placement Cleanup
+Phase 2 Final Placement Cleanup | Checksum: 1bf36dfe8
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Place 30-281] No place-able instance is found; design doesn't contain any instance or all instances are placed
+Ending Placer Task | Checksum: 18e804beb
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1084.273 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+35 Infos, 0 Warnings, 4 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+Checksum: PlaceDB: 9149d2e0 ConstDB: 0 ShapeSum: fd36790b RouteDB: 0
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: ff9f9096
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1240.906 ; gain = 153.113
+Post Restoration Checksum: NetGraph: 57f1de85 NumContArr: a7adb211 Constraints: 0 Timing: 0
+
+Phase 2 Router Initialization
+INFO: [Route 35-64] No timing constraints were detected. The router will operate in resource-optimization mode.
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: ff9f9096
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1246.820 ; gain = 159.027
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: ff9f9096
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1246.820 ; gain = 159.027
+ Number of Nodes with overlaps = 0
+Phase 2 Router Initialization | Checksum: b0b2e549
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Phase 3 Initial Routing
+ Number of Nodes with overlaps = 0
+Phase 3 Initial Routing | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+Phase 4.1 Global Iteration 0 | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+Phase 4 Rip-up And Reroute | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Phase 5 Delay and Skew Optimization
+Phase 5 Delay and Skew Optimization | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+Phase 6.1 Hold Fix Iter | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+Phase 6 Post Hold Fix | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0169307 %
+  Global Horizontal Routing Utilization  = 0.00667681 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 19.8198%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 16.2162%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 2.94118%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 5.88235%, No Congested Regions.
+Phase 7 Route finalize | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: dfbc4235
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1258.637 ; gain = 170.844
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+43 Infos, 0 Warnings, 4 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:18 . Memory (MB): peak = 1258.637 ; gain = 174.363
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.067 . Memory (MB): peak = 1258.637 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/uart1_routed.dcp' has been generated.
+Command: report_drc -file C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.4/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/Li/Desktop/Engineering/drone_comm/build/zynq_7020_pincheck_retry2/drc.rpt.
+report_drc completed successfully
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1272.703 ; gain = 7.074
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1272.703 ; gain = 0.000
+# set failure [catch {
+#     open_checkpoint $top
+#     record part [get_property PART [current_project]]
+#     if {[get_property PART [current_project]] ne "xc7z020clg400-2"} {
+#         error "Expected audited xc7z020clg400-2 target"
+#     }
+#     record top_black_boxes_before [llength [get_cells -quiet -hierarchical -filter {IS_BLACKBOX == 1}]]
+#     foreach cell [get_cells -quiet -hierarchical -filter {IS_BLACKBOX == 1}] {
+#         record black_box_before "[get_property NAME $cell]|[get_property REF_NAME $cell]"
+#     }
+#     # Top synth checkpoint intentionally leaves OOC IP black boxes. Stitch
+#     # matching copied IP DCPs before implementation; no original project is opened.
+#     set ps_cell [get_cells -quiet system_i/processing_system7_0]
+#     if {[llength $ps_cell] != 1} { error "Expected PS7 hierarchy cell" }
+#     if {[get_property IS_BLACKBOX $ps_cell]} {
+#         read_checkpoint -cell system_i/processing_system7_0 $ps
+#         record ps_checkpoint_stitched true
+#     } else { record ps_checkpoint_stitched false }
+#     set reset_cell [get_cells -quiet system_i/rst_ps7_0_100M]
+#     if {[llength $reset_cell] == 1 && [get_property IS_BLACKBOX $reset_cell]} {
+#         read_checkpoint -cell system_i/rst_ps7_0_100M $reset
+#         record reset_checkpoint_stitched true
+#     } else { record reset_checkpoint_stitched false }
+#     set boxes [get_cells -quiet -hierarchical -filter {IS_BLACKBOX == 1}]
+#     record top_black_boxes_after [llength $boxes]
+#     if {[llength $boxes] != 0} { error "Remaining black boxes: $boxes" }
+#     foreach pin_name {U5 T5} {
+#         set pin [get_package_pins -quiet $pin_name]
+#         if {[llength $pin] != 1} { error "Package pin unavailable: $pin_name" }
+#         dump_properties $pin [file join $out ${pin_name}_package_properties.rpt]
+#         foreach property {NAME BANK PIN_FUNC SITE IS_BONDED IS_GENERAL_PURPOSE} {
+#             if {[lsearch -exact [list_property $pin] $property] >= 0} {
+#                 record pin_${pin_name}_${property} [get_property $property $pin]
+#             }
+#         }
+#         if {[get_property BANK $pin] != 13} { error "$pin_name is not in BANK13" }
+#         if {![get_property IS_BONDED $pin] || ![get_property IS_GENERAL_PURPOSE $pin]} {
+#             error "$pin_name is not a bonded general-purpose IO"
+#         }
+#     }
+#     if {[llength [get_ports -quiet COMM_UART1_rxd]] != 1 ||
+#         [llength [get_ports -quiet COMM_UART1_txd]] != 1} {
+#         error "Expected generated COMM_UART1_rxd/txd wrapper ports"
+#     }
+#     read_xdc $xdc
+#     foreach name {COMM_UART1_rxd COMM_UART1_txd} {
+#         set port [get_ports -quiet $name]
+#         record port_${name}_DIRECTION [get_property DIRECTION $port]
+#         record port_${name}_PACKAGE_PIN [get_property PACKAGE_PIN $port]
+#         record port_${name}_IOSTANDARD [get_property IOSTANDARD $port]
+#         if {[get_property IOSTANDARD $port] ne "LVCMOS33"} { error "$name IOSTANDARD differs" }
+#     }
+#     if {[get_property DIRECTION [get_ports COMM_UART1_rxd]] ne "IN" ||
+#         [get_property DIRECTION [get_ports COMM_UART1_txd]] ne "OUT"} {
+#         error "UART1 direction mismatch"
+#     }
+#     record step constraints_loaded
+#     opt_design
+#     record step opt_completed
+#     place_design
+#     record step place_completed
+#     route_design
+#     record step route_completed
+#     write_checkpoint [file join $out uart1_routed.dcp]
+#     report_drc -file [file join $out drc.rpt]
+#     report_timing_summary -report_unconstrained -file [file join $out timing_summary.rpt]
+#     check_timing -verbose -file [file join $out check_timing.rpt]
+#     report_io -file [file join $out io.rpt]
+#     report_route_status -file [file join $out route_status.rpt]
+#     report_utilization -file [file join $out utilization.rpt]
+#     record clocks [get_clocks -quiet]
+#     set drc_count 0
+#     set drc_blocking 0
+#     foreach violation [get_drc_violations -quiet] {
+#         incr drc_count
+#         set severity [get_property SEVERITY $violation]
+#         record drc_violation "[get_property NAME $violation]|$severity|[get_property DESCRIPTION $violation]"
+#         if {$severity eq "Error" || $severity eq "Critical Warning"} { incr drc_blocking }
+#     }
+#     record drc_violation_count $drc_count
+#     record drc_blocking_count $drc_blocking
+#     if {$drc_blocking > 0} { error "Blocking DRC violations: $drc_blocking" }
+#     record passed true
+#     record step reports_completed
+# } message options]
+# if {$failure} {
+#     record passed false
+#     record failure $message
+#     if {[dict exists $options -errorinfo]} {
+#         set errorfile [open [file join $out error_info.txt] w]
+#         puts $errorfile [dict get $options -errorinfo]
+#         close $errorfile
+#     }
+# }
+# close $status
+# catch {close_design}
+# catch {close_project}
+# if {$failure} {
+#     puts stderr "Independent UART1 pin/implementation check failed: $message"
+#     exit 1
+# }
+INFO: [Common 17-206] Exiting Vivado at Mon Oct  5 19:58:42 2026...

@@ -1,0 +1,13 @@
+# Pending actual E07 wiring: intentionally incomplete and not a generated project.
+File.Version=6
+Mcu.Family=STM32F4
+Mcu.Name=STM32F407ZGTx
+Mcu.Package=LQFP144
+Mcu.UserName=STM32F407ZGTx
+ProjectManager.ProjectName=air_f407_comm_test
+ProjectManager.TargetToolchain=MDK-ARM V5
+RCC.HSE_VALUE=8000000
+# TODO E07 CSN, GDO0, GDO2 actual pins and physical wiring confirmation.
+# Candidate SPI1 PB3/PB4/PB5 only after flash CS PB14 HIGH and JTAG released.
+# Do not default SPI1 PA7: board PHY may drive CRS_DV onto that pin.
+# No motor, DShot, IMU, PID or flight-control initialization.

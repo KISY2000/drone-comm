@@ -1,0 +1,52 @@
+# Local builds, IDE workspaces and caches
+/build/
+/.cache/
+/.Xil/
+**/__pycache__/
+*.pyc
+*.pyo
+*.o
+*.obj
+*.exe
+*.dll
+*.axf
+*.elf
+*.hex
+*.bin
+*.bit
+*.lib
+*.uvguix*
+*.uvoptx
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Original download archives/installers; pinned sources are kept below
+/deps/archives/
+/deps/*.zip
+/deps/*.pack
+/deps/packs/*
+!/deps/packs/manifest.json
+
+# Only CMSIS Core headers are used by this communication project
+/deps/CMSIS_5-5.9.0/*
+!/deps/CMSIS_5-5.9.0/LICENSE.txt
+!/deps/CMSIS_5-5.9.0/README.md
+!/deps/CMSIS_5-5.9.0/CMSIS/
+/deps/CMSIS_5-5.9.0/CMSIS/*
+!/deps/CMSIS_5-5.9.0/CMSIS/Core/
+/deps/CMSIS_5-5.9.0/CMSIS/Core/*
+!/deps/CMSIS_5-5.9.0/CMSIS/Core/Include/
+
+# Original project brief and vendor PDFs are retained locally/shared privately
+/docs/source/*.pdf
+
+# Local handoff ZIPs and editor backups
+*.zip
+*.zip.sha256
+*.bak
+*~

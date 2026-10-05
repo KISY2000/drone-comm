@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+  45824	   2740	  25312	  73876	  12094	dc_zynq_comm.elf

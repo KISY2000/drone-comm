@@ -1,0 +1,103 @@
+{
+  "checked_at": "2026-10-05T11:07:11.240370+00:00",
+  "install_root": "C:/Users/Li/AppData/Local/Programs/STM32CubeMX",
+  "installed_executable": "C:/Users/Li/AppData/Local/Programs/STM32CubeMX/STM32CubeMX.exe",
+  "executable_file_version": "6.18.1-RC2",
+  "official_cli_version": "6.18.1",
+  "database_version": "DB.6.0.181",
+  "bundled_java_version": "21.0.10",
+  "quiet_cli_works": true,
+  "java_awt_headless_enabled": false,
+  "cli_invocation": [
+    "jre/bin/java.exe",
+    "--add-opens=java.desktop/java.awt=ALL-UNNAMED",
+    "--add-exports=java.desktop/sun.awt=ALL-UNNAMED",
+    "-Djavax.net.ssl.trustStoreType=WINDOWS-ROOT",
+    "-jar",
+    "STM32CubeMX.exe",
+    "-q",
+    "<script-file>"
+  ],
+  "cli_working_directory": "CubeMX install_root",
+  "manual": {
+    "source": "C:/Users/Li/AppData/Local/Programs/STM32CubeMX/help/UM1718.pdf",
+    "revision": "UM1718 Rev 50",
+    "extraction": "local MarkItDown direct text; no forced OCR"
+  },
+  "firmware": [
+    {
+      "family": "STM32CubeF1",
+      "tag": "v1.8.7",
+      "origin": "https://github.com/STMicroelectronics/STM32CubeF1.git",
+      "commit": "d12e75247d5bcedc734f829b394517ab4c2726e3",
+      "submodules": {
+        "Drivers/CMSIS/Device/ST/STM32F1xx": {
+          "origin": "https://github.com/STMicroelectronics/cmsis_device_f1.git",
+          "commit": "c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22"
+        },
+        "Drivers/STM32F1xx_HAL_Driver": {
+          "origin": "https://github.com/STMicroelectronics/stm32f1xx_hal_driver.git",
+          "commit": "fee494a92b5ad331f92ad21f76c66a5cb83773ee"
+        }
+      },
+      "hal_version": "1.1.10",
+      "cmsis_device_version": "4.3.5",
+      "package_xml_sha256": "57880e57cdb3a84b3d29dcc1ceaefe90060a3a3e4cc6c074783d5da511a57b25",
+      "location": "build/cubemx_probe/firmware/STM32CubeF1",
+      "scope": "official sparse Drivers snapshot; matching HAL and CMSIS device submodules initialized; no middleware/BSP examples required by these base projects"
+    },
+    {
+      "family": "STM32CubeF4",
+      "tag": "v1.28.3",
+      "origin": "https://github.com/STMicroelectronics/STM32CubeF4.git",
+      "commit": "94cae6e83f00e276a11957e7833c01ac3d0bd7af",
+      "submodules": {
+        "Drivers/CMSIS/Device/ST/STM32F4xx": {
+          "origin": "https://github.com/STMicroelectronics/cmsis_device_f4.git",
+          "commit": "3c77349ce04c8af401454cc51f85ea9a50e34fc1"
+        },
+        "Drivers/STM32F4xx_HAL_Driver": {
+          "origin": "https://github.com/STMicroelectronics/stm32f4xx_hal_driver.git",
+          "commit": "b6f0ed3829f3829eb358a2e7417d80bba1a42db7"
+        }
+      },
+      "hal_version": "1.8.5",
+      "cmsis_device_version": "2.6.11",
+      "package_xml_sha256": "c81b86a1fab3b01e4b8eb9e0ffb705adef65d60428f9670f1c58ebf82c62a3aa",
+      "location": "build/cubemx_probe/firmware/STM32CubeF4",
+      "scope": "official sparse Drivers snapshot; matching HAL and CMSIS device submodules initialized; no middleware/BSP examples required by these base projects"
+    }
+  ],
+  "normal_st_firmware_repository": "No full F1/F4 firmware package installed; custom official source locations used for proven generation",
+  "ioc_process": "Initial IOC saved by CubeMX, explicit board DMA/NVIC/clock values supplied, then CubeMX reload/save/project generate completed; originals retained",
+  "generation": [
+    {
+      "role": "ground_f103",
+      "log": "platforms/stm32/cubemx/evidence/generate_f103.log",
+      "log_sha256": "66a7dfbf54f767d91a02b3dbdcf51908426fc16a5df683d0ad3aaf4beaf24d60",
+      "status": "project generate OK",
+      "source": "platforms/stm32/cubemx/ground_f103",
+      "communication_app_integrated": false,
+      "board_tested": false
+    },
+    {
+      "role": "ground_f407",
+      "log": "platforms/stm32/cubemx/evidence/generate_f407.log",
+      "log_sha256": "47c29145316c1d296e60b34355b071be3087916efb242714c05e7de327222b2e",
+      "status": "project generate OK",
+      "source": "platforms/stm32/cubemx/ground_f407",
+      "communication_app_integrated": false,
+      "board_tested": false
+    }
+  ],
+  "build_report": "platforms/stm32/cubemx/evidence/generated_keil_results.json",
+  "final_build": "Relocated deliverable projects rebuilt with UV4 -r; fresh AXF/HEX SHA256 and source SHA256 recorded",
+  "regeneration_script_validation": "Final fresh-output PowerShell script parsed with 0 syntax errors; underlying official CLI method proven in isolated probe; fresh-output wrapper not rerun end-to-end",
+  "hardware_configuration": {
+    "f103_hse_mhz": 8,
+    "f103_hse_source": "user confirmed",
+    "f407_hse_mhz": 8,
+    "f407_source": "EXPLORER board schematic",
+    "board_acceptance": "not performed"
+  }
+}
