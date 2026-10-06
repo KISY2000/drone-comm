@@ -35,10 +35,16 @@ static bool read_reg(dc_radio_t *r, uint8_t address, uint8_t *value) {
     return r->port.read_reg(r->port.ctx,address,value);
 }
 typedef enum { STATUS_ERROR=-1, STATUS_WAIT=0, STATUS_OK=1 } status_result_t;
+static void watch_status(dc_radio_t *r, uint32_t now) {
+    if (!r->status_pending) {
+        r->status_pending=true;
+        r->status_deadline=now+DC_RF_TX_TIMEOUT_MS;
+    }
+}
 /* CC1101 status registers may change while being sampled over SPI. Require two
  * consecutive equal samples, at most four reads. Unstable status defers work to
  * another tick; independent timers still expire, so this cannot spin forever. */
-static status_result_t read_status(dc_radio_t *r, uint8_t address, uint8_t *value) {
+static status_result_t read_status(dc_radio_t *r, uint8_t address, uint8_t *value, uint32_t now) {
     uint8_t previous,current;
     unsigned i;
     if (!read_reg(r,address,&previous)) return STATUS_ERROR;
@@ -48,6 +54,7 @@ static status_result_t read_status(dc_radio_t *r, uint8_t address, uint8_t *valu
         previous=current;
     }
     r->stats.status_unstable++;
+    watch_status(r,now);
     return STATUS_WAIT;
 }
 static bool rx_sync_high(const dc_radio_t *r) {
@@ -72,12 +79,16 @@ static void fault(dc_radio_t *r) {
     r->stats.io_errors++;
     r->state = DC_RADIO_FAULT;
     r->rx_length = 0;
+    r->rx_fifo_seen=false;
+    r->status_pending=false;
     complete(r,DC_RF_IO_ERROR,NULL);
 }
 static void timed_fault(dc_radio_t *r) {
     r->state=DC_RADIO_FAULT;
     r->rx_length=0;
     r->rx_sync_pending=false;
+    r->rx_fifo_seen=false;
+    r->status_pending=false;
     complete(r,DC_RF_TIMEOUT,NULL);
 }
 static bool receive_mode(dc_radio_t *r, uint32_t now, bool flush) {
@@ -92,27 +103,19 @@ static bool receive_mode(dc_radio_t *r, uint32_t now, bool flush) {
     if (!strobe(r,CMD_SRX)) { fault(r); return false; }
     r->rx_length = 0;
     r->rx_sync_pending=false;
+    r->rx_fifo_seen=false;
+    r->status_pending=false;
     r->state = DC_RADIO_RX_START;
     r->state_deadline = now + DC_RF_TX_TIMEOUT_MS;
     return true;
 }
-static bool recover(dc_radio_t *r, uint32_t now) {
-    if (!receive_mode(r,now,true)) return false;
-    r->stats.recoveries++;
-    return true;
-}
-
-bool dc_radio_init(dc_radio_t *r, const dc_radio_port_t *port, uint8_t address,
-                   dc_radio_receive_fn on_frame, dc_radio_transaction_fn on_transaction,
-                   void *user, uint32_t now) {
+/* Reconfigure hardware without clearing software accounting or the original
+ * transaction. SRES also clears the modulator state after an aborted TX:
+ * SIDLE/SFTX alone is not sufficient for TI SWRZ020E p.10. */
+static bool configure_hardware(dc_radio_t *r, uint32_t now) {
     uint8_t part,version,value,power=0xc0;
     size_t i;
-    if (!r || !port || !port->read_reg || !port->write_reg || !port->read_burst ||
-        !port->write_burst || !port->strobe ||
-        (address != DC_RF_GROUND_ADDRESS && address != DC_RF_AIR_ADDRESS)) return false;
-    memset(r,0,sizeof(*r));
-    r->port=*port; r->local_address=address; r->on_frame=on_frame;
-    r->on_transaction=on_transaction; r->user=user;
+    r->rx_length=0; r->rx_sync_pending=false; r->rx_fifo_seen=false; r->status_pending=false;
     if (!strobe(r,CMD_SRES) || !read_reg(r,REG_PARTNUM,&part) ||
         !read_reg(r,REG_VERSION,&version) || part != 0 || version == 0 || version == 0xff) {
         fault(r); return false;
@@ -123,8 +126,8 @@ bool dc_radio_init(dc_radio_t *r, const dc_radio_port_t *port, uint8_t address,
             fault(r); return false;
         }
     }
-    if (!r->port.write_reg(r->port.ctx,REG_ADDR,address) ||
-        !read_reg(r,REG_ADDR,&value) || value != address ||
+    if (!r->port.write_reg(r->port.ctx,REG_ADDR,r->local_address) ||
+        !read_reg(r,REG_ADDR,&value) || value != r->local_address ||
         !r->port.write_burst(r->port.ctx,REG_PATABLE,&power,1) ||
         !r->port.read_burst(r->port.ctx,REG_PATABLE,&value,1) || value != power ||
         !strobe(r,CMD_SCAL)) {
@@ -134,13 +137,32 @@ bool dc_radio_init(dc_radio_t *r, const dc_radio_port_t *port, uint8_t address,
     r->state_deadline=now+DC_RF_TX_TIMEOUT_MS;
     return true;
 }
+static bool recover(dc_radio_t *r, uint32_t now) {
+    if (r->state == DC_RADIO_TX || r->status_pending) {
+        if (!configure_hardware(r,now)) return false;
+    } else if (!receive_mode(r,now,true)) return false;
+    r->stats.recoveries++;
+    return true;
+}
+bool dc_radio_init(dc_radio_t *r, const dc_radio_port_t *port, uint8_t address,
+                   dc_radio_receive_fn on_frame, dc_radio_transaction_fn on_transaction,
+                   void *user, uint32_t now) {
+    if (!r || !port || !port->read_reg || !port->write_reg || !port->read_burst ||
+        !port->write_burst || !port->strobe ||
+        (address != DC_RF_GROUND_ADDRESS && address != DC_RF_AIR_ADDRESS)) return false;
+    memset(r,0,sizeof(*r));
+    r->port=*port; r->local_address=address; r->on_frame=on_frame;
+    r->on_transaction=on_transaction; r->user=user;
+    return configure_hardware(r,now);
+}
 void dc_radio_gdo_event(dc_radio_t *r, bool high) {
     if (!r) return;
     r->gdo_level_event=((r->gdo_level_event+2u)&~1u)|(high ? 1u : 0u);
     if (!high) r->gdo_falling_events++;
 }
 bool dc_radio_ready(const dc_radio_t *r) {
-    return r && r->state == DC_RADIO_RX && r->rx_length == 0 && !rx_sync_high(r);
+    return r && r->state == DC_RADIO_RX && r->rx_length == 0 &&
+        !r->rx_sync_pending && !r->status_pending && !rx_sync_high(r);
 }
 bool dc_radio_transaction_active(const dc_radio_t *r) {
     return r && r->transaction != DC_RF_TXN_IDLE;
@@ -162,9 +184,16 @@ static bool start_tx(dc_radio_t *r, const dc_frame_t *frame, uint8_t peer,
     raw=dc_encode_raw(frame,packet+2,sizeof(packet)-2);
     if (!raw) return false;
     /* Do not abort a packet already arriving in RX. Polling tick drains it. */
-    status=read_status(r,REG_RXBYTES,&rxbytes);
+    status=read_status(r,REG_RXBYTES,&rxbytes,now);
     if (status == STATUS_ERROR) { fault(r); return false; }
-    if (status != STATUS_OK || rxbytes || rx_sync_high(r)) return false;
+    if (status != STATUS_OK) return false;
+    if (rxbytes & 0x7f) {
+        r->rx_fifo_seen=true;
+        if (!r->rx_sync_pending) {
+            r->rx_sync_pending=true; r->partial_deadline=now+DC_RF_TX_TIMEOUT_MS;
+        }
+    }
+    if (rxbytes || rx_sync_high(r)) return false;
     packet[0]=(uint8_t)(raw+1); packet[1]=peer;
     if (!strobe(r,CMD_SIDLE) || !strobe(r,CMD_SFTX) ||
         !r->port.write_burst(r->port.ctx,REG_FIFO,packet,raw+2)) {
@@ -196,7 +225,10 @@ void dc_radio_cancel(dc_radio_t *r, uint32_t now) {
     memset(&r->request,0,sizeof(r->request));
     r->rx_length=0;
     r->rx_sync_pending=false;
-    if (r->state != DC_RADIO_OFF && r->state != DC_RADIO_FAULT)
+    r->rx_fifo_seen=false;
+    if (r->state == DC_RADIO_TX || r->status_pending)
+        (void)configure_hardware(r,now);
+    else if (r->state != DC_RADIO_OFF && r->state != DC_RADIO_FAULT)
         (void)receive_mode(r,now,true);
 }
 static void retry_or_finish(dc_radio_t *r, uint32_t now) {
@@ -220,22 +252,33 @@ static void receive_packet(dc_radio_t *r, uint32_t now, uint8_t marc) {
     uint8_t count,packet[DC_CC1101_PKTLEN+2];
     dc_frame_t frame;
     dc_result_t result;
-    status_result_t status=read_status(r,REG_RXBYTES,&count);
+    status_result_t status=read_status(r,REG_RXBYTES,&count,now);
     if (status == STATUS_ERROR) { fault(r); return; }
     if (status != STATUS_OK) return;
-    if ((count & 0x80) || marc == MARC_RX_OVERFLOW) {
+    /* Only a complete RX observation (legal MARCSTATE plus stable RXBYTES)
+     * retires this watchdog. One good register must not hide the other's noise. */
+    r->status_pending=false;
+    if ((count & 0x80) || marc == MARC_RX_OVERFLOW ||
+        (count & 0x7f) > 1u+DC_CC1101_PKTLEN+2u) {
         r->stats.rx_overflow++; (void)recover(r,now); return;
     }
     count &= 0x7f;
+    if (count) {
+        r->rx_fifo_seen=true;
+        if (!r->rx_sync_pending) {
+            r->partial_deadline=now+DC_RF_TX_TIMEOUT_MS;
+            r->rx_sync_pending=true;
+        }
+    }
     if (!r->rx_length && count) {
+        /* TI SWRZ020E p.2: never read the last FIFO byte while RX may still
+         * append another byte. Keep the length until at least one byte follows.
+         * The watchdog above also covers a lone length with a missed GDO IRQ. */
+        if (count < 2) return;
         if (!r->port.read_burst(r->port.ctx,REG_FIFO,&r->rx_length,1)) { fault(r); return; }
         count--;
         if (r->rx_length < 15 || r->rx_length > DC_CC1101_PKTLEN) {
             r->stats.rx_invalid++; (void)recover(r,now); return;
-        }
-        if (!r->rx_sync_pending) {
-            r->partial_deadline=now+DC_RF_TX_TIMEOUT_MS;
-            r->rx_sync_pending=true;
         }
     }
     if (!r->rx_length) {
@@ -286,6 +329,10 @@ void dc_radio_tick(dc_radio_t *r, uint32_t now) {
         complete(r,DC_RF_TIMEOUT,NULL);
         if (tracked && !recover(r,now)) return;
     }
+    /* Reply expiry is independent of SPI status stability and RX progress.
+     * A late valid reply may still complete the same transaction in backoff. */
+    if (r->transaction == DC_RF_TXN_WAIT_REPLY && expired(now,r->reply_deadline))
+        retry_or_finish(r,now);
     /* Timers are checked before status samples: changing/garbled status must
      * never postpone a watchdog. At the exact deadline, timeout takes priority. */
     if (r->state == DC_RADIO_TX && expired(now,r->state_deadline)) {
@@ -301,11 +348,18 @@ void dc_radio_tick(dc_radio_t *r, uint32_t now) {
         r->rx_sync_pending=true; r->partial_deadline=now+DC_RF_TX_TIMEOUT_MS;
     }
     if (r->state == DC_RADIO_RX && r->rx_sync_pending && expired(now,r->partial_deadline)) {
-        if (r->rx_length) r->stats.rx_partial_timeout++;
+        if (r->rx_length || r->rx_fifo_seen) r->stats.rx_partial_timeout++;
         else r->stats.rx_sync_timeout++;
         (void)recover(r,now); return;
     }
-    status=read_status(r,REG_MARCSTATE,&marc);
+    if (r->state == DC_RADIO_RX && r->status_pending && expired(now,r->status_deadline)) {
+        r->stats.status_timeout++;
+        /* With no trustworthy state, RX flush alone could unknowingly abort
+         * TX. Use the full reset path so modulator residue cannot survive. */
+        if (configure_hardware(r,now)) r->stats.recoveries++;
+        return;
+    }
+    status=read_status(r,REG_MARCSTATE,&marc,now);
     if (status == STATUS_ERROR) { fault(r); return; }
     if (status != STATUS_OK) return;
     marc &= 0x1f;
@@ -318,7 +372,7 @@ void dc_radio_tick(dc_radio_t *r, uint32_t now) {
         /* IDLE may mean a packet arrived between polls, but must not mask an
          * RX strobe that never settled. That failure still has a deadline. */
         if (marc == MARC_IDLE) {
-            status=read_status(r,REG_RXBYTES,&rxbytes);
+            status=read_status(r,REG_RXBYTES,&rxbytes,now);
             if (status == STATUS_ERROR) { fault(r); return; }
             if (status != STATUS_OK) return;
         }
@@ -329,7 +383,7 @@ void dc_radio_tick(dc_radio_t *r, uint32_t now) {
         else return;
     }
     if (r->state == DC_RADIO_TX) {
-        status=read_status(r,REG_TXBYTES,&txbytes);
+        status=read_status(r,REG_TXBYTES,&txbytes,now);
         if (status == STATUS_ERROR) { fault(r); return; }
         if (status != STATUS_OK) return;
         if ((txbytes & 0x80) || marc == MARC_TX_UNDERFLOW) {
@@ -349,10 +403,12 @@ void dc_radio_tick(dc_radio_t *r, uint32_t now) {
         }
         return;
     }
+    if (marc != MARC_RX && marc != MARC_IDLE && marc != MARC_RX_OVERFLOW) {
+        watch_status(r,now);
+        return;
+    }
     receive_packet(r,now,marc);
     if (r->state == DC_RADIO_FAULT) return;
-    if (r->transaction == DC_RF_TXN_WAIT_REPLY && expired(now,r->reply_deadline))
-        retry_or_finish(r,now);
     if (r->transaction == DC_RF_TXN_BACKOFF && expired(now,r->retry_at) && dc_radio_ready(r)) {
         if (start_tx(r,&r->request,r->peer_address,true,now)) {
             r->attempts++; r->stats.retries++; r->transaction=DC_RF_TXN_TX;

@@ -382,6 +382,93 @@ static void test_retry_after_newer_heartbeat_and_error(void) {
     CHECK(!hub.request_pending && hub.test_rx == 1 && air.test_rx == 1);
 }
 
+static void handshake_loss_case(uint32_t base, unsigned loss_ms) {
+    dc_node_t hub, air;
+    capture_t hub_capture, air_capture;
+    unsigned elapsed, i, rounds;
+    memset(&hub_capture, 0, sizeof(hub_capture));
+    memset(&air_capture, 0, sizeof(air_capture));
+    dc_node_init(&hub, DC_HUB, 0x11u, 0x12345678u, capture_send, &hub_capture);
+    dc_node_init(&air, DC_AIR, 0x22u, 0, capture_send, &air_capture);
+    for (elapsed = 0; elapsed <= loss_ms + 4000u; elapsed += 10u) {
+        uint32_t now = base + elapsed;
+        dc_node_tick(&hub, now);
+        dc_node_tick(&air, now);
+        for (rounds = 0; rounds < 10 && (hub_capture.count || air_capture.count); rounds++) {
+            dc_frame_t sent[64];
+            unsigned count = hub_capture.count;
+            memcpy(sent, hub_capture.frames, count * sizeof(sent[0]));
+            hub_capture.count = 0;
+            for (i = 0; i < count; i++)
+                if (sent[i].dst == DC_AIR) dc_node_receive(&air, &sent[i], now);
+            count = air_capture.count;
+            memcpy(sent, air_capture.frames, count * sizeof(sent[0]));
+            air_capture.count = 0;
+            /* Lose the initial challenge responses for longer than one
+             * binding window, then restore the complete bidirectional link. */
+            if (elapsed >= loss_ms)
+                for (i = 0; i < count; i++) dc_node_receive(&hub, &sent[i], now);
+        }
+        CHECK(rounds < 10);
+    }
+    CHECK(air.ready && hub.peers[DC_AIR].ready);
+    CHECK(air.session == hub.peers[DC_AIR].session);
+    CHECK(hub.telemetry_valid && hub.telemetry_rx > 10u);
+}
+
+static void test_handshake_loss_recovery_and_absolute_expiry(void) {
+    dc_node_t hub, air;
+    capture_t hub_capture, air_capture;
+    dc_frame_t old_probe, old_response, new_probe, new_response;
+    unsigned i;
+    bool found = false;
+    handshake_loss_case(0, 2000);
+    handshake_loss_case(0, 12000);
+    handshake_loss_case(0xfffffc18u, 2000); /* binding window crosses timer wrap */
+    memset(&hub_capture, 0, sizeof(hub_capture));
+    memset(&air_capture, 0, sizeof(air_capture));
+    dc_node_init(&hub, DC_HUB, 0x11u, 0x12345678u, capture_send, &hub_capture);
+    dc_node_init(&air, DC_AIR, 0x22u, 0, capture_send, &air_capture);
+    hub.poll_enabled = false;
+    dc_node_tick(&hub, 0);
+    memset(&old_probe, 0, sizeof(old_probe));
+    for (i = 0; i < hub_capture.count; i++)
+        if (hub_capture.frames[i].dst == DC_AIR) {
+            old_probe = hub_capture.frames[i]; found = true; break;
+        }
+    CHECK(found);
+    dc_node_receive(&air, &old_probe, 0);
+    CHECK(air_capture.count > 0);
+    old_response = air_capture.frames[air_capture.count - 1u];
+    dc_node_tick(&hub, 1000);
+    dc_node_receive(&air, &old_probe, 1000);
+    CHECK(hub.peers[DC_AIR].handshake_started == 0 && air.binding_at == 0);
+    hub_capture.count = 0;
+    /* A response arriving at expiry, before HUB tick, must cause a fresh
+     * challenge rather than bind the old attempt or refresh its lifetime. */
+    dc_node_receive(&hub, &old_response, DC_LINK_TIMEOUT_MS);
+    CHECK(!hub.peers[DC_AIR].ready && hub.peers[DC_AIR].pending);
+    CHECK(hub_capture.count == 1 && hub_capture.frames[0].type == DC_HELLO);
+    new_probe = hub_capture.frames[0];
+    CHECK(dc_get_u32(new_probe.payload) != dc_get_u32(old_probe.payload));
+    dc_node_tick(&air, DC_LINK_TIMEOUT_MS);
+    dc_node_receive(&air, &old_probe, DC_LINK_TIMEOUT_MS);
+    CHECK(!air.binding_pending && !air.ready);
+    air_capture.count = 0;
+    dc_node_receive(&air, &new_probe, 1501);
+    CHECK(air.binding_pending && air.binding_at == 1501 && air_capture.count == 1);
+    new_response = air_capture.frames[0];
+    hub_capture.count = 0;
+    dc_node_receive(&hub, &old_response, 1501);
+    CHECK(!hub.peers[DC_AIR].ready && hub_capture.count == 0);
+    dc_node_receive(&hub, &new_response, 1502);
+    CHECK(hub.peers[DC_AIR].ready && hub_capture.count == 1);
+    dc_node_receive(&air, &hub_capture.frames[0], 1503);
+    CHECK(air.ready && air.session == hub.peers[DC_AIR].session);
+    dc_node_receive(&air, &old_probe, 1504);
+    CHECK(air.ready && air.challenge == dc_get_u32(new_probe.payload));
+}
+
 int main(void) {
     test_protocol_boundaries();
     test_unsolicited_ack_and_zero_challenge();
@@ -394,6 +481,7 @@ int main(void) {
     test_congestion_and_telemetry_freshness();
     test_air_duplicate_request_is_idempotent();
     test_retry_after_newer_heartbeat_and_error();
+    test_handshake_loss_recovery_and_absolute_expiry();
     printf("Independent review: %u failure(s)\n", failures);
     return failures ? 1 : 0;
 }

@@ -1,0 +1,2 @@
+first-observation noise: status_timeout=0 resets=1 FIFO=1 rx_seen=0 ready=1
+FAIL: RX had no bounded recovery before FIFO/GDO became observable

@@ -13,7 +13,10 @@ static bool emit(dc_node_t *n,const dc_frame_t *f) {
 }
 static void probe(dc_node_t *n,uint8_t dst,uint32_t now) {
  dc_peer_t *p=&n->peers[dst];dc_frame_t f=make(n,dst,DC_HELLO);
- if(!p->pending) {p->challenge=++n->nonce_state;if(!p->challenge)p->challenge=++n->nonce_state;p->session=0;p->ready=false;p->pending=true;dc_seq_reset(&p->rx);}
+ /* Retransmissions retain one challenge only for a bounded binding window.
+  * handshake_at is the last send time; it must not extend this window or a
+  * peer that expired binding_pending could reject this challenge forever. */
+ if(!p->pending||age(now,p->handshake_started)>=DC_LINK_TIMEOUT_MS) {p->challenge=++n->nonce_state;if(!p->challenge)p->challenge=++n->nonce_state;p->session=0;p->ready=false;p->pending=true;p->handshake_started=now;dc_seq_reset(&p->rx);}
  p->handshake_at=now;f.len=4;dc_put_u32(f.payload,p->challenge);emit(n,&f);
  if(dst==DC_AIR) {n->request_pending=false;n->telemetry_valid=false;}
  if(dst==DC_ZYNQ)n->video_valid=false;
@@ -49,6 +52,9 @@ static void hello(dc_node_t *n,const dc_frame_t *f,uint32_t now) {
    if(p->ready&&p->boot_nonce==dc_get_u32(f->payload)&&age(now,p->last_seen)<DC_LINK_TIMEOUT_MS)return;
    probe(n,f->src,now);return;
   }
+  /* Receive may run before tick at the exact expiry. A late response cannot
+   * complete or extend the retired attempt even if its last probe was recent. */
+  if(p->pending&&age(now,p->handshake_started)>=DC_LINK_TIMEOUT_MS) {++n->rejected;probe(n,f->src,now);return;}
   if(f->len!=8||!p->challenge||dc_get_u32(f->payload+4)!=p->challenge||age(now,p->handshake_at)>1000u) {++n->rejected;return;}
   if(!p->pending&&(!p->ready||dc_get_u32(f->payload)!=p->boot_nonce)) {++n->rejected;return;}
   if(p->pending) {if(!p->session)p->session=token(n);p->boot_nonce=dc_get_u32(f->payload);dc_seq_reset(&p->rx);}

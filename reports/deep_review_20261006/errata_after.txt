@@ -1,0 +1,2 @@
+SWRZ020E p2: duplicate_events=0 FIFO_count=1 driver_length=0 pending=1 deadline=22
+PASS: lone length retained with a bounded watchdog

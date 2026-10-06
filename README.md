@@ -26,12 +26,13 @@ UART0 专用于协议；Zynq 应用日志转为有界 RAM 记录，通过 JTAG/�
 - 地面 F103/F407 实际 CubeMX 生成工程是初始化基底，尚未合入通信主循环。完整通信程序在手动 HAL 独立工程中，两者不能混编重复的 MSP/IRQ。
 - PC 四节点模拟、协议/握手回归、无线寄存器/FIFO 模拟、C/Python 黄金帧和平台适配测试均已建立。
 
-新路线的实际回归及构建结果以 [本轮迁移记录](docs/progress_uart_mio_migration.md) 为准；旧路线的通过记录不自动算作新路线通过。尚未接线、烧录或实板验收，机载 E07 按用户最后信息仍未接线。UART 物理波形、无线距离、实际重传时序、视频采集、YOLO 上板和飞控均未通过实板验收。
+最新修复及逐项复核见 [10 月 6 日全工程复查](docs/deep_review_20261006.md)，接口迁移背景见 [迁移记录](docs/progress_uart_mio_migration.md)；旧路线的通过记录不自动算作新路线通过。尚未接线、烧录或实板验收，机载 E07 按用户最后信息仍未接线。UART 物理波形、无线距离、实际重传时序、视频采集、YOLO 上板和飞控均未通过实板验收。
 
 ## 审查入口
 
 | 内容 | 入口 |
 | --- | --- |
+| 全工程复查、缺陷修复和 YOLO 验证边界 | [10 月 6 日复查](docs/deep_review_20261006.md) |
 | 当前 UART/MIO 迁移与验证范围 | [本轮进度](docs/progress_uart_mio_migration.md) |
 | 当前接线和跳帽条件 | [接线表](docs/proposed_wiring.md) |
 | 时钟、DMA、日志及板级限制 | [板级配置](docs/board_config.md) |
@@ -58,7 +59,7 @@ UART0 专用于协议；Zynq 应用日志转为有界 RAM 记录，通过 JTAG/�
 python -X utf8 tools/run_checks.py --gcc gcc
 ```
 
-先安装 Python 3，并将本机原生 GCC 加入 PATH；或将 `--gcc gcc` 改为实际编译器路径。PC 测试不依赖 OCR 环境，既有记录使用 MinGW GCC 6.2。安装匹配版本的工具链后可追加 `--platforms` 检查 STM32 HAL、Keil ARMCLANG 和 Zynq SDK；各平台脚本的工具路径应按 [工具链说明](docs/toolchain.md) 核对。快速对象编译中的 `xparameters.h` 是显式 compile-only fixture；真实 HDF/BSP/ELF 路径由 `tools/create_zynq_validation.tcl`、`tools/create_zynq_bsp.tcl` 生成，不使用 fixture，重复生成须选择新的输出目录。独立维护的 YOLO 和卷积原型工程保持原样。
+先安装 Python 3，并将本机原生 GCC 加入 PATH；或将 `--gcc gcc` 改为实际编译器路径。PC 测试不依赖 OCR 环境，既有记录使用 MinGW GCC 6.2。安装匹配版本的工具链后可追加 `--platforms` 检查 STM32 HAL、Keil ARMCLANG 和 Zynq SDK；各平台脚本的工具路径应按 [工具链说明](docs/toolchain.md) 核对。快速对象编译中的 `xparameters.h` 是显式 compile-only fixture；真实 HDF/BSP/ELF 路径由 `tools/create_zynq_validation.tcl`、`tools/create_zynq_bsp.tcl` 生成，不使用 fixture，重复生成须选择新的输出目录。独立 YOLO 工程的模型和卷积核保持原样，新增审核入口与 HLS 测试台的范围见本轮复查记录。
 
 ## GitHub 评审与作品提交
 

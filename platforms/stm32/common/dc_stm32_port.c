@@ -23,16 +23,43 @@ void dc_stm32_uart_tx_irq(dc_stm32_uart_t *p) { p->tx_busy=false; }
 void dc_stm32_uart_error_irq(dc_stm32_uart_t *p) {
     p->errors++; p->recovery=true; p->rx.fault=true;
 }
+/* Called with IRQs masked. Stop only this RX channel/stream, never the shared
+ * DMA controller or UART TX. HAL_DMA_Abort/Init can wait on F4 EN using SysTick;
+ * first observe EN clear ourselves so neither can wait with IRQs masked. A
+ * delayed/stuck EN is retried by a later poll, even if SysTick has stopped. */
+static bool restart_uart_rx(dc_stm32_uart_t *p) {
+    DMA_HandleTypeDef *dma=p->uart->hdmarx;
+    if(!dma || dma->Init.Mode!=DMA_CIRCULAR) return false;
+    CLEAR_BIT(p->uart->Instance->CR1,USART_CR1_RXNEIE|USART_CR1_PEIE|USART_CR1_IDLEIE);
+    CLEAR_BIT(p->uart->Instance->CR3,USART_CR3_EIE|USART_CR3_DMAR);
+    __HAL_DMA_DISABLE_IT(dma,DMA_IT_TC|DMA_IT_HT|DMA_IT_TE);
+#if !defined(DC_STM32_F1)
+    __HAL_DMA_DISABLE_IT(dma,DMA_IT_DME);
+    __HAL_DMA_DISABLE_IT(dma,DMA_IT_FE);
+#endif
+    __HAL_DMA_DISABLE(dma);
+#if defined(DC_STM32_F1)
+    if(dma->Instance->CCR & DMA_CCR_EN) return false;
+#else
+    if(dma->Instance->CR & DMA_SxCR_EN) return false;
+#endif
+    if(HAL_DMA_GetState(dma)==HAL_DMA_STATE_BUSY && HAL_DMA_Abort(dma)!=HAL_OK)
+        return false;
+    /* DeInit clears stale flags/callbacks and Init restores the saved DMA
+     * configuration through HAL, including a prior HAL_DMA_STATE_TIMEOUT.
+     * ReceiveToIdle installs fresh callbacks before re-enabling this stream. */
+    if(HAL_DMA_DeInit(dma)!=HAL_OK || HAL_DMA_Init(dma)!=HAL_OK ||
+       HAL_UART_AbortReceive(p->uart)!=HAL_OK) return false;
+    dc_byte_ring_reset(&p->rx); dc_dma_cursor_init(&p->cursor,DC_DMA_RX_SIZE);
+    return HAL_UARTEx_ReceiveToIdle_DMA(p->uart,p->dma_rx,DC_DMA_RX_SIZE)==HAL_OK;
+}
 int dc_stm32_uart_read(dc_stm32_uart_t *p,uint8_t *byte) {
     uint32_t mask;
     if(p->recovery || p->rx.fault) {
-        (void)HAL_UART_AbortReceive(p->uart);
         mask=__get_PRIMASK(); __disable_irq();
-        dc_byte_ring_reset(&p->rx); dc_dma_cursor_init(&p->cursor,DC_DMA_RX_SIZE);
-        if(HAL_UARTEx_ReceiveToIdle_DMA(p->uart,p->dma_rx,DC_DMA_RX_SIZE)!=HAL_OK)
-            p->recovery=true;
-        else p->recovery=false;
-        p->recoveries++; __set_PRIMASK(mask); return -1;
+        p->recovery=true;
+        if(restart_uart_rx(p)) { p->recovery=false; p->recoveries++; }
+        __set_PRIMASK(mask); return -1;
     }
     return dc_byte_ring_pop(&p->rx,byte);
 }

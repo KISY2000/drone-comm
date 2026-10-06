@@ -1,0 +1,14 @@
+radio: profile, identity/readback, bounded calibration/RX and SPI failure OK
+radio: maximum FIFO packet, IRQ-only marker, hardware/application CRC, address and FIFO recovery OK
+radio: one in-flight request, reply reference/session routing and duplicate delivery OK
+radio: 5/10 ms backoff, two retries, unchanged transaction/deadline, late reply, TX watchdog/underflow OK
+radio: time counter wrap, cancel/reset, incremental RX FIFO and return-to-RX OK
+radio: independent AIR session binding, old-session rejection, binding reset and in-flight SPI fault OK
+radio: SYNC-before-length blocks TX, bounded stuck-SYNC recovery, new IRQ generation and correct recovery count OK
+radio: bounded consistent status reads, transient bit rejection, independent watchdogs and exact deadline statistics OK
+radio: good-frame RSSI signed conversion, half-dBm precision, CRC_OK-masked LQI and invalid-frame freshness OK
+radio: reply timer survives unstable status, exact expiry, retry limits and timer wrap OK
+radio: silicon RX last-byte duplication avoided, lone length watchdog and hidden overflow recovery OK
+radio: TX abort SRES clears modulator residue, preserves retries/deadline, cancel and reset failures OK
+radio: first-sample status noise/invalid MARC state bounded without GDO, FIFO visibility or deadline extension OK
+radio: all mock-register/FIFO tests passed (PC only)

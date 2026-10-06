@@ -56,11 +56,14 @@ def main():
     report = dict(schema=1, tested_at=datetime.now(timezone(timedelta(hours=8))).isoformat(), native_compiler=checked([args.gcc, '--version']).splitlines()[0], board_tested=False, tests={})
     tests = {
         'independent_review': ['src/dc_protocol.c', 'src/dc_node.c', 'tests/test_review.c'],
+        'protocol_stress': ['src/dc_protocol.c', 'tests/test_protocol_stress.c'],
         'radio_mock': ['src/dc_protocol.c', 'src/dc_radio.c', 'tests/test_radio.c'],
         'four_nodes': ['src/dc_protocol.c', 'src/dc_node.c', 'tests/sim_four_nodes.c'],
         'byte_ring': ['platforms/common/dc_byte_ring.c', 'platforms/common/test_byte_ring.c'],
         'codec_cli': ['src/dc_protocol.c', 'tests/codec_cli.c'],
         'app_binding_mock': ['src/dc_protocol.c', 'src/dc_node.c', 'platforms/stm32/common/dc_stm32_app.c', 'platforms/stm32/tests/test_app_binding.c'],
+        'uart_port_f1': ['src/dc_protocol.c', 'platforms/common/dc_byte_ring.c', 'platforms/stm32/common/dc_stm32_port.c', 'platforms/stm32/tests/test_uart_recovery.c'],
+        'uart_port_f4': ['src/dc_protocol.c', 'platforms/common/dc_byte_ring.c', 'platforms/stm32/common/dc_stm32_port.c', 'platforms/stm32/tests/test_uart_recovery.c'],
         'spi_poll_fixture': ['platforms/stm32/tests/test_spi_poll.c'],
         'zynq_ram_log': ['platforms/zynq/dc_zynq_log.c', 'tests/test_zynq_log.c'],
     }
@@ -68,6 +71,10 @@ def main():
         for name, sources in tests.items():
             exe = build / (name + '.exe')
             extra = ['-DDC_STM32_F1', '-I', ROOT/'platforms/stm32/tests/mock', '-I', ROOT/'platforms/stm32/common'] if name == 'app_binding_mock' else []
+            if name in ('uart_port_f1', 'uart_port_f4'):
+                extra = ['-I', ROOT/'platforms/stm32/tests/port_mock', '-I', ROOT/'platforms/stm32/common']
+                if name == 'uart_port_f1':
+                    extra.append('-DDC_STM32_F1')
             if name == 'spi_poll_fixture':
                 extra = ['-I', ROOT/'platforms/stm32/common']
             if name == 'zynq_ram_log':

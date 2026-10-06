@@ -1,0 +1,2 @@
+SWRZ020E p10: resets=1 transmissions=2 corrupted=1 attempts=2 deadline=202 retries=1
+FAIL: aborted TX left modulator residue or altered the transaction

@@ -1,6 +1,6 @@
 # GitHub 提交审查与复现
 
-审查日期：2026-10-06。本仓库提交无人机通信子系统的软件基线，包含 F103、地面/机载 F407、Zynq 适配及 PC 测试。完整视觉、飞控和最终实板作品另阶段验收。
+审查日期：2026-10-06。本仓库提交无人机通信子系统的软件基线，包含 F103、地面/机载 F407、Zynq 适配及 PC 测试。本轮从头复核的缺陷与分层结果见[全工程复查](deep_review_20261006.md)。完整视觉、飞控和最终实板作品另阶段验收。
 
 ## 公开文件范围
 
@@ -15,10 +15,12 @@
 1. 文档中的当前线路一致：F407 USART3 PB10/PB11、USART2 PA2/PA3，Zynq PS UART0 MIO14/15；旧 EMIO 文件有历史范围说明。
 2. 在 C 测试中加入并执行标准 CRC 向量 `123456789 → 0x29B1` 的直接断言；同时保留 C/Python 黄金帧和随机交叉验证。
 3. 重新运行 `tools/run_checks.py --platforms`，PC 用例、88 项 ARM 对象检查、Keil 工程、STM32 完整链接及 CubeMX 初始化基底重建通过。结果见 [verification.json](../reports/verification.json)。
-4. 核对当前 Zynq HDF/BSP/ELF 报告的源码及 88 个保存的证据文件哈希。此轮未重复运行 Vivado/SDK 硬件生成，原证据与当前源码匹配。
+4. 因握手源码修复，本轮重新运行 Vivado 2017.4 综合/HDF 导出及 SDK 2017.4 两档速率的 READY=0/READY=1 共四项链接，再核对当前源码、导入源码、依赖、ELF 符号及 88 个保存证据的哈希。保留 SDK 退出时的通道关闭日志和官方 BSP 警告；应用 stdio 由确定性无串口实现接管，不宣称工具日志零警告。
 5. 对 Git 选中内容进行敏感凭据特征、私人聊天标识、文件大小和 Git 暂存字节一致性检查；对当前六类报告的源码哈希进行校验。特征扫描并不保证识别所有未知类型的秘密。
 
-首轮公开候选 ZIP 解压后的完整重建、源码一致性和旧证据拒绝检查均通过，见 `reports/handoff_portability.json`。候选 ZIP 当时的清单另存于 `reports/history/github_candidate/package_manifest.json`；根 `reports/package_manifest.json` 更新为本次 Git 文件集合的校验清单（不包含清单自身）。候选包验证后，为兼容 GCC 13 的严格缩进警告，四节点测试的循环与条件语句增加了明确大括号并重新执行完整本机回归；断言、测试行为和通信固件源码未改变。解压报告只对应其记录的候选 ZIP，当前版本以最新本机报告和 GitHub Actions 为准。后续修改或重新运行验证会改变报告；新的提交应重新生成对应清单，不能复用旧清单冒充当前结果。
+本轮 `drone_comm_deep_review_20261006.zip` 含 1379 个文件，在新目录重新执行完整编译和回归通过，源码一致性及主动修改源码后的旧证据拒绝检查通过，见 [复现报告](../reports/handoff_portability.json)。ZIP SHA-256 为 `307f2009f802d41e8b6ae224c032458ea9a41175470639d353312cd2961156e1`；该包的清单保存在 `reports/history/deep_review_20261006/package_manifest.json`。这一步重建 PC/HAL/Keil/CubeMX 基底，不重复 Vivado/SDK 生成；真实 Zynq 生成由本轮独立步骤完成并保存证据。
+
+首轮候选的报告和清单保留在 `reports/history/github_candidate/`。根 `reports/package_manifest.json` 对应最终 Git 文件集合（不包含清单自身），会包含候选验证完成后新增的结果记录和说明；源码与被验证候选一致。历史 ZIP 的通过结论仅适用于其记录的源码，不能复用旧清单冒充新版本。
 
 ## 复现与持续集成
 

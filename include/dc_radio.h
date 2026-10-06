@@ -34,6 +34,7 @@ typedef struct {
     uint32_t tx_ok, tx_timeout, tx_underflow, retries, transaction_ok;
     uint32_t transaction_timeout, io_errors, recoveries, rx_partial_timeout;
     uint32_t rx_sync_timeout, calibration_timeout, rx_start_timeout, status_unstable;
+    uint32_t status_timeout;
 } dc_radio_stats_t;
 typedef struct {
     dc_radio_port_t port;
@@ -50,14 +51,14 @@ typedef struct {
     int16_t last_rssi_x2_dbm;
     uint8_t last_lqi;
     bool rssi_valid;
-    uint32_t partial_deadline, tx_event_start, gdo_ignored_event;
+    uint32_t partial_deadline, tx_event_start, gdo_ignored_event, status_deadline;
     /* ISR is the sole writer. Low bit is level; upper bits are event generation.
      * Main clears stale/aborted events by recording a snapshot, never by writing
      * this word. Aligned 32-bit accesses are atomic on the supported ARM CPUs. */
     volatile uint32_t gdo_level_event;
     volatile uint32_t gdo_falling_events;
     uint8_t local_address, peer_address, attempts, rx_length;
-    bool tracked_tx, rx_sync_pending;
+    bool tracked_tx, rx_sync_pending, rx_fifo_seen, status_pending;
 } dc_radio_t;
 
 /* Initialization checks chip identity, programs and reads back the profile.
@@ -82,5 +83,7 @@ bool dc_radio_send_untracked(dc_radio_t *radio, const dc_frame_t *frame,
                              uint8_t peer_address, uint32_t now_ms);
 bool dc_radio_request(dc_radio_t *radio, const dc_frame_t *frame,
                       uint8_t peer_address, uint32_t now_ms);
+/* Aborting an active TX performs SRES/profile restore/SCAL and progresses via
+ * tick(); it never restarts a cancelled transaction or reports completion. */
 void dc_radio_cancel(dc_radio_t *radio, uint32_t now_ms);
 #endif

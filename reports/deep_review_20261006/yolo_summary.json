@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-06",
+  "status": "PASS within the listed checks only",
+  "baseline": {
+    "source": "YOLOv5n v7.0 COCO 80 classes",
+    "shape": [
+      1,
+      3,
+      320,
+      320
+    ],
+    "precision": "FP32",
+    "sha256": {
+      "yolov5n.pt": {
+        "bytes": 4062133,
+        "sha256": "4f180cf23ba0717ada0badd6c685026d73d48f184d00fc159c2641284b2ac0a3"
+      },
+      "yolov5n_320_fp32.onnx": {
+        "bytes": 7627782,
+        "sha256": "6e62e45863d5ba7baa2ed168ac532a5b2a5b1dc4a27f5d1a7f6fe8e01d0804d6"
+      }
+    },
+    "conv_layers": 60,
+    "parameter_binaries": 120,
+    "conv_MACs": 558515200
+  },
+  "pc_review": {
+    "checks": 21,
+    "status": "PASS",
+    "fresh_build": true,
+    "synthetic_real_weight_layers": 60,
+    "random_capacity_cases": 105,
+    "invalid_argument_cases": 36,
+    "model_comparison_images": 2,
+    "full_shape_independent_conv_cases": 120,
+    "full_shape_max_abs": 3.4332275390625e-05,
+    "atol": 0.0002,
+    "rtol": 0.0002,
+    "source_and_evidence_files_unchanged_during_final_run": 144
+  },
+  "native_entry": {
+    "status": "PASS",
+    "checks": 17
+  },
+  "workflow_guards": {
+    "status": "PASS",
+    "cases": 19,
+    "preserved_files": 139,
+    "no_model_or_parameter_reexport": true
+  },
+  "hls": {
+    "tool_version": "2017.4",
+    "part": "xc7z020clg400-2",
+    "clock_target_ns": 10.0,
+    "clock_estimated_ns": 8.75,
+    "clock_uncertainty_ns": 1.25,
+    "hls_resources": {
+      "BRAM_18K": 15,
+      "DSP48E": 83,
+      "FF": 7020,
+      "LUT": 9463
+    },
+    "pipelined_loops": [
+      {
+        "loop": "Loop1.2.3.1.1",
+        "II": 1,
+        "depth": 11
+      }
+    ],
+    "csim_status": "PASS",
+    "rtl_cosim_status": "Pass",
+    "rtl_cosim_transactions": 6,
+    "rtl_cosim_latency_cycles": {
+      "min": 136,
+      "average": 184831,
+      "max": 716482
+    },
+    "rtl_cosim_interval_cycles": {
+      "min": 1361,
+      "average": 221771,
+      "max": 716483
+    },
+    "native_kernel_source_unchanged": true,
+    "warning_counts": {
+      "XFORM 203-542": 4,
+      "SYN 201-107": 2,
+      "COSIM 212-369": 4,
+      "VRFC 10-1303": 30,
+      "VRFC 10-982": 2,
+      "OPMODE startup DSP48E1": 4
+    },
+    "not_verified": [
+      "Full YOLO graph RTL",
+      "All 60 layers in RTL",
+      "Full 320 feature maps in RTL",
+      "Placement/routing/timing closure",
+      "Board DDR and cache behavior",
+      "Video acquisition",
+      "Physical board inference",
+      "FPS or latency acceptance",
+      "BOOT image or YOLO bitstream"
+    ]
+  },
+  "repairs": [
+    "Historical README pointers now point to latest selection criteria and verified state.",
+    "Native tests compile from current sources and record source/model/compiler/binary hashes.",
+    "Audits and exports require fresh explicit output directories; baseline and earlier reports are preserved.",
+    "HLS-specific full-depth testbench replaces compact native testbench for co-simulation; kernel unchanged."
+  ],
+  "preserved_failures": [
+    "First audit CLI variable shadowing, fixed and rerun to PASS.",
+    "Initial HLS absolute project name rejected; use relative project in new cwd.",
+    "Initial compact TB cosimulation SIGSEGV while dumping declared-depth buffers; separate HLS TB fixed it.",
+    "HLS remove_files retry rejected; final fresh project completed."
+  ],
+  "limits": [
+    "Only the FP32 Conv prototype was checked in RTL, not a full 60-layer YOLO implementation.",
+    "120 full-shape Conv checks are independent PC calls supplied with ONNX reference activations.",
+    "No dataset accuracy/quantization/final-model acceptance, placement/routing, DDR/board/video, or FPS claim.",
+    "Existing vendor resizer bitstream is unrelated to YOLO inference."
+  ],
+  "evidence_sha256": {
+    "review_results.json": "5c0c095f4271b684e0206e808a08bf83f07188f01fbff02c80c9b357f92c9147",
+    "verified_entry_final/review_results.json": "10c36d8ca916553e78b08903c1cfa4b6487a3f4175ecbf6e3ec788abf8887d9b",
+    "verified_native_entry/review_results.json": "1ce63d6bcfb8eb2d786ee92ac842c5c59e9f0953ea9fc0b1008e72e39955028c",
+    "workflow_guard_results_v2.json": "49fd9d8264da5f392a4c1eba3724d52c95c206b8344b16cc0951c9e7c19db3f5",
+    "hls/summary.json": "cb0451d0f1f0b85cb4ddea64662f0fcc7c64555cd0f9fbe36bb47944fe45e9fb",
+    "hls/conv_fp32_csim.log": "c320e64d06fd0c7867032be94f636b75e2f057270230078f6412ca9fdec1b345",
+    "hls/conv_fp32_csynth.rpt": "c9c846e85844ab09b33b753e3e82ba7cef3be0faf3027bc4b1260d9eb1288e6e",
+    "hls/conv_fp32_cosim.rpt": "2d9ddda34e84dec4930780ff9bbf27cc9d35874569ddea6551f109a1c13178e9",
+    "hls/full_tool.log": "90050af5438718db322fcc81afceb808605caa17c0f34db12e077fd6b3bcab4b"
+  },
+  "changed_files_sha256": {
+    "yolo_prep/prepare_model.py": "42c490c8d8f413ac301da4a0f4972b4ada159fd6b2c1d943e775687013573381",
+    "yolo_accel/tools/export_conv.py": "877e488dc6a7ca9f4e2c4889583dcd5da3cd91660c669c7f7aaff50ccc3c31a0",
+    "yolo_accel/tools/test_native.py": "f64649d6f79c9e78331043f4484d6aba3ea0a3caf9376037460337cbbdd39994",
+    "yolo_accel/tools/review_baseline.py": "e30ac301597705b10e293f080d1f098f95e946da29bab48618baa9ff5cd3f504",
+    "yolo_accel/README_当前阶段.md": "d96726afd7970ab78ff3c5add80b645f879fe28122a0ace9e2dfeb1fea85103b",
+    "yolo_accel/当前复查与复现_20261006.md": "9babc4429381264b3b4f89ceebe00b73c227e4fb4e8fe86b99e57726efbe6cdf",
+    "yolo_prep/README_先读.md": "be147e3c46d08cadddd0b53a3b4d9fc0851c0840d7333476c78edb8b30890c7a",
+    "yolo_prep/Vivado_操作说明.md": "33c2da07f6ddf1a79c0dc5bb0ca1d4d304b01a79ba9f71a23b9faaff50b4743e",
+    "yolo_accel/hls/tb_conv_hls.cpp": "498e1cde44228870d1521b5bb7131bec02cfc4742b1a7d46c24e427c642b99ba",
+    "yolo_accel/hls/review.tcl": "392219d731460bebd153c1bce454346f49a7cacb81f5898831faf8a6eae3eb58"
+  },
+  "relative_document_links_checked": 19
+}

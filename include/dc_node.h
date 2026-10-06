@@ -7,7 +7,7 @@
 #define DC_TRANSACTION_MS 200u
 typedef bool (*dc_send_fn)(void *user,const dc_frame_t *frame);
 typedef struct {
- bool ready,pending;uint32_t session,boot_nonce,challenge,last_seen,handshake_at;
+ bool ready,pending;uint32_t session,boot_nonce,challenge,last_seen,handshake_at,handshake_started;
  dc_seq_t rx;
 } dc_peer_t;
 typedef struct {

@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x100000
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          248704 (bytes into file)
+  Start of section headers:          248768 (bytes into file)
   Flags:                             0x5000400, Version5 EABI, hard-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)

@@ -1,7 +1,7 @@
 {
   "passed": true,
   "board_tested": false,
-  "checked_utc": "2026-10-05T17:00:39.222484+00:00",
+  "checked_utc": "2026-10-06T04:45:39.234367+00:00",
   "validation": "Real Keil complete compile/link, disabled delivery plus enabled link-only copies; no board execution or HEX",
   "projects": [
     {
@@ -30,19 +30,19 @@
       "warning_note": "No warnings in the actual build log.",
       "image": {
         "path": "build/stm32_standalone/default_disabled/ground_f103/ground_f103_disabled.axf",
-        "sha256": "d50c4c52a8dee73ba314da04f90e578733d548d0ecf6aa61a78031e07c37afa5",
-        "bytes": 169920,
+        "sha256": "528fdc745fda52d1f406dc83e9b9a17db72dfb97cb02dd14792693004f036059",
+        "bytes": 174576,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 13816,
+        "flash_bytes_used": 14800,
         "flash_bytes_limit": 65536,
-        "flash_bytes_remaining": 51720,
+        "flash_bytes_remaining": 50736,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9144,
+        "ram_bytes_used_including_stack": 9176,
         "ram_bytes_limit": 20480,
-        "ram_bytes_remaining": 11336,
+        "ram_bytes_remaining": 11304,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -56,8 +56,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/default_disabled/ground_f103.log": "5d8421e5078fa34415652caa578168d7b30a8fb7ad0545e9be32c24e157b243e",
-        "reports/stm32_standalone/default_disabled/ground_f103.map": "c6c463925da54a113ce7e2873ca426644c40c3dc05ad1fc772986ee018902c71",
+        "reports/stm32_standalone/default_disabled/ground_f103.log": "48d5487e9a4820dbd083c6c813cecd9fbf657f62e86da1f069493720d074b8f8",
+        "reports/stm32_standalone/default_disabled/ground_f103.map": "04f64b8783b4e5fd032ac13d80424c09cb73e6d108abb694905cddb6f2ef33a9",
         "reports/stm32_standalone/default_disabled/ground_f103.uvprojx": "eeef732522a927ff155f270533c28473e7ce3e93c3f2b3bb46c843e4916c7f30",
         "reports/stm32_standalone/default_disabled/ground_f103.lnp": "6f311bb6e4ea633e9f8abc8acee8e05a1ad1fb943a637f2ce1bbe4a902087915",
         "reports/stm32_standalone/default_disabled/ground_f103_dependencies/board_peripherals.d": "9f5433ff8d68deb344fb031a24710da51b3eedb300f38131d74eb2a36dd429b7",
@@ -114,19 +114,19 @@
       "warning_note": "Warnings are retained verbatim. F4 currently has three official HAL flash_ex.c unused-parameter warnings and one MDK assembly-preprocessor target-option warning. No diagnostic is suppressed.",
       "image": {
         "path": "build/stm32_standalone/default_disabled/ground_f407/ground_f407_disabled.axf",
-        "sha256": "1ffa0a104d31143806afbb7e1b79ddb10960780f8741a2210c28a4719d089fee",
-        "bytes": 171060,
+        "sha256": "85481db799da0cc58d77ab14046e9f0964c32e477d2899dc84d22456a93cbb89",
+        "bytes": 176068,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 13848,
+        "flash_bytes_used": 15080,
         "flash_bytes_limit": 1048576,
-        "flash_bytes_remaining": 1034728,
+        "flash_bytes_remaining": 1033496,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9344,
+        "ram_bytes_used_including_stack": 9368,
         "ram_bytes_limit": 131072,
-        "ram_bytes_remaining": 121728,
+        "ram_bytes_remaining": 121704,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -140,8 +140,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/default_disabled/ground_f407.log": "8838d1e6362a498703496ab4f7ecb2277da7b6be2b872a9a8c312a2cd7f43f84",
-        "reports/stm32_standalone/default_disabled/ground_f407.map": "b3b453aef88cc5bc04f7b57b374463ebd0a9a4970b270338081566f67b3adbf1",
+        "reports/stm32_standalone/default_disabled/ground_f407.log": "6b11196b34a7793f4f672c9723ef4a36fbeddd224b8f8518b3a53e20024df1ee",
+        "reports/stm32_standalone/default_disabled/ground_f407.map": "1bc37ec1aa5abe30456c20092b492417d48d85d6748d130e687ce52f8c0dc861",
         "reports/stm32_standalone/default_disabled/ground_f407.uvprojx": "81f4e980022aebbbe50ebff1cb8dd91d742bac9911a527c0fdf26659cee9a91d",
         "reports/stm32_standalone/default_disabled/ground_f407.lnp": "6ce5c72dbbc5bc0d61df83c656ceb5d26549bf2301de0c1b794d733339050d63",
         "reports/stm32_standalone/default_disabled/ground_f407_dependencies/board_peripherals.d": "b23ab1667c136bc227e02d1e4f26b53149bbabff0857cbf089a630c8567a141a",
@@ -200,19 +200,19 @@
       "warning_note": "Warnings are retained verbatim. F4 currently has three official HAL flash_ex.c unused-parameter warnings and one MDK assembly-preprocessor target-option warning. No diagnostic is suppressed.",
       "image": {
         "path": "build/stm32_standalone/default_disabled/air_f407/air_f407_disabled.axf",
-        "sha256": "efed3875aab7b46f2dec18f68fbf3f3cdde12833df10b6ee1dbd8b66993f3278",
-        "bytes": 172108,
+        "sha256": "1178af0ace3e82efdcc39b8bb3161f64b7043813366489f239c4b45e11d21d1b",
+        "bytes": 177100,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 12448,
+        "flash_bytes_used": 13672,
         "flash_bytes_limit": 1048576,
-        "flash_bytes_remaining": 1036128,
+        "flash_bytes_remaining": 1034904,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9008,
+        "ram_bytes_used_including_stack": 9032,
         "ram_bytes_limit": 131072,
-        "ram_bytes_remaining": 122064,
+        "ram_bytes_remaining": 122040,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -226,8 +226,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/default_disabled/air_f407.log": "0c237813487537513cbf1a5f1cc3b5c466d75176cf1e61c3d7dc2bda84224b9a",
-        "reports/stm32_standalone/default_disabled/air_f407.map": "c416f1a344d24ffdb467b62f268615214650908a66496c4848ffbbbe47696ac5",
+        "reports/stm32_standalone/default_disabled/air_f407.log": "d61d5e8cb84b3f3d4cc1fb69d606c73ea205937aadf571fe2207dbd99b848257",
+        "reports/stm32_standalone/default_disabled/air_f407.map": "72c8700b273dc5f55704e4958e6458cbc1f7ede854559fd9bbfa8f321cad71b8",
         "reports/stm32_standalone/default_disabled/air_f407.uvprojx": "ff05bc29ca1a7d49e815df383280d5b06b5f4fea117e99b74a04fbb1002d8ffa",
         "reports/stm32_standalone/default_disabled/air_f407.lnp": "c559ce0c7abaf3db65b75bff28765548adb2a1758a70ddb5af475aec2e66e2b3",
         "reports/stm32_standalone/default_disabled/air_f407_dependencies/board_peripherals.d": "dbb7fdf0666fa19fb754bec02ddbe88824a5b826f0756b958f3ef36e4ca1c7ae",
@@ -281,19 +281,19 @@
       "warning_note": "No warnings in the actual build log.",
       "image": {
         "path": "build/stm32_standalone/enabled_link_only/ground_f103/ground_f103_LINK_ONLY_DO_NOT_FLASH.axf",
-        "sha256": "4972e0ec960ee341da364cb05868f7414aeedc3645d98ce48a7dd66339ef65b6",
-        "bytes": 220372,
+        "sha256": "7bf8a359b0abc9b387f6eda5f743bd31a938a209392619f17ccb2784f1e24987",
+        "bytes": 224896,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 21120,
+        "flash_bytes_used": 22000,
         "flash_bytes_limit": 65536,
-        "flash_bytes_remaining": 44416,
+        "flash_bytes_remaining": 43536,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9264,
+        "ram_bytes_used_including_stack": 9296,
         "ram_bytes_limit": 20480,
-        "ram_bytes_remaining": 11216,
+        "ram_bytes_remaining": 11184,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -315,8 +315,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/enabled_link_only/ground_f103.log": "c74cf814a697c57d194eb9acf318b5f0e1ae92c77c44924f9af7feaa03f94bd7",
-        "reports/stm32_standalone/enabled_link_only/ground_f103.map": "b4fe50b8c22c7deb54720998f806889ece15cd7ed6b7f73609cf2cccdc726e70",
+        "reports/stm32_standalone/enabled_link_only/ground_f103.log": "c7dd02c8a081230e5e874bee79ddd47271b08f68cf42cc1dcbf1c8be4a0cd0e9",
+        "reports/stm32_standalone/enabled_link_only/ground_f103.map": "a6d37394e9a019ffbc34c013bd4dc15100de6c0af003142b6ad126d5d0488588",
         "reports/stm32_standalone/enabled_link_only/ground_f103.uvprojx": "6b5e649405f79c048eb8b0c4ed7d845734d2d692f70c6522397e1c27dacf32ac",
         "reports/stm32_standalone/enabled_link_only/ground_f103.lnp": "04df68e92276bfae0deaa7da24b80eb19da2bbbc886a7e382ea8826cc55f2d2e",
         "reports/stm32_standalone/enabled_link_only/ground_f103_dependencies/board_peripherals.d": "b27d42e7eadfbd42f2fd7dfd0e21a39568d5d6223736dcd14c08c5ae73a942ff",
@@ -373,19 +373,19 @@
       "warning_note": "Warnings are retained verbatim. F4 currently has three official HAL flash_ex.c unused-parameter warnings and one MDK assembly-preprocessor target-option warning. No diagnostic is suppressed.",
       "image": {
         "path": "build/stm32_standalone/enabled_link_only/ground_f407/ground_f407_LINK_ONLY_DO_NOT_FLASH.axf",
-        "sha256": "e6c87fba3326255f4fa23e867c38730342ffc1ea1be512db36f24b39b8b33871",
-        "bytes": 210092,
+        "sha256": "0d42c8db22b2437662af4835a857e11e56881fe52a3b590ce5c06163e75712f3",
+        "bytes": 214668,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 19688,
+        "flash_bytes_used": 20616,
         "flash_bytes_limit": 1048576,
-        "flash_bytes_remaining": 1028888,
+        "flash_bytes_remaining": 1027960,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9368,
+        "ram_bytes_used_including_stack": 9392,
         "ram_bytes_limit": 131072,
-        "ram_bytes_remaining": 121704,
+        "ram_bytes_remaining": 121680,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -409,8 +409,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/enabled_link_only/ground_f407.log": "219342ffd21801d4da216ddd11635b3a249838cf39198248834a36411edae088",
-        "reports/stm32_standalone/enabled_link_only/ground_f407.map": "867ef2ea7bb4c6f9b6d304cac0040e73325b2c9ee1d8f63952776b249dca2e0d",
+        "reports/stm32_standalone/enabled_link_only/ground_f407.log": "5354ffa51845413ad2726d8d584abab6332177a5aa83c50134a094d5cae4a211",
+        "reports/stm32_standalone/enabled_link_only/ground_f407.map": "7d1cfd2ca2f8260634b36c0697f1129d4d52284f11f0aa9e6be9318fee8138ee",
         "reports/stm32_standalone/enabled_link_only/ground_f407.uvprojx": "da9647ac7b001701af1a8eaf4fa79bb6b13c617b84c0174dded325aeea5bd35a",
         "reports/stm32_standalone/enabled_link_only/ground_f407.lnp": "8d8c897ed21eb85cbace68a6396e7f912565236a9599e52a03e318093f0fda94",
         "reports/stm32_standalone/enabled_link_only/ground_f407_dependencies/board_peripherals.d": "0d3f4b85c7dc211e414e15e94f862715ef3243972ca93f6912bb9de0283c16cf",
@@ -469,19 +469,19 @@
       "warning_note": "Warnings are retained verbatim. F4 currently has three official HAL flash_ex.c unused-parameter warnings and one MDK assembly-preprocessor target-option warning. No diagnostic is suppressed.",
       "image": {
         "path": "build/stm32_standalone/enabled_link_only/air_f407/air_f407_LINK_ONLY_DO_NOT_FLASH.axf",
-        "sha256": "1c5348ce7c595dfa1faf61489e215d1ad1613dd1f12573b432b706c436e507cc",
-        "bytes": 228600,
+        "sha256": "440d8a209ed443dc611b292398b5006c62c4cda224ca4672f573ef91c427edf3",
+        "bytes": 233624,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 19312,
+        "flash_bytes_used": 20568,
         "flash_bytes_limit": 1048576,
-        "flash_bytes_remaining": 1029264,
+        "flash_bytes_remaining": 1028008,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9128,
+        "ram_bytes_used_including_stack": 9152,
         "ram_bytes_limit": 131072,
-        "ram_bytes_remaining": 121944,
+        "ram_bytes_remaining": 121920,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -503,8 +503,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/enabled_link_only/air_f407.log": "edcae78c3bd5ea63ed78721e773e6e7d821a5aa408b234bcb89d68b93b312ce1",
-        "reports/stm32_standalone/enabled_link_only/air_f407.map": "64f3abd326846bbfd7b2ae6867a22be4b4def189929381066f478464dd7ffbee",
+        "reports/stm32_standalone/enabled_link_only/air_f407.log": "43a926c917963575957d763de2f4717188e16cf550bfaea6cfde7abf686462cc",
+        "reports/stm32_standalone/enabled_link_only/air_f407.map": "e9773686672d426a15a38ee4562f7f4ed787b9f5e3eba7d83a7c64ac221e6d62",
         "reports/stm32_standalone/enabled_link_only/air_f407.uvprojx": "6df602f1842e5914b77524fa62f1506e24320c502a29ec82a0d754ea7e536e96",
         "reports/stm32_standalone/enabled_link_only/air_f407.lnp": "51cf4bd65cfd88d04b4a106f55201c6d8ad67c06325912a43ba0fafd81f65fc4",
         "reports/stm32_standalone/enabled_link_only/air_f407_dependencies/board_peripherals.d": "225116673777e0948aee3ae6cc40359d900c6f466e62642f9f304e40b4126241",
@@ -558,19 +558,19 @@
       "warning_note": "No warnings in the actual build log.",
       "image": {
         "path": "build/stm32_standalone/enabled_link_only_460800/ground_f103/ground_f103_LINK_ONLY_DO_NOT_FLASH.axf",
-        "sha256": "918e843626821610342273053f65c4ca9f59158cac6c9955305adf6b49b01f61",
-        "bytes": 220500,
+        "sha256": "3c99ef8b873475486b42c6082f759620a06769d5948bbba2fb42c51963045374",
+        "bytes": 225024,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 21120,
+        "flash_bytes_used": 22000,
         "flash_bytes_limit": 65536,
-        "flash_bytes_remaining": 44416,
+        "flash_bytes_remaining": 43536,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9264,
+        "ram_bytes_used_including_stack": 9296,
         "ram_bytes_limit": 20480,
-        "ram_bytes_remaining": 11216,
+        "ram_bytes_remaining": 11184,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -592,8 +592,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/enabled_link_only_460800/ground_f103.log": "c4eac89a84d2c7d1fe1404bd2435397c260a9b99e61cbc94a901a395d6354940",
-        "reports/stm32_standalone/enabled_link_only_460800/ground_f103.map": "ec1729c879eb65f7d7148d63ab5f77f0e472e3f4ecf6155ce688f72a64b9bbc8",
+        "reports/stm32_standalone/enabled_link_only_460800/ground_f103.log": "0a9ee658219b5a820c44c6a2f5c98eae06f9431b3491f4883c370bad57a0f34d",
+        "reports/stm32_standalone/enabled_link_only_460800/ground_f103.map": "ae12b6c9a6a0be2cc0ca5e930935a05910103c11305c90d43ca293e88cbcd4ec",
         "reports/stm32_standalone/enabled_link_only_460800/ground_f103.uvprojx": "2428b356a83af485c60f94a5621faa7da8d7ad308d3221e2a7191819113b1a5c",
         "reports/stm32_standalone/enabled_link_only_460800/ground_f103.lnp": "04df68e92276bfae0deaa7da24b80eb19da2bbbc886a7e382ea8826cc55f2d2e",
         "reports/stm32_standalone/enabled_link_only_460800/ground_f103_dependencies/board_peripherals.d": "b27d42e7eadfbd42f2fd7dfd0e21a39568d5d6223736dcd14c08c5ae73a942ff",
@@ -650,19 +650,19 @@
       "warning_note": "Warnings are retained verbatim. F4 currently has three official HAL flash_ex.c unused-parameter warnings and one MDK assembly-preprocessor target-option warning. No diagnostic is suppressed.",
       "image": {
         "path": "build/stm32_standalone/enabled_link_only_460800/ground_f407/ground_f407_LINK_ONLY_DO_NOT_FLASH.axf",
-        "sha256": "596b219fc3976e903da03b07efca6064a63b0a0ef4194d776e0aed416e5684df",
-        "bytes": 210220,
+        "sha256": "0c1e334851b21a0c52c0e8bbecff1ae33a4073cadfa384fd2cf4bfb6d62075c9",
+        "bytes": 214792,
         "flashable_delivery": false
       },
       "memory": {
         "flash_base": "0x08000000",
-        "flash_bytes_used": 19688,
+        "flash_bytes_used": 20616,
         "flash_bytes_limit": 1048576,
-        "flash_bytes_remaining": 1028888,
+        "flash_bytes_remaining": 1027960,
         "ram_base": "0x20000000",
-        "ram_bytes_used_including_stack": 9368,
+        "ram_bytes_used_including_stack": 9392,
         "ram_bytes_limit": 131072,
-        "ram_bytes_remaining": 121704,
+        "ram_bytes_remaining": 121680,
         "stack_bytes": 4096,
         "heap_bytes": 0,
         "live_symbols_checked": [
@@ -686,8 +686,8 @@
         "runtime_stack_high_water_tested": false
       },
       "evidence_sha256": {
-        "reports/stm32_standalone/enabled_link_only_460800/ground_f407.log": "f7d29be790540be07b8126ad1266c9e63632827d90c4a698d5ac7dfbadc8ad0a",
-        "reports/stm32_standalone/enabled_link_only_460800/ground_f407.map": "0b63ec0b3200d784a759e38e814e032986ff9d552ee65bd772872697a7bfaadd",
+        "reports/stm32_standalone/enabled_link_only_460800/ground_f407.log": "d15a1712586664c401423745992dbb87940f969b7b74ea02798e968712eabda7",
+        "reports/stm32_standalone/enabled_link_only_460800/ground_f407.map": "6f831a8ae44b9b6cd3449e569e2cb1ae525276c34bddff449f0a4bf5c42f087c",
         "reports/stm32_standalone/enabled_link_only_460800/ground_f407.uvprojx": "bcf8405c6473c7ec52523c9bcc308ffa62d8b82ebc3088fa52c8a482696f0a35",
         "reports/stm32_standalone/enabled_link_only_460800/ground_f407.lnp": "8d8c897ed21eb85cbace68a6396e7f912565236a9599e52a03e318093f0fda94",
         "reports/stm32_standalone/enabled_link_only_460800/ground_f407_dependencies/board_peripherals.d": "0d3f4b85c7dc211e414e15e94f862715ef3243972ca93f6912bb9de0283c16cf",
@@ -1124,9 +1124,9 @@
     "deps/stm32f4xx-hal-driver-1.8.5/Src/stm32f4xx_ll_usb.c": "a4a3827fba7ad9d0df9457a87e1bf31ede88eeeb9dc750b3fff639f59c8dff5c",
     "deps/stm32f4xx-hal-driver-1.8.5/Src/stm32f4xx_ll_utils.c": "e1b677f7a42f14e391e86ae7f150498588e249c776b54adce817a380177393a6",
     "include/dc_link_config.h": "af0ef511469a0f07927fbe72fefdf1234b1f48a33de29fbac525851cf2a39b30",
-    "include/dc_node.h": "096fcdfd5f4363aa537e13e81ef89877386adaca69d9e4084854728fccfb5844",
+    "include/dc_node.h": "7d5eb79aadda0c54276a8d4640d845f1addf559cc8ce1216dfb966cda3dfcf15",
     "include/dc_protocol.h": "1f4c788b6c60f4413d9f572a513c9469aacf75c308ff0c6dc0b2317c3993a9d5",
-    "include/dc_radio.h": "5a898c192f48cbf3c7086a246d0e771cb1f780ebffe11df549f67bc1e1ce2e82",
+    "include/dc_radio.h": "c6386ee03bb2e4f54fcd7c7078d74e459ab0e3a7e2b27b0dc8bcefbe70b21617",
     "platforms/common/dc_byte_ring.c": "496f4e71d58f21e317a4d7950b01b6e6bab5261c98dba3da8a851bcdb4f9abbd",
     "platforms/common/dc_byte_ring.h": "a8d1b9ee007f19a6aed51c737407906bfbb8584fe26e4d344c188a83f22b0aed",
     "platforms/common/test_byte_ring.c": "e8dde1053d4e805d49d4d730a3ba1028ffc25fb242eed6c860c6e9548a0a5522",
@@ -1135,7 +1135,7 @@
     "platforms/stm32/common/dc_spi_poll8.h": "60b0898159fe544f49e34c187574eafce686dcdb71111a29d60ff5d7a69901ce",
     "platforms/stm32/common/dc_stm32_app.c": "c4dd1d2cd131226c4ea4f24287c52cef54affda80737bd020205a61f54e73a7a",
     "platforms/stm32/common/dc_stm32_app.h": "2dda71297c030f52e5eaf0dcc515f096cbf3bcc35d243d64971b3c4b4d0248cb",
-    "platforms/stm32/common/dc_stm32_port.c": "357a99c997a0bb22f9361e354b99366f19ccdfe7869aee9705675c57ab457df7",
+    "platforms/stm32/common/dc_stm32_port.c": "97e449a9141063cd8c30c5b4ee96cb64110b13a3473cf047f39b76d4ca184056",
     "platforms/stm32/common/dc_stm32_port.h": "88361ed9af985b1455bf7df1758734f8e9aeb571b4bca53ce964a99c081a015f",
     "platforms/stm32/common/main_hooks.c": "99b92ef4fc3d8a785802b2afc108b8aef450c23acdfd47dc2d33650f1691e640",
     "platforms/stm32/f1/stm32f1xx_hal_conf.h": "ae6636d96dc56b16df49baa85cc396e6546b80bd442f0d944adcababdd0889e2",
@@ -1151,9 +1151,9 @@
     "platforms/stm32/standalone/startup_provenance.json": "4872b74f2553f0310d02ecc02ba267ff353b9664af5a0d3e464fb8ca38fa449a",
     "platforms/stm32/standalone/startup_stm32f103xb.s": "fbee308948c1265baf1ed04d951cec8c330b220f7f9f3117c4eaec3b023a9924",
     "platforms/stm32/standalone/startup_stm32f407xx.s": "6ee51cbd3caab94d420ecfcab16b1398c8ed33d731233198372ea574ae78341d",
-    "src/dc_node.c": "8a08d16ec32df4e1598c900c228b05e605f3be0d7640d43c3fad29549d1fe3be",
+    "src/dc_node.c": "1bbfb9831ce177fbbc5f95af8404cf8c5be953946983ad044cf58f1248e7fd4a",
     "src/dc_protocol.c": "00a6b8e157b60615d14138eb3eaca057093c7427877ff56624f816b688136a98",
-    "src/dc_radio.c": "7dca7a387e09dc0c6b6e72590d0aeb5e0b9a0f95ae86ab99f2dcee813ecbd4ca",
+    "src/dc_radio.c": "77e489b8707abc0f8ac1bb135b46d8b513188ccbb8e01a0352dcffbe4098c2c1",
     "tools/check_stm32_standalone.py": "9ac0ce24fd4be5fbdc18eb116e130f6bd5732d3582998a2b826da4e41cf9e37a"
   },
   "startup_provenance": {

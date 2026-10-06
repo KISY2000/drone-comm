@@ -1,5 +1,5 @@
 {
-  "tested_at": "2026-10-05T17:01:58.302030+00:00",
+  "tested_at": "2026-10-06T04:46:57.548058+00:00",
   "scope": "CubeMX peripheral base projects only; main loop empty; communication app not integrated; board not tested",
   "compiler": "Arm Compiler 6.22",
   "projects": [
@@ -34,7 +34,7 @@
       "hex_sha256": "7c7a7cf027287fe91668731f2540657e097e7db0297ee23ea329fd7a7377a1e2",
       "hex_bytes": 19896,
       "log": "platforms/stm32/cubemx/evidence/ground_f103_delivery_keil.log",
-      "log_sha256": "55be82046fb57bf4110b0111fb07e9396f26a01969eb5b8d033427f56364cfbe",
+      "log_sha256": "4ec886ea1e28af81bc28bcfc054a662189eac3939761330c13c4ec4a65c68864",
       "warnings": []
     },
     {
@@ -68,7 +68,7 @@
       "hex_sha256": "ddd0044b9683ad752940214b58d59cb69a8cc6b1c651eba1f82e20b3e6b9517e",
       "hex_bytes": 21995,
       "log": "platforms/stm32/cubemx/evidence/ground_f407_delivery_keil.log",
-      "log_sha256": "8289ccf05f0482d5f77eba6b8dfaa4eeb68a15bd08a48f8b79a797b943214c9b",
+      "log_sha256": "77ca541750362f67e8e7103ada1b6bd0502dd034de2628d4feefc14a47ef6d89",
       "warnings": [
         "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(948): warning: unused parameter 'Banks' [-Wunused-parameter]",
         "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(1027): warning: unused parameter 'Banks' [-Wunused-parameter]",

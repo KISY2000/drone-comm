@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "checked_at": "2026-10-06T01:06:45.137126+08:00",
+  "checked_at": "2026-10-06T12:59:28.062776+08:00",
   "status": "PASS",
   "board_tested": false,
   "scope": "Git-selected files, sensitive-pattern review, file sizes, current source/evidence hashes; no hardware execution",
   "limitation": "Pattern scan is not a guarantee that every possible secret is detectable. Documentation and selected files also received manual review.",
-  "selected_file_count": 1364,
-  "selected_bytes": 73584342,
+  "selected_file_count": 1380,
+  "selected_bytes": 73909414,
   "largest_files": [
     [
       "deps/cmsis-device-f4-2.6.11/Include/stm32f479xx.h",
@@ -32,17 +32,17 @@
   "source_evidence_checks": [
     {
       "report": "reports/verification.json",
-      "source_files": 253,
+      "source_files": 258,
       "mismatches": []
     },
     {
       "report": "reports/platform_compilation.json",
-      "source_files": 205,
+      "source_files": 209,
       "mismatches": []
     },
     {
       "report": "reports/keil_project_build/results.json",
-      "source_files": 205,
+      "source_files": 209,
       "mismatches": []
     },
     {

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "tested_at": "2026-10-06T00:59:56.843961+08:00",
+  "tested_at": "2026-10-06T12:44:52.284368+08:00",
   "native_compiler": "gcc.exe (x86_64-win32-sjlj-rev1, Built by MinGW-W64 project) 6.2.0",
   "board_tested": false,
   "tests": {
@@ -8,9 +8,13 @@
       "status": "PASS",
       "output": "Independent review: 0 failure(s)"
     },
+    "protocol_stress": {
+      "status": "PASS",
+      "output": "PASS random_frames=100000 noise_recovery=100000 single_bit_corruptions=238352 seq_boundaries=393216 queue_wrap_rounds=10000"
+    },
     "radio_mock": {
       "status": "PASS",
-      "output": "radio: profile, identity/readback, bounded calibration/RX and SPI failure OK\nradio: maximum FIFO packet, IRQ-only marker, hardware/application CRC, address and FIFO recovery OK\nradio: one in-flight request, reply reference/session routing and duplicate delivery OK\nradio: 5/10 ms backoff, two retries, unchanged transaction/deadline, late reply, TX watchdog/underflow OK\nradio: time counter wrap, cancel/reset, incremental RX FIFO and return-to-RX OK\nradio: independent AIR session binding, old-session rejection, binding reset and in-flight SPI fault OK\nradio: SYNC-before-length blocks TX, bounded stuck-SYNC recovery, new IRQ generation and correct recovery count OK\nradio: bounded consistent status reads, transient bit rejection, independent watchdogs and exact deadline statistics OK\nradio: good-frame RSSI signed conversion, half-dBm precision, CRC_OK-masked LQI and invalid-frame freshness OK\nradio: all mock-register/FIFO tests passed (PC only)"
+      "output": "radio: profile, identity/readback, bounded calibration/RX and SPI failure OK\nradio: maximum FIFO packet, IRQ-only marker, hardware/application CRC, address and FIFO recovery OK\nradio: one in-flight request, reply reference/session routing and duplicate delivery OK\nradio: 5/10 ms backoff, two retries, unchanged transaction/deadline, late reply, TX watchdog/underflow OK\nradio: time counter wrap, cancel/reset, incremental RX FIFO and return-to-RX OK\nradio: independent AIR session binding, old-session rejection, binding reset and in-flight SPI fault OK\nradio: SYNC-before-length blocks TX, bounded stuck-SYNC recovery, new IRQ generation and correct recovery count OK\nradio: bounded consistent status reads, transient bit rejection, independent watchdogs and exact deadline statistics OK\nradio: good-frame RSSI signed conversion, half-dBm precision, CRC_OK-masked LQI and invalid-frame freshness OK\nradio: reply timer survives unstable status, exact expiry, retry limits and timer wrap OK\nradio: silicon RX last-byte duplication avoided, lone length watchdog and hidden overflow recovery OK\nradio: TX abort SRES clears modulator residue, preserves retries/deadline, cancel and reset failures OK\nradio: first-sample status noise/invalid MARC state bounded without GDO, FIFO visibility or deadline extension OK\nradio: all mock-register/FIFO tests passed (PC only)"
     },
     "four_nodes": {
       "status": "PASS",
@@ -23,6 +27,14 @@
     "app_binding_mock": {
       "status": "PASS",
       "output": "mock HAL app: binding replay, status metadata, FAULT/backoff/recovery and UART continuity PASS"
+    },
+    "uart_port_f1": {
+      "status": "PASS",
+      "output": "UART port: delayed DMA stop/frozen tick, TIMEOUT state recovery, HAL retry, RX gap, IRQ mask and TX/peer isolation PASS"
+    },
+    "uart_port_f4": {
+      "status": "PASS",
+      "output": "UART port: delayed DMA stop/frozen tick, TIMEOUT state recovery, HAL retry, RX gap, IRQ mask and TX/peer isolation PASS"
     },
     "spi_poll_fixture": {
       "status": "PASS",
@@ -53,23 +65,24 @@
     },
     "cubemx_base": {
       "status": "PASS",
-      "output": "{\"role\": \"ground_f103\", \"command\": [\"C:\\\\Users\\\\Li\\\\AppData\\\\Local\\\\Keil_v5\\\\UV4\\\\UV4.exe\", \"-r\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\platforms\\\\stm32\\\\cubemx\\\\ground_f103\\\\MDK-ARM\\\\ground_f103.uvprojx\", \"-o\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\build\\\\cubemx_delivery\\\\ground_f103\\\\ground_f103.log\", \"-j0\"], \"returncode\": 0, \"summary\": \"\\\"..\\\\..\\\\..\\\\..\\\\..\\\\build\\\\cubemx_delivery\\\\ground_f103\\\\ground_f103.axf\\\" - 0 Error(s), 0 Warning(s).\", \"generated_route_check\": {\"passed\": true, \"errors\": [], \"uart_baud\": 115200, \"physical_waveform_tested\": false}, \"status\": \"passed\", \"passed\": true, \"error_count\": 0, \"warning_count\": 0, \"project\": \"platforms/stm32/cubemx/ground_f103/MDK-ARM/ground_f103.uvprojx\", \"project_sha256\": \"235f70a211330fd52153fbe745729c8a4eb4b858182e17b8262cabfd8907ffab\", \"axf\": \"build/cubemx_delivery/ground_f103/ground_f103.axf\", \"hex\": \"build/cubemx_delivery/ground_f103/ground_f103.hex\", \"axf_sha256\": \"1556d6121cfb5def32e7944bf93bcce5c3151033d734fb0ef9a118b7b594492f\", \"axf_bytes\": 138316, \"hex_sha256\": \"7c7a7cf027287fe91668731f2540657e097e7db0297ee23ea329fd7a7377a1e2\", \"hex_bytes\": 19896, \"log\": \"platforms/stm32/cubemx/evidence/ground_f103_delivery_keil.log\", \"log_sha256\": \"55be82046fb57bf4110b0111fb07e9396f26a01969eb5b8d033427f56364cfbe\", \"warnings\": []}\n{\"role\": \"ground_f407\", \"command\": [\"C:\\\\Users\\\\Li\\\\AppData\\\\Local\\\\Keil_v5\\\\UV4\\\\UV4.exe\", \"-r\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\platforms\\\\stm32\\\\cubemx\\\\ground_f407\\\\MDK-ARM\\\\ground_f407.uvprojx\", \"-o\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\build\\\\cubemx_delivery\\\\ground_f407\\\\ground_f407.log\", \"-j0\"], \"returncode\": 1, \"summary\": \"\\\"..\\\\..\\\\..\\\\..\\\\..\\\\build\\\\cubemx_delivery\\\\ground_f407\\\\ground_f407.axf\\\" - 0 Error(s), 3 Warning(s).\", \"generated_route_check\": {\"passed\": true, \"errors\": [], \"uart_baud\": 115200, \"physical_waveform_tested\": false}, \"status\": \"passed_with_warnings\", \"passed\": true, \"error_count\": 0, \"warning_count\": 3, \"project\": \"platforms/stm32/cubemx/ground_f407/MDK-ARM/ground_f407.uvprojx\", \"project_sha256\": \"349c6663d57b7206dab647450405d1dc7e01d99258c653d1cbab3ad204dbc27b\", \"axf\": \"build/cubemx_delivery/ground_f407/ground_f407.axf\", \"hex\": \"build/cubemx_delivery/ground_f407/ground_f407.hex\", \"axf_sha256\": \"4b89c97abfd406958cb1de9a2bc76e6dc0c7b6a73dc9b1dbf1b79fd04f08a9d1\", \"axf_bytes\": 131040, \"hex_sha256\": \"ddd0044b9683ad752940214b58d59cb69a8cc6b1c651eba1f82e20b3e6b9517e\", \"hex_bytes\": 21995, \"log\": \"platforms/stm32/cubemx/evidence/ground_f407_delivery_keil.log\", \"log_sha256\": \"8289ccf05f0482d5f77eba6b8dfaa4eeb68a15bd08a48f8b79a797b943214c9b\", \"warnings\": [\"../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(948): warning: unused parameter 'Banks' [-Wunused-parameter]\", \"../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(1027): warning: unused parameter 'Banks' [-Wunused-parameter]\", \"../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(1063): warning: unused parameter 'Banks' [-Wunused-parameter]\"]}"
+      "output": "{\"role\": \"ground_f103\", \"command\": [\"C:\\\\Users\\\\Li\\\\AppData\\\\Local\\\\Keil_v5\\\\UV4\\\\UV4.exe\", \"-r\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\platforms\\\\stm32\\\\cubemx\\\\ground_f103\\\\MDK-ARM\\\\ground_f103.uvprojx\", \"-o\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\build\\\\cubemx_delivery\\\\ground_f103\\\\ground_f103.log\", \"-j0\"], \"returncode\": 0, \"summary\": \"\\\"..\\\\..\\\\..\\\\..\\\\..\\\\build\\\\cubemx_delivery\\\\ground_f103\\\\ground_f103.axf\\\" - 0 Error(s), 0 Warning(s).\", \"generated_route_check\": {\"passed\": true, \"errors\": [], \"uart_baud\": 115200, \"physical_waveform_tested\": false}, \"status\": \"passed\", \"passed\": true, \"error_count\": 0, \"warning_count\": 0, \"project\": \"platforms/stm32/cubemx/ground_f103/MDK-ARM/ground_f103.uvprojx\", \"project_sha256\": \"235f70a211330fd52153fbe745729c8a4eb4b858182e17b8262cabfd8907ffab\", \"axf\": \"build/cubemx_delivery/ground_f103/ground_f103.axf\", \"hex\": \"build/cubemx_delivery/ground_f103/ground_f103.hex\", \"axf_sha256\": \"1556d6121cfb5def32e7944bf93bcce5c3151033d734fb0ef9a118b7b594492f\", \"axf_bytes\": 138316, \"hex_sha256\": \"7c7a7cf027287fe91668731f2540657e097e7db0297ee23ea329fd7a7377a1e2\", \"hex_bytes\": 19896, \"log\": \"platforms/stm32/cubemx/evidence/ground_f103_delivery_keil.log\", \"log_sha256\": \"4ec886ea1e28af81bc28bcfc054a662189eac3939761330c13c4ec4a65c68864\", \"warnings\": []}\n{\"role\": \"ground_f407\", \"command\": [\"C:\\\\Users\\\\Li\\\\AppData\\\\Local\\\\Keil_v5\\\\UV4\\\\UV4.exe\", \"-r\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\platforms\\\\stm32\\\\cubemx\\\\ground_f407\\\\MDK-ARM\\\\ground_f407.uvprojx\", \"-o\", \"C:\\\\Users\\\\Li\\\\Desktop\\\\Engineering\\\\drone_comm\\\\build\\\\cubemx_delivery\\\\ground_f407\\\\ground_f407.log\", \"-j0\"], \"returncode\": 1, \"summary\": \"\\\"..\\\\..\\\\..\\\\..\\\\..\\\\build\\\\cubemx_delivery\\\\ground_f407\\\\ground_f407.axf\\\" - 0 Error(s), 3 Warning(s).\", \"generated_route_check\": {\"passed\": true, \"errors\": [], \"uart_baud\": 115200, \"physical_waveform_tested\": false}, \"status\": \"passed_with_warnings\", \"passed\": true, \"error_count\": 0, \"warning_count\": 3, \"project\": \"platforms/stm32/cubemx/ground_f407/MDK-ARM/ground_f407.uvprojx\", \"project_sha256\": \"349c6663d57b7206dab647450405d1dc7e01d99258c653d1cbab3ad204dbc27b\", \"axf\": \"build/cubemx_delivery/ground_f407/ground_f407.axf\", \"hex\": \"build/cubemx_delivery/ground_f407/ground_f407.hex\", \"axf_sha256\": \"4b89c97abfd406958cb1de9a2bc76e6dc0c7b6a73dc9b1dbf1b79fd04f08a9d1\", \"axf_bytes\": 131040, \"hex_sha256\": \"ddd0044b9683ad752940214b58d59cb69a8cc6b1c651eba1f82e20b3e6b9517e\", \"hex_bytes\": 21995, \"log\": \"platforms/stm32/cubemx/evidence/ground_f407_delivery_keil.log\", \"log_sha256\": \"77ca541750362f67e8e7103ada1b6bd0502dd034de2628d4feefc14a47ef6d89\", \"warnings\": [\"../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(948): warning: unused parameter 'Banks' [-Wunused-parameter]\", \"../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(1027): warning: unused parameter 'Banks' [-Wunused-parameter]\", \"../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(1063): warning: unused parameter 'Banks' [-Wunused-parameter]\"]}"
     }
   },
   "status": "PASS",
   "source_sha256": {
-    "src/dc_node.c": "8a08d16ec32df4e1598c900c228b05e605f3be0d7640d43c3fad29549d1fe3be",
+    "src/dc_node.c": "1bbfb9831ce177fbbc5f95af8404cf8c5be953946983ad044cf58f1248e7fd4a",
     "src/dc_protocol.c": "00a6b8e157b60615d14138eb3eaca057093c7427877ff56624f816b688136a98",
-    "src/dc_radio.c": "7dca7a387e09dc0c6b6e72590d0aeb5e0b9a0f95ae86ab99f2dcee813ecbd4ca",
+    "src/dc_radio.c": "77e489b8707abc0f8ac1bb135b46d8b513188ccbb8e01a0352dcffbe4098c2c1",
     "include/dc_link_config.h": "af0ef511469a0f07927fbe72fefdf1234b1f48a33de29fbac525851cf2a39b30",
-    "include/dc_node.h": "096fcdfd5f4363aa537e13e81ef89877386adaca69d9e4084854728fccfb5844",
+    "include/dc_node.h": "7d5eb79aadda0c54276a8d4640d845f1addf559cc8ce1216dfb966cda3dfcf15",
     "include/dc_protocol.h": "1f4c788b6c60f4413d9f572a513c9469aacf75c308ff0c6dc0b2317c3993a9d5",
-    "include/dc_radio.h": "5a898c192f48cbf3c7086a246d0e771cb1f780ebffe11df549f67bc1e1ce2e82",
+    "include/dc_radio.h": "c6386ee03bb2e4f54fcd7c7078d74e459ab0e3a7e2b27b0dc8bcefbe70b21617",
     "tests/codec_cli.c": "0247572be868b8519dd7817328703c1bb7ce773ff5bb7a75e3434193371c78f7",
     "tests/golden_frames.json": "c25cb490cb4a3aae21de53850fd0b39f04d8027ee1a6bcdd86725f5f28cbb310",
     "tests/sim_four_nodes.c": "e4c6cf06ee9c019b85cc6ef149b72e276a29df9ea923d2425a6ca2cbafb4f35b",
-    "tests/test_radio.c": "5d9e652c5b3cb9d4f5859bce313145d0c75386ebe279a4f0a524c1da213f19b1",
-    "tests/test_review.c": "0e5aefbf8f1ad80c87bab1f7e6436595cd7297a6802dbf772d261b186b5ce300",
+    "tests/test_protocol_stress.c": "99a9aac7f48f020776c882738511c3e4d6baadb9cecfc488896c9a82ae59f1c8",
+    "tests/test_radio.c": "1d7cc67b355a8097b501dc23d8ba4b509673191ebb33ea5088abf0c5dc31825c",
+    "tests/test_review.c": "f215a63ec47025500fe2e65947d8132287c6ff1eb0b0552408bb027e0059aa02",
     "tests/test_zynq_log.c": "0e04a4bd5162ec942174a740cd44b3ece24324cbc400944c58959399a84d9cff",
     "platforms/common/dc_byte_ring.c": "496f4e71d58f21e317a4d7950b01b6e6bab5261c98dba3da8a851bcdb4f9abbd",
     "platforms/common/dc_byte_ring.h": "a8d1b9ee007f19a6aed51c737407906bfbb8584fe26e4d344c188a83f22b0aed",
@@ -90,7 +103,7 @@
     "platforms/stm32/common/dc_spi_poll8.h": "60b0898159fe544f49e34c187574eafce686dcdb71111a29d60ff5d7a69901ce",
     "platforms/stm32/common/dc_stm32_app.c": "c4dd1d2cd131226c4ea4f24287c52cef54affda80737bd020205a61f54e73a7a",
     "platforms/stm32/common/dc_stm32_app.h": "2dda71297c030f52e5eaf0dcc515f096cbf3bcc35d243d64971b3c4b4d0248cb",
-    "platforms/stm32/common/dc_stm32_port.c": "357a99c997a0bb22f9361e354b99366f19ccdfe7869aee9705675c57ab457df7",
+    "platforms/stm32/common/dc_stm32_port.c": "97e449a9141063cd8c30c5b4ee96cb64110b13a3473cf047f39b76d4ca184056",
     "platforms/stm32/common/dc_stm32_port.h": "88361ed9af985b1455bf7df1758734f8e9aeb571b4bca53ce964a99c081a015f",
     "platforms/stm32/common/main_hooks.c": "99b92ef4fc3d8a785802b2afc108b8aef450c23acdfd47dc2d33650f1691e640",
     "platforms/stm32/cubemx/regenerate.ps1": "65b26c192fae3e38ad44fb06c9103eb6e6240cd3e070a716ce298e818fbf064c",
@@ -117,6 +130,7 @@
     "platforms/stm32/templates/ground_f407.uvprojx": "b5514d0db5e383f07e19bc1741b68a5456ae47800f3a1f1f795f19b8137fac14",
     "platforms/stm32/tests/test_app_binding.c": "2361c9d9083386c6cba28311b8eac15d01b7d30f00563ea3aacbcfb830e312f5",
     "platforms/stm32/tests/test_spi_poll.c": "bd9f91a16a20dc2a515c58120f35cc62364746aad26d0383ab366ce2e5f8a6fd",
+    "platforms/stm32/tests/test_uart_recovery.c": "8a96496a82ecb3d3bf04c2305abdf83bf2979e9f0463f0a436224f5c7444cfcd",
     "platforms/stm32/cubemx/ground_f103/ground_f103.ioc": "ea1e297f8c98b3c2b0339a3e2d768ce1abc47768c2e2bc0d2bc5923c6996a188",
     "platforms/stm32/cubemx/ground_f407/ground_f407.ioc": "60ca9b8ce7f4877d668ab3b6c60afdce2d587bab14520842dba1d908f42ea016",
     "platforms/stm32/cubemx/ground_f103/Inc/dma.h": "7cf6f7450a29d26303cbba5a3ca8c6cb24a02635d6a5ba4d05141fdfc75c4c49",
@@ -297,6 +311,9 @@
     "platforms/stm32/cubemx/ground_f407/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h": "c006468890df1e5fd6ab9f378af2f5648607164a80a2851a832e1a098e5cfdff",
     "platforms/stm32/cubemx/ground_f407/MDK-ARM/RTE/_ground_f407/RTE_Components.h": "7614c666c4f4ac3a83ca7e4d59d2fd7aef8adaa1c535a31f494914189ae663bf",
     "platforms/stm32/tests/mock/stm32f1xx_hal.h": "0d6271d068d580df5a21c5a31e1e1d681ca17445da32929f99b856397c5f72ca",
+    "platforms/stm32/tests/port_mock/port_hal_model.h": "9a8b6153ce51beb9f5622f0925be5b51cc1426b314f84d00c9455bac20398472",
+    "platforms/stm32/tests/port_mock/stm32f1xx_hal.h": "815d1f4750cecbc2590aa4267e0409dc6a5b9aba32c48658369382e05faaff35",
+    "platforms/stm32/tests/port_mock/stm32f4xx_hal.h": "f088b3bf6f43a0a4b1a00faa72816661a784c1c85ae35e74f6c95894cbede2e7",
     "platforms/zynq/compile_fixture/xparameters.h": "c51c90f828601c2ee6f25eca6fadf06b09bbbdbec900c553fd0c69ab44da8c85",
     "platforms/zynq/reference/system_7020_ps_original.bd": "9e0384c55978d05df21c0fcb88553e4369fd4dc63fb59c77622379431db0d6d0",
     "tools/check_keil_projects.py": "4b0db4e43ff7802f0733d6da5c4aa4076db38594860e197e6dd920db693ebb91",
@@ -309,7 +326,7 @@
     "tools/create_zynq_validation.tcl": "448a957ca3a2ace29cf80f484af55e9a267210a0907713b79ce7e9d1f5bccbee",
     "tools/package_handoff.py": "2f5ba01b1c72c5d464d4cbf0cc9965fa70851e930ded28852204338eee14c717",
     "tools/reference_codec.py": "99866942a2cb9a5f59333e3c2ad578757c0f0ca7316d1153ecf18bdac07231da",
-    "tools/run_checks.py": "5e8bfe62361bcbe66bbcce1472009d05b84a6ac796335a9b28163f78d8d77382",
+    "tools/run_checks.py": "0433b6e55e4c2f3f2fb4ff375dce9977fd7b82a7f8682adf97dfdb50ed6808c2",
     "tools/verify_handoff.py": "a7e270c3c9727ca24ce5c135989b82575095fc51a500d731d8f89a110894c33a"
   }
 }

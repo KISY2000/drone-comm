@@ -1,0 +1,2 @@
+SWRZ020E p10: resets=2 transmissions=2 corrupted=0 attempts=2 deadline=202 retries=1
+PASS: full hardware reset removes residue while preserving the transaction

@@ -1,0 +1,2 @@
+first-observation noise: status_timeout=1 resets=2 FIFO=0 rx_seen=0 ready=0
+PASS: fixed 20 ms status watchdog recovers before any FIFO/GDO observation

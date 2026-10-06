@@ -1,0 +1,2 @@
+SWRZ020E p2: duplicate_events=1 FIFO_count=2 driver_length=47 pending=1 deadline=22
+FAIL: one-byte in-progress RX FIFO was emptied and a byte duplicated
