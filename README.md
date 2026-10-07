@@ -48,7 +48,7 @@ UART0 专用于协议；Zynq 应用日志转为有界 RAM 记录，通过 JTAG/�
 | 历史软件与旧 EMIO 验证 | [首轮](docs/progress_20261005.md) · [补充](docs/progress_20261005_followup.md) · [7020](docs/progress_7020_confirmation.md) |
 | PC/平台统一回归 | [验证报告](reports/verification.json) |
 | 三份完整 STM32 通信工程 | [独立工程](platforms/stm32/standalone/README.md) · [链接报告](reports/stm32_standalone.json) |
-| 真实 Zynq HDF/BSP/ELF | [SDK 报告](reports/zynq_sdk_validation.json) |
+| 真实的 Zynq HDF/BSP/ELF | [SDK 报告](reports/zynq_sdk_validation.json) |
 | CubeMX 初始化基底 | [CubeMX 工程](platforms/stm32/cubemx/README.md) |
 | 交付包解压重建 | [复现报告](reports/handoff_portability.json) |
 
