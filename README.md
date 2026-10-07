@@ -61,7 +61,7 @@ UART0 专用于协议；Zynq 应用日志转为有界 RAM 记录，通过 JTAG/�
 python -X utf8 tools/run_checks.py --gcc gcc
 ```
 
-先安装 Python 3，并将本机原生 GCC 加入 PATH；或将 `--gcc gcc` 改为实际编译器路径。PC 测试不依赖 OCR 环境，既有记录使用 MinGW GCC 6.2。安装匹配版本的工具链后可追加 `--platforms` 检查 STM32 HAL、Keil ARMCLANG 和 Zynq SDK；各平台脚本的工具路径应按 [工具链说明](docs/toolchain.md) 核对。快速对象编译中的 `xparameters.h` 是显式 compile-only fixture；真实 HDF/BSP/ELF 路径由 `tools/create_zynq_validation.tcl`、`tools/create_zynq_bsp.tcl` 生成，不使用 fixture，重复生成须选择新的输出目录。独立 YOLO 工程的模型和卷积核保持原样，新增审核入口与 HLS 测试台的范围见本轮复查记录。
+先安装 Python 3，并将本机原生 GCC 加入 PATH；或将 `--gcc gcc` 改为实际编译器路径。既有记录使用 MinGW GCC 6.2。安装匹配版本的工具链后可追加 `--platforms` 检查 STM32 HAL、Keil ARMCLANG 和 Zynq SDK；各平台脚本的工具路径应按 [工具链说明](docs/toolchain.md) 核对。快速对象编译中的 `xparameters.h` 是显式 compile-only fixture；真实 HDF/BSP/ELF 路径由 `tools/create_zynq_validation.tcl`、`tools/create_zynq_bsp.tcl` 生成，不使用 fixture，重复生成须选择新的输出目录。独立 YOLO 工程的模型和卷积核保持原样，新增审核入口与 HLS 测试台的范围见本轮复查记录。
 
 ## GitHub 评审与作品提交
 
